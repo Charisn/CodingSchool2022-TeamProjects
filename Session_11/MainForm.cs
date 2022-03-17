@@ -8,15 +8,14 @@ namespace Session_11
 {
     public partial class MainForm : Form
     {
-        
+
         private const string FILE_NAME = "PetShop.json";
         private PetShop _petShop;
-        
+
 
         public MainForm()
         {
             InitializeComponent();
-
 
         }
 
@@ -48,10 +47,10 @@ namespace Session_11
         private void CreateCustomers()
         {
             var customer = new Customer() {
-                Name="Mitsos",
-                SurName="Tade",
-                TIN=4585875,
-                Phone=698888888
+                Name = "Mitsos",
+                SurName = "Tade",
+                TIN = 4585875,
+                Phone = 698888888
             };
             _petShop.Customers.Add(customer);
         }
@@ -74,9 +73,9 @@ namespace Session_11
         {
             var petfoods = new PetFood()
             {
-                AnimalType= AnimalTypeEnum.Dog, 
+                AnimalType = AnimalTypeEnum.Dog,
                 Price = 150,
-                Cost =  50
+                Cost = 50
             };
 
         }
@@ -87,7 +86,8 @@ namespace Session_11
 
             File.WriteAllText(FILE_NAME, json);
 
-            MessageBox.Show("OKAY!");
+            MessageBox.Show("OKAY!", "PetShop");
+
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -117,6 +117,7 @@ namespace Session_11
             string title = "Close Window";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result = MessageBox.Show(message, title, buttons);
+
             if (result == DialogResult.Yes)
             {
                 SaveData();
@@ -127,11 +128,18 @@ namespace Session_11
                 //Not closing window.
             }
         }
+                  
+        
 
-        private void MainButtonManager_Click(object sender, EventArgs e)
+    private void MainButtonManager_Click(object sender, EventArgs e)
         {
-            ManagerForm managerForm = new ManagerForm();
+            LoginForm managerForm = new LoginForm();
             managerForm.Show();
+        }
+
+        private void BrowseButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Session_11", "Session_11\Se
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetShopLib", "Calc\PetShopLib.csproj", "{8B8BEE5A-4788-4FF6-91F0-4E92ADE83FBD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityLib", "SecurityLib\SecurityLib.csproj", "{A231E61D-BD82-4F76-BEB8-44F2391EDE49}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8B8BEE5A-4788-4FF6-91F0-4E92ADE83FBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B8BEE5A-4788-4FF6-91F0-4E92ADE83FBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B8BEE5A-4788-4FF6-91F0-4E92ADE83FBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A231E61D-BD82-4F76-BEB8-44F2391EDE49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A231E61D-BD82-4F76-BEB8-44F2391EDE49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A231E61D-BD82-4F76-BEB8-44F2391EDE49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A231E61D-BD82-4F76-BEB8-44F2391EDE49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -40,7 +40,7 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainButtonManager = new System.Windows.Forms.Button();
             this.MainButtonExit = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BrowseButton = new System.Windows.Forms.Button();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -121,12 +121,13 @@
             this.MainButtonExit.UseVisualStyleBackColor = false;
             this.MainButtonExit.Click += new System.EventHandler(this.MainButtonExit_Click);
             // 
-            // button1
+            // BrowseButton
             // 
-            this.button1.BackColor = System.Drawing.Color.SkyBlue;
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = false;
+            this.BrowseButton.BackColor = System.Drawing.Color.SkyBlue;
+            resources.ApplyResources(this.BrowseButton, "BrowseButton");
+            this.BrowseButton.Name = "BrowseButton";
+            this.BrowseButton.UseVisualStyleBackColor = false;
+            this.BrowseButton.Click += new System.EventHandler(this.BrowseButton_Click);
             // 
             // MainForm
             // 
@@ -134,7 +135,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = global::Session_11.Properties.Resources.PetShop_Image;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BrowseButton);
             this.Controls.Add(this.MainButtonExit);
             this.Controls.Add(this.MainButtonManager);
             this.Controls.Add(this.menuStrip2);
@@ -161,6 +162,6 @@
         private ToolStripMenuItem editToolStripMenuItem1;
         private Button MainButtonManager;
         private Button MainButtonExit;
-        private Button button1;
+        private Button BrowseButton;
     }
 }
