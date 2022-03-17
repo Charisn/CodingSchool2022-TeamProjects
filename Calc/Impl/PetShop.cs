@@ -12,9 +12,16 @@ namespace PetShopLib.Impl
 
         public List<Employee> Employees { get; set; }
 
-        public List<PetFood> PetFood { get; set; }
+        public List<PetFood> PetFoods { get; set; }
 
         public List<Pet> Pets { get; set; }
+        public PetShop()
+        {
+            Customers = new List<Customer>();
+            Employees = new List<Employee>();
+            PetFoods = new List<PetFood>(); 
+            Pets = new List<Pet>();
 
+        }
     }
 }

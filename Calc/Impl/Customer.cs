@@ -14,5 +14,10 @@ namespace PetShopLib.Impl
         public string Name { get; set; }
         public string SurName { get; set; }
         public Guid ID { get; set; }
+        public Customer()
+        {
+            ID = Guid.NewGuid();
+        }
     }
+
 }

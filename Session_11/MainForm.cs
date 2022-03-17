@@ -44,7 +44,13 @@ namespace Session_11
         }
         private void CreateCustomers()
         {
-
+            var customer = new Customer() {
+                Name="Mitsos",
+                SurName="Tade",
+                TIN=4585875,
+                Phone=698888888
+            };
+            _petShop.Customers.Add(customer);
         }
         private void CreateEmployees()
         {
