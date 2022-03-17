@@ -69,5 +69,25 @@ namespace Session_11.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_10 {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot_10", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap st_small_845x845_pad_1000x1000_f8f8f8_u2 {
+            get {
+                object obj = ResourceManager.GetObject("st,small,845x845-pad,1000x1000,f8f8f8.u2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

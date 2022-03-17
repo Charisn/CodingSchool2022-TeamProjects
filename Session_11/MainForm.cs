@@ -110,5 +110,22 @@ namespace Session_11
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
         }
+
+        private void MainButtonExit_Click(object sender, EventArgs e)
+        {
+            string message = "Do you want to leave our shop?";
+            string title = "Close Window";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            if (result == DialogResult.Yes)
+            {
+                SaveData();
+                this.Close();
+            }
+            else
+            {
+                //Not closing window.
+            }
+        }
     }
 }

@@ -39,6 +39,7 @@
             this.employeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
+            this.MainButtonExit = new System.Windows.Forms.Button();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -116,12 +117,26 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 503);
+            this.button1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.button1.Font = new System.Drawing.Font("Stencil", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(906, 27);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(118, 55);
             this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Text = "Manager";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // MainButtonExit
+            // 
+            this.MainButtonExit.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.MainButtonExit.Font = new System.Drawing.Font("Stencil", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.MainButtonExit.Location = new System.Drawing.Point(12, 503);
+            this.MainButtonExit.Name = "MainButtonExit";
+            this.MainButtonExit.Size = new System.Drawing.Size(118, 55);
+            this.MainButtonExit.TabIndex = 3;
+            this.MainButtonExit.Text = "Exit";
+            this.MainButtonExit.UseVisualStyleBackColor = false;
+            this.MainButtonExit.Click += new System.EventHandler(this.MainButtonExit_Click);
             // 
             // MainForm
             // 
@@ -129,6 +144,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Session_11.Properties.Resources.PetShop_Image;
             this.ClientSize = new System.Drawing.Size(1024, 570);
+            this.Controls.Add(this.MainButtonExit);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -154,5 +170,6 @@
         private ToolStripMenuItem editToolStripMenuItem;
         private ToolStripMenuItem editToolStripMenuItem1;
         private Button button1;
+        private Button MainButtonExit;
     }
 }
