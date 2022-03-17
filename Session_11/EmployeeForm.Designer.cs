@@ -28,116 +28,107 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            this.components = new System.ComponentModel.Container();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.ctrlName = new DevExpress.XtraEditors.TextEdit();
+            this.ctrlSurname = new DevExpress.XtraEditors.TextEdit();
+            this.ctrlSalaryPerMonth = new DevExpress.XtraEditors.TextEdit();
+            this.bsEmployees = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlSurname.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlSalaryPerMonth.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsEmployees)).BeginInit();
             this.SuspendLayout();
             // 
-            // layoutControl1
+            // labelControl1
             // 
-            this.layoutControl1.Controls.Add(this.textEdit2);
-            this.layoutControl1.Controls.Add(this.textEdit1);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(701, 517);
-            this.layoutControl1.TabIndex = 0;
-            this.layoutControl1.Text = "layoutControl1";
+            this.labelControl1.Location = new System.Drawing.Point(61, 32);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(27, 13);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "Name";
             // 
-            // Root
+            // labelControl2
             // 
-            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.Root.GroupBordersVisible = false;
-            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1,
-            this.emptySpaceItem1,
-            this.layoutControlItem2});
-            this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(701, 517);
-            this.Root.TextVisible = false;
+            this.labelControl2.Location = new System.Drawing.Point(61, 69);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(42, 13);
+            this.labelControl2.TabIndex = 1;
+            this.labelControl2.Text = "Surname";
             // 
-            // textEdit1
+            // labelControl3
             // 
-            this.textEdit1.Location = new System.Drawing.Point(117, 12);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(572, 20);
-            this.textEdit1.StyleController = this.layoutControl1;
-            this.textEdit1.TabIndex = 4;
+            this.labelControl3.Location = new System.Drawing.Point(61, 109);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(73, 13);
+            this.labelControl3.TabIndex = 2;
+            this.labelControl3.Text = "Employee Type";
             // 
-            // layoutControlItem1
+            // labelControl4
             // 
-            this.layoutControlItem1.Control = this.textEdit1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(681, 24);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(93, 13);
+            this.labelControl4.Location = new System.Drawing.Point(61, 154);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(82, 13);
+            this.labelControl4.TabIndex = 3;
+            this.labelControl4.Text = "Salary Per Month";
             // 
-            // emptySpaceItem1
+            // ctrlName
             // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 48);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(681, 449);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.ctrlName.Location = new System.Drawing.Point(149, 29);
+            this.ctrlName.Name = "ctrlName";
+            this.ctrlName.Size = new System.Drawing.Size(143, 20);
+            this.ctrlName.TabIndex = 4;
             // 
-            // textEdit2
+            // ctrlSurname
             // 
-            this.textEdit2.Location = new System.Drawing.Point(117, 36);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(572, 20);
-            this.textEdit2.StyleController = this.layoutControl1;
-            this.textEdit2.TabIndex = 5;
+            this.ctrlSurname.Location = new System.Drawing.Point(149, 66);
+            this.ctrlSurname.Name = "ctrlSurname";
+            this.ctrlSurname.Size = new System.Drawing.Size(143, 20);
+            this.ctrlSurname.TabIndex = 5;
             // 
-            // layoutControlItem2
+            // ctrlSalaryPerMonth
             // 
-            this.layoutControlItem2.Control = this.textEdit2;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 24);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(681, 24);
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(93, 13);
+            this.ctrlSalaryPerMonth.Location = new System.Drawing.Point(149, 151);
+            this.ctrlSalaryPerMonth.Name = "ctrlSalaryPerMonth";
+            this.ctrlSalaryPerMonth.Size = new System.Drawing.Size(143, 20);
+            this.ctrlSalaryPerMonth.TabIndex = 7;
             // 
             // EmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(701, 517);
-            this.Controls.Add(this.layoutControl1);
+            this.Controls.Add(this.ctrlSalaryPerMonth);
+            this.Controls.Add(this.ctrlSurname);
+            this.Controls.Add(this.ctrlName);
+            this.Controls.Add(this.labelControl4);
+            this.Controls.Add(this.labelControl3);
+            this.Controls.Add(this.labelControl2);
+            this.Controls.Add(this.labelControl1);
             this.Name = "EmployeeForm";
             this.Text = "EmployeeForm";
             this.Load += new System.EventHandler(this.EmployeeForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlSurname.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlSalaryPerMonth.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsEmployees)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraLayout.LayoutControlGroup Root;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.TextEdit ctrlName;
+        private DevExpress.XtraEditors.TextEdit ctrlSurname;
+        private DevExpress.XtraEditors.TextEdit ctrlSalaryPerMonth;
+        private BindingSource bsEmployees;
     }
 }
