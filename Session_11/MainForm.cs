@@ -7,8 +7,8 @@ using PetShopLib.Enums;
 namespace Session_11
 {
     public partial class MainForm : Form
-    //test 
     {
+        
         private const string FILE_NAME = "PetShop.json";
         private PetShop _petShop;
         
@@ -16,6 +16,7 @@ namespace Session_11
         public MainForm()
         {
             InitializeComponent();
+
 
         }
 
@@ -98,6 +99,16 @@ namespace Session_11
         {
             EmployeeForm form = new EmployeeForm();
             form.Show();
+        }
+
+        private void MenuStripCustomer(object sender, EventArgs e)
+        {
+            CustomerForm form = new CustomerForm();
+            form = new CustomerForm();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
         }
     }
 }

@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.petToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mamalsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.petFoodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,16 +41,9 @@
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Location = new System.Drawing.Point(0, 24);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
             // menuStrip2
             // 
+            this.menuStrip2.BackColor = System.Drawing.SystemColors.Highlight;
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.customerToolStripMenuItem,
@@ -58,7 +52,7 @@
             this.employeeToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(1024, 24);
             this.menuStrip2.TabIndex = 1;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -70,9 +64,18 @@
             // 
             // customerToolStripMenuItem
             // 
+            this.customerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editToolStripMenuItem1});
             this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
             this.customerToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.customerToolStripMenuItem.Text = "Customer";
+            this.customerToolStripMenuItem.Click += new System.EventHandler(this.MenuStripCustomer);
+            // 
+            // editToolStripMenuItem1
+            // 
+            this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
+            this.editToolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
+            this.editToolStripMenuItem1.Text = "Edit..";
             // 
             // petToolStripMenuItem
             // 
@@ -106,7 +109,7 @@
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.editToolStripMenuItem.Text = "Edit...";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.MenuStripEmployee);
             // 
@@ -114,11 +117,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.menuStrip1);
+            this.BackgroundImage = global::Session_11.Properties.Resources.PetShop_Image;
+            this.ClientSize = new System.Drawing.Size(1024, 570);
             this.Controls.Add(this.menuStrip2);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pet Shop";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip2.ResumeLayout(false);
@@ -129,8 +133,6 @@
         }
 
         #endregion
-
-        private MenuStrip menuStrip1;
         private MenuStrip menuStrip2;
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripMenuItem customerToolStripMenuItem;
@@ -139,5 +141,6 @@
         private ToolStripMenuItem employeeToolStripMenuItem;
         private ToolStripMenuItem mamalsToolStripMenuItem;
         private ToolStripMenuItem editToolStripMenuItem;
+        private ToolStripMenuItem editToolStripMenuItem1;
     }
 }
