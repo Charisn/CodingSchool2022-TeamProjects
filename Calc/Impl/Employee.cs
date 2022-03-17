@@ -18,7 +18,9 @@ namespace PetShopLib.Impl
 
         public Employee()
         {
-             
+           
+                ID = Guid.NewGuid();
+            
         }
     }
 }

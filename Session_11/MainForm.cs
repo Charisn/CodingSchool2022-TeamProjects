@@ -2,6 +2,7 @@ using PetShopLib;
 using System.IO;
 using System.Text.Json;
 using PetShopLib.Impl;
+using PetShopLib.Enums;
 
 namespace Session_11
 {
@@ -10,6 +11,7 @@ namespace Session_11
     {
         private const string FILE_NAME = "PetShop.json";
         private PetShop _petShop;
+        
 
         public MainForm()
         {
@@ -58,10 +60,23 @@ namespace Session_11
         }
         private void CreatePets()
         {
-
+            var pets = new Pet()
+            {
+                Breed = "Tsiouaoua",
+                AnimalType = AnimalTypeEnum.Dog,
+                Price = 10,
+                PetStatus = PetStatusEnum.Healthy,
+                Cost = 4
+            };
         }
         private void CreatePetFoods()
         {
+            var petfoods = new PetFood()
+            {
+                AnimalType= AnimalTypeEnum.Dog, 
+                Price = 150,
+                Cost =  50
+            };
 
         }
 

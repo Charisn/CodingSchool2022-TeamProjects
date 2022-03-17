@@ -17,6 +17,9 @@ namespace PetShopLib.Impl
 
         public PetFood()
         {
+            
+                ID = Guid.NewGuid();
+            
 
         }
     }

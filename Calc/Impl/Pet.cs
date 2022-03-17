@@ -16,5 +16,12 @@ namespace PetShopLib.Impl
         public Guid ID { get; set; }
         public decimal Price { get; set; }
         public decimal Cost { get; set; }
+
+        public Pet()
+        {
+            
+                ID = Guid.NewGuid();
+            
+        }
     }
 }
