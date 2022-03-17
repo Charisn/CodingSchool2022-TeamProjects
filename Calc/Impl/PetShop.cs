@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PetShopLib.Impl
 {
-    internal class PetShop
+    public class PetShop
     {
         public List<Customer> Customers { get; set; }
 

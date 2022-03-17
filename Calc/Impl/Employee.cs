@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PetShopLib.Impl
 {
-    internal class Employee : IEmployee
+    public class Employee : IEmployee
     {
         public decimal SalaryPerMonth { get; set; }
         public EmployeeTypeEnum EmployeeType { get; set; }

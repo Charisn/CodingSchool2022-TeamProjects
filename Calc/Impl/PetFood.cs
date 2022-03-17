@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PetShopLib.Impl
 {
-    internal class PetFood : IPetFood
+    public class PetFood : IPetFood
     {
         public AnimalTypeEnum AnimalType { get; set; }
         public Guid ID { get; set; }

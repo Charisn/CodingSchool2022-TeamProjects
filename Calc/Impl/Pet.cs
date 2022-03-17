@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PetShopLib.Impl
 {
-    internal class Pet : IPet
+    public class Pet : IPet
     {
         public string Breed { get; set; }
         public PetStatusEnum PetStatus { get; set; }
