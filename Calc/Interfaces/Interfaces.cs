@@ -81,7 +81,7 @@ namespace PetShopLib.Interfaces
 
     }
 
-    internal interface IMontlyLedger
+    internal interface IMonthlyLedger
     {
         int Year { get; set; }
 
