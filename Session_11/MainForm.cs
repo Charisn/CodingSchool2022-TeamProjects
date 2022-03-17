@@ -93,5 +93,11 @@ namespace Session_11
         {
             LoadData();
         }
+
+        private void MenuStripEmployee(object sender, EventArgs e)
+        {
+            EmployeeForm form = new EmployeeForm();
+            form.Show();
+        }
     }
 }

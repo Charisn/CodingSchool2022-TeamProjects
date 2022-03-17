@@ -36,6 +36,7 @@
             this.mamalsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.petFoodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,9 +97,18 @@
             // 
             // employeeToolStripMenuItem
             // 
+            this.employeeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editToolStripMenuItem});
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
             this.employeeToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.employeeToolStripMenuItem.Text = "Employee";
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editToolStripMenuItem.Text = "Edit...";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.MenuStripEmployee);
             // 
             // MainForm
             // 
@@ -128,5 +138,6 @@
         private ToolStripMenuItem petFoodToolStripMenuItem;
         private ToolStripMenuItem employeeToolStripMenuItem;
         private ToolStripMenuItem mamalsToolStripMenuItem;
+        private ToolStripMenuItem editToolStripMenuItem;
     }
 }
