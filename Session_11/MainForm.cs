@@ -80,8 +80,6 @@ namespace Session_11
 
         }
 
-
-
         private void SaveData()
         {
             string json = JsonSerializer.Serialize(_petShop);
