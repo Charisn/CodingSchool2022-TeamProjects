@@ -33,6 +33,7 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.petToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mamalsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.petFoodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
@@ -74,9 +75,18 @@
             // 
             // petToolStripMenuItem
             // 
+            this.petToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mamalsToolStripMenuItem});
             this.petToolStripMenuItem.Name = "petToolStripMenuItem";
             this.petToolStripMenuItem.Size = new System.Drawing.Size(36, 20);
             this.petToolStripMenuItem.Text = "Pet";
+            // 
+            // mamalsToolStripMenuItem
+            // 
+            this.mamalsToolStripMenuItem.Name = "mamalsToolStripMenuItem";
+            this.mamalsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mamalsToolStripMenuItem.Text = "Pet List";
+            this.mamalsToolStripMenuItem.Click += new System.EventHandler(this.Menu_PetClick);
             // 
             // petFoodToolStripMenuItem
             // 
@@ -116,5 +126,6 @@
         private ToolStripMenuItem petToolStripMenuItem;
         private ToolStripMenuItem petFoodToolStripMenuItem;
         private ToolStripMenuItem employeeToolStripMenuItem;
+        private ToolStripMenuItem mamalsToolStripMenuItem;
     }
 }
