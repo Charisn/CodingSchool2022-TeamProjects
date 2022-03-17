@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Calc\Calc.csproj" />
+    <ProjectReference Include="..\Calc\PetShopLib.csproj" />
   </ItemGroup>
 
 </Project>

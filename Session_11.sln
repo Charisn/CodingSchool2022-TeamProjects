@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Session_11", "Session_11\Session_11.csproj", "{33A55212-886F-4E9C-B93B-FA53F5C105BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Session_11", "Session_11\Session_11.csproj", "{33A55212-886F-4E9C-B93B-FA53F5C105BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calc", "Calc\Calc.csproj", "{8B8BEE5A-4788-4FF6-91F0-4E92ADE83FBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetShopLib", "Calc\PetShopLib.csproj", "{8B8BEE5A-4788-4FF6-91F0-4E92ADE83FBD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
