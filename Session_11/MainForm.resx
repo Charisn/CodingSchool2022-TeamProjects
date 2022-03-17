@@ -71,7 +71,7 @@
     <value>180, 22</value>
   </data>
   <data name="editToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Edit..</value>
+    <value>List</value>
   </data>
   <data name="customerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 20</value>

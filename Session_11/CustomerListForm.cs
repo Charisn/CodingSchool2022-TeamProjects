@@ -14,10 +14,10 @@ using System.Windows.Forms;
 
 namespace Session_11
 {
-    public partial class grdCustomers : DevExpress.XtraEditors.XtraForm
+    public partial class CustomerListForm : DevExpress.XtraEditors.XtraForm
     {
         private const string FILE_NAME = "storage.json";
-        public grdCustomers()
+        public CustomerListForm()
         {
             InitializeComponent();
         }
@@ -39,6 +39,11 @@ namespace Session_11
             BindingSource bsCustomers = new BindingSource();
             bsCustomers.DataSource = _petShop.Customers;
             gridCustomers.DataSource = bsCustomers;
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

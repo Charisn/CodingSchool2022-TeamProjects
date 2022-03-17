@@ -144,12 +144,8 @@ namespace Session_11
         //Apo kato edit vaggeli
         private void editToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if(_petShop != null && _petShop.Customers.Count()>0)
-            {
-                CustomerForm customerForm = new CustomerForm();
-               customerForm.ShowDialog();   
-
-            }
+            CustomerListForm cList = new CustomerListForm() ;
+            cList.Show();
         }
     }
 }
