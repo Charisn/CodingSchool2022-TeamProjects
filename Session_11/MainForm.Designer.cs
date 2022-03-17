@@ -38,8 +38,9 @@
             this.petFoodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
+            this.MainButtonManager = new System.Windows.Forms.Button();
             this.MainButtonExit = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,105 +53,94 @@
             this.petToolStripMenuItem,
             this.petFoodToolStripMenuItem,
             this.employeeToolStripMenuItem});
-            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.menuStrip2, "menuStrip2");
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1024, 24);
-            this.menuStrip2.TabIndex = 1;
-            this.menuStrip2.Text = "menuStrip2";
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            resources.ApplyResources(this.fileToolStripMenuItem, "fileToolStripMenuItem");
             // 
             // customerToolStripMenuItem
             // 
             this.customerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editToolStripMenuItem1});
             this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
-            this.customerToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.customerToolStripMenuItem.Text = "Customer";
+            resources.ApplyResources(this.customerToolStripMenuItem, "customerToolStripMenuItem");
             this.customerToolStripMenuItem.Click += new System.EventHandler(this.MenuStripCustomer);
             // 
             // editToolStripMenuItem1
             // 
             this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
-            this.editToolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
-            this.editToolStripMenuItem1.Text = "Edit..";
+            resources.ApplyResources(this.editToolStripMenuItem1, "editToolStripMenuItem1");
             // 
             // petToolStripMenuItem
             // 
             this.petToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mamalsToolStripMenuItem});
             this.petToolStripMenuItem.Name = "petToolStripMenuItem";
-            this.petToolStripMenuItem.Size = new System.Drawing.Size(36, 20);
-            this.petToolStripMenuItem.Text = "Pet";
+            resources.ApplyResources(this.petToolStripMenuItem, "petToolStripMenuItem");
             // 
             // mamalsToolStripMenuItem
             // 
             this.mamalsToolStripMenuItem.Name = "mamalsToolStripMenuItem";
-            this.mamalsToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.mamalsToolStripMenuItem.Text = "Pet List";
+            resources.ApplyResources(this.mamalsToolStripMenuItem, "mamalsToolStripMenuItem");
             this.mamalsToolStripMenuItem.Click += new System.EventHandler(this.Menu_PetClick);
             // 
             // petFoodToolStripMenuItem
             // 
             this.petFoodToolStripMenuItem.Name = "petFoodToolStripMenuItem";
-            this.petFoodToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-            this.petFoodToolStripMenuItem.Text = "Pet Food";
+            resources.ApplyResources(this.petFoodToolStripMenuItem, "petFoodToolStripMenuItem");
             // 
             // employeeToolStripMenuItem
             // 
             this.employeeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editToolStripMenuItem});
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.employeeToolStripMenuItem.Text = "Employee";
+            resources.ApplyResources(this.employeeToolStripMenuItem, "employeeToolStripMenuItem");
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.editToolStripMenuItem.Text = "Edit...";
+            resources.ApplyResources(this.editToolStripMenuItem, "editToolStripMenuItem");
             this.editToolStripMenuItem.Click += new System.EventHandler(this.MenuStripEmployee);
             // 
-            // button1
+            // MainButtonManager
             // 
-            this.button1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.button1.Font = new System.Drawing.Font("Stencil", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(906, 27);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 55);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Manager";
-            this.button1.UseVisualStyleBackColor = false;
+            this.MainButtonManager.BackColor = System.Drawing.Color.LightSkyBlue;
+            resources.ApplyResources(this.MainButtonManager, "MainButtonManager");
+            this.MainButtonManager.Name = "MainButtonManager";
+            this.MainButtonManager.UseVisualStyleBackColor = false;
+            this.MainButtonManager.Click += new System.EventHandler(this.MainButtonManager_Click);
             // 
             // MainButtonExit
             // 
             this.MainButtonExit.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.MainButtonExit.Font = new System.Drawing.Font("Stencil", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.MainButtonExit.Location = new System.Drawing.Point(12, 503);
+            resources.ApplyResources(this.MainButtonExit, "MainButtonExit");
             this.MainButtonExit.Name = "MainButtonExit";
-            this.MainButtonExit.Size = new System.Drawing.Size(118, 55);
-            this.MainButtonExit.TabIndex = 3;
-            this.MainButtonExit.Text = "Exit";
             this.MainButtonExit.UseVisualStyleBackColor = false;
             this.MainButtonExit.Click += new System.EventHandler(this.MainButtonExit_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.SkyBlue;
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = global::Session_11.Properties.Resources.PetShop_Image;
-            this.ClientSize = new System.Drawing.Size(1024, 570);
-            this.Controls.Add(this.MainButtonExit);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.MainButtonExit);
+            this.Controls.Add(this.MainButtonManager);
             this.Controls.Add(this.menuStrip2);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pet Shop";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
@@ -169,7 +159,8 @@
         private ToolStripMenuItem mamalsToolStripMenuItem;
         private ToolStripMenuItem editToolStripMenuItem;
         private ToolStripMenuItem editToolStripMenuItem1;
-        private Button button1;
+        private Button MainButtonManager;
         private Button MainButtonExit;
+        private Button button1;
     }
 }

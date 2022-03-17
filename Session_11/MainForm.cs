@@ -87,7 +87,7 @@ namespace Session_11
 
             File.WriteAllText(FILE_NAME, json);
 
-            MessageBox.Show("File Saved!");
+            MessageBox.Show("OKAY!");
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -126,6 +126,12 @@ namespace Session_11
             {
                 //Not closing window.
             }
+        }
+
+        private void MainButtonManager_Click(object sender, EventArgs e)
+        {
+            ManagerForm managerForm = new ManagerForm();
+            managerForm.Show();
         }
     }
 }
