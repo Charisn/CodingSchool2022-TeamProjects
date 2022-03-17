@@ -84,7 +84,7 @@
             // mamalsToolStripMenuItem
             // 
             this.mamalsToolStripMenuItem.Name = "mamalsToolStripMenuItem";
-            this.mamalsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mamalsToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.mamalsToolStripMenuItem.Text = "Pet List";
             this.mamalsToolStripMenuItem.Click += new System.EventHandler(this.Menu_PetClick);
             // 
@@ -110,6 +110,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "Pet Shop";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
