@@ -61,29 +61,11 @@
     <value>132, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="saveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
-  </data>
-  <data name="saveToolStripMenuItem.Text" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="loadToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
-  </data>
-  <data name="loadToolStripMenuItem.Text" xml:space="preserve">
-    <value>Load</value>
-  </data>
   <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 20</value>
   </data>
   <data name="fileToolStripMenuItem.Text" xml:space="preserve">
     <value>File</value>
-  </data>
-  <data name="editToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 22</value>
-  </data>
-  <data name="editToolStripMenuItem1.Text" xml:space="preserve">
-    <value>List</value>
   </data>
   <data name="customerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 20</value>
@@ -91,10 +73,16 @@
   <data name="customerToolStripMenuItem.Text" xml:space="preserve">
     <value>Customer</value>
   </data>
-  <data name="mamalsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 22</value>
+  <data name="MenuStripPets.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
   </data>
-  <data name="mamalsToolStripMenuItem.Text" xml:space="preserve">
+  <data name="MenuStripPets.Text" xml:space="preserve">
+    <value>Pets</value>
+  </data>
+  <data name="MenuStripPetList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="MenuStripPetList.Text" xml:space="preserve">
     <value>Pet List</value>
   </data>
   <data name="petToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
@@ -103,23 +91,11 @@
   <data name="petToolStripMenuItem.Text" xml:space="preserve">
     <value>Pet</value>
   </data>
-  <data name="editPetFood.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
-  </data>
-  <data name="editPetFood.Text" xml:space="preserve">
-    <value>Edit..</value>
-  </data>
   <data name="petFoodToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>66, 20</value>
   </data>
   <data name="petFoodToolStripMenuItem.Text" xml:space="preserve">
     <value>Pet Food</value>
-  </data>
-  <data name="editToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 22</value>
-  </data>
-  <data name="editToolStripMenuItem.Text" xml:space="preserve">
-    <value>Edit...</value>
   </data>
   <data name="employeeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 20</value>
@@ -150,7 +126,37 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;menuStrip2.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
+  </data>
+  <data name="saveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="saveToolStripMenuItem.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="loadToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="loadToolStripMenuItem.Text" xml:space="preserve">
+    <value>Load</value>
+  </data>
+  <data name="editToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 22</value>
+  </data>
+  <data name="editToolStripMenuItem1.Text" xml:space="preserve">
+    <value>List</value>
+  </data>
+  <data name="editPetFood.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="editPetFood.Text" xml:space="preserve">
+    <value>Edit..</value>
+  </data>
+  <data name="editToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 22</value>
+  </data>
+  <data name="editToolStripMenuItem.Text" xml:space="preserve">
+    <value>Edit...</value>
   </data>
   <data name="MainButtonManager.Font" type="System.Drawing.Font, System.Drawing">
     <value>Stencil, 11.25pt</value>
@@ -177,7 +183,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;MainButtonManager.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="MainButtonExit.Font" type="System.Drawing.Font, System.Drawing">
     <value>Stencil, 11.25pt</value>
@@ -204,7 +210,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;MainButtonExit.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="btnOrder.Font" type="System.Drawing.Font, System.Drawing">
     <value>Stencil, 15.75pt</value>
@@ -231,7 +237,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnOrder.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="StaffMainButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Stencil, 15.75pt</value>
@@ -262,30 +268,6 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;StaffMainButton.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="simpleButton1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>577, 394</value>
-  </data>
-  <data name="simpleButton1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="simpleButton1.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="simpleButton1.Text" xml:space="preserve">
-    <value>simpleButton1</value>
-  </data>
-  <data name="&gt;&gt;simpleButton1.Name" xml:space="preserve">
-    <value>simpleButton1</value>
-  </data>
-  <data name="&gt;&gt;simpleButton1.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v21.2, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;simpleButton1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;simpleButton1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -3152,10 +3134,10 @@
   <data name="&gt;&gt;petToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;mamalsToolStripMenuItem.Name" xml:space="preserve">
-    <value>mamalsToolStripMenuItem</value>
+  <data name="&gt;&gt;MenuStripPets.Name" xml:space="preserve">
+    <value>MenuStripPets</value>
   </data>
-  <data name="&gt;&gt;mamalsToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;MenuStripPets.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;petFoodToolStripMenuItem.Name" xml:space="preserve">
@@ -3180,6 +3162,12 @@
     <value>editToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;editToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MenuStripPetList.Name" xml:space="preserve">
+    <value>MenuStripPetList</value>
+  </data>
+  <data name="&gt;&gt;MenuStripPetList.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

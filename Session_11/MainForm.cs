@@ -31,6 +31,8 @@ namespace Session_11
             {
                 string s = File.ReadAllText(FILE_NAME);
                 _petShop = (PetShop)JsonSerializer.Deserialize(s, typeof(PetShop));
+
+                DelayAction();
             }
             else
             {
@@ -39,12 +41,9 @@ namespace Session_11
                 CreateEmployees();
                 CreatePets();
                 CreatePetFoods();
-
                 SaveData();
-
             }
 
-            DelayAction();
         }
 
         internal void DelayAction()
@@ -172,6 +171,12 @@ namespace Session_11
         {
             PetFoodListForm petFoodListForm = new PetFoodListForm();
             petFoodListForm.Show();
+        }
+
+        private void MenuStripPetList_Click(object sender, EventArgs e)
+        {
+            PetListForm petListForm = new PetListForm();
+            petListForm.Show();
         }
     }
 }

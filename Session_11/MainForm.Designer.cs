@@ -36,7 +36,7 @@
             this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.petToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mamalsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuStripPets = new System.Windows.Forms.ToolStripMenuItem();
             this.petFoodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editPetFood = new System.Windows.Forms.ToolStripMenuItem();
             this.employeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,7 +45,7 @@
             this.MainButtonExit = new System.Windows.Forms.Button();
             this.btnOrder = new System.Windows.Forms.Button();
             this.StaffMainButton = new System.Windows.Forms.Button();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.MenuStripPetList = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,15 +98,16 @@
             // petToolStripMenuItem
             // 
             this.petToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mamalsToolStripMenuItem});
+            this.MenuStripPets,
+            this.MenuStripPetList});
             this.petToolStripMenuItem.Name = "petToolStripMenuItem";
             resources.ApplyResources(this.petToolStripMenuItem, "petToolStripMenuItem");
             // 
-            // mamalsToolStripMenuItem
+            // MenuStripPets
             // 
-            this.mamalsToolStripMenuItem.Name = "mamalsToolStripMenuItem";
-            resources.ApplyResources(this.mamalsToolStripMenuItem, "mamalsToolStripMenuItem");
-            this.mamalsToolStripMenuItem.Click += new System.EventHandler(this.Menu_PetClick);
+            this.MenuStripPets.Name = "MenuStripPets";
+            resources.ApplyResources(this.MenuStripPets, "MenuStripPets");
+            this.MenuStripPets.Click += new System.EventHandler(this.Menu_PetClick);
             // 
             // petFoodToolStripMenuItem
             // 
@@ -165,10 +166,11 @@
             this.StaffMainButton.Name = "StaffMainButton";
             this.StaffMainButton.UseVisualStyleBackColor = false;
             // 
-            // simpleButton1
+            // MenuStripPetList
             // 
-            resources.ApplyResources(this.simpleButton1, "simpleButton1");
-            this.simpleButton1.Name = "simpleButton1";
+            this.MenuStripPetList.Name = "MenuStripPetList";
+            resources.ApplyResources(this.MenuStripPetList, "MenuStripPetList");
+            this.MenuStripPetList.Click += new System.EventHandler(this.MenuStripPetList_Click);
             // 
             // MainForm
             // 
@@ -176,7 +178,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = global::Session_11.Properties.Resources.PetShop_Image;
-            this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.StaffMainButton);
             this.Controls.Add(this.btnOrder);
             this.Controls.Add(this.MainButtonExit);
@@ -200,7 +201,7 @@
         private ToolStripMenuItem petToolStripMenuItem;
         private ToolStripMenuItem petFoodToolStripMenuItem;
         private ToolStripMenuItem employeeToolStripMenuItem;
-        private ToolStripMenuItem mamalsToolStripMenuItem;
+        private ToolStripMenuItem MenuStripPets;
         private ToolStripMenuItem editToolStripMenuItem;
         private ToolStripMenuItem editToolStripMenuItem1;
         private Button MainButtonManager;
@@ -209,7 +210,7 @@
         private ToolStripMenuItem saveToolStripMenuItem;
         private ToolStripMenuItem loadToolStripMenuItem;
         private Button StaffMainButton;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private ToolStripMenuItem editPetFood;
+        private ToolStripMenuItem MenuStripPetList;
     }
 }
