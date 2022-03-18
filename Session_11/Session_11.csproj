@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Calc\PetShopLib.csproj" />
+    <ProjectReference Include="..\SecurityLib\SecurityLib.csproj" />
   </ItemGroup>
 
   <ItemGroup>

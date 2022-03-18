@@ -61,6 +61,169 @@
     <value>132, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 20</value>
+  </data>
+  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="editToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="editToolStripMenuItem1.Text" xml:space="preserve">
+    <value>List</value>
+  </data>
+  <data name="customerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 20</value>
+  </data>
+  <data name="customerToolStripMenuItem.Text" xml:space="preserve">
+    <value>Customer</value>
+  </data>
+  <data name="mamalsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 22</value>
+  </data>
+  <data name="mamalsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Pet List</value>
+  </data>
+  <data name="petToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 20</value>
+  </data>
+  <data name="petToolStripMenuItem.Text" xml:space="preserve">
+    <value>Pet</value>
+  </data>
+  <data name="petFoodToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 20</value>
+  </data>
+  <data name="petFoodToolStripMenuItem.Text" xml:space="preserve">
+    <value>Pet Food</value>
+  </data>
+  <data name="editToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 22</value>
+  </data>
+  <data name="editToolStripMenuItem.Text" xml:space="preserve">
+    <value>Edit...</value>
+  </data>
+  <data name="employeeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 20</value>
+  </data>
+  <data name="employeeToolStripMenuItem.Text" xml:space="preserve">
+    <value>Employee</value>
+  </data>
+  <data name="menuStrip2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="menuStrip2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1024, 24</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="menuStrip2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="menuStrip2.Text" xml:space="preserve">
+    <value>menuStrip2</value>
+  </data>
+  <data name="&gt;&gt;menuStrip2.Name" xml:space="preserve">
+    <value>menuStrip2</value>
+  </data>
+  <data name="&gt;&gt;menuStrip2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuStrip2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;menuStrip2.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="MainButtonManager.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Stencil, 11.25pt</value>
+  </data>
+  <data name="MainButtonManager.Location" type="System.Drawing.Point, System.Drawing">
+    <value>906, 27</value>
+  </data>
+  <data name="MainButtonManager.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 55</value>
+  </data>
+  <data name="MainButtonManager.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="MainButtonManager.Text" xml:space="preserve">
+    <value>Manager</value>
+  </data>
+  <data name="&gt;&gt;MainButtonManager.Name" xml:space="preserve">
+    <value>MainButtonManager</value>
+  </data>
+  <data name="&gt;&gt;MainButtonManager.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MainButtonManager.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;MainButtonManager.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="MainButtonExit.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Stencil, 11.25pt</value>
+  </data>
+  <data name="MainButtonExit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 503</value>
+  </data>
+  <data name="MainButtonExit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 55</value>
+  </data>
+  <data name="MainButtonExit.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="MainButtonExit.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="&gt;&gt;MainButtonExit.Name" xml:space="preserve">
+    <value>MainButtonExit</value>
+  </data>
+  <data name="&gt;&gt;MainButtonExit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MainButtonExit.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;MainButtonExit.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="BrowseButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Stencil, 15.75pt</value>
+  </data>
+  <data name="BrowseButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 51</value>
+  </data>
+  <data name="BrowseButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>164, 105</value>
+  </data>
+  <data name="BrowseButton.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="BrowseButton.Text" xml:space="preserve">
+    <value>PETS</value>
+  </data>
+  <data name="&gt;&gt;BrowseButton.Name" xml:space="preserve">
+    <value>BrowseButton</value>
+  </data>
+  <data name="&gt;&gt;BrowseButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BrowseButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;BrowseButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1024, 570</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAYAAAAAAAEAIACzDAEAZgAAAICAAAABACAAKAgBABkNAQBAQAAAAQAgAChCAABBFQIAMDAAAAEA
@@ -2873,5 +3036,66 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AA==
 </value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Pet Shop</value>
+  </data>
+  <data name="&gt;&gt;fileToolStripMenuItem.Name" xml:space="preserve">
+    <value>fileToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;fileToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;customerToolStripMenuItem.Name" xml:space="preserve">
+    <value>customerToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;customerToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;editToolStripMenuItem1.Name" xml:space="preserve">
+    <value>editToolStripMenuItem1</value>
+  </data>
+  <data name="&gt;&gt;editToolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;petToolStripMenuItem.Name" xml:space="preserve">
+    <value>petToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;petToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mamalsToolStripMenuItem.Name" xml:space="preserve">
+    <value>mamalsToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;mamalsToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;petFoodToolStripMenuItem.Name" xml:space="preserve">
+    <value>petFoodToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;petFoodToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;employeeToolStripMenuItem.Name" xml:space="preserve">
+    <value>employeeToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;employeeToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;editToolStripMenuItem.Name" xml:space="preserve">
+    <value>editToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;editToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>MainForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>
