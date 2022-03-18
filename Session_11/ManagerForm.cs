@@ -17,5 +17,25 @@ namespace Session_11
         {
             InitializeComponent();
         }
+
+        private void ManagerConfirmbtn_Click(object sender, EventArgs e)
+        {
+           if ( RadioTransactionHistory.Checked == true )
+            {
+                //Prepei na ftiaksw mia transaction history forma
+            }
+           else if (RadioMonthlyLedger.Checked == true )
+            {
+                //Prepei na ftiaksw mia Monthly Ledger forma
+            }
+            else if (RadioPetReports.Checked == true)
+            {
+                //Prepei na ftiaksw mia Pet Report forma
+            }
+            else
+            {
+                MessageBox.Show("Please make sure one button is checked", "Warning");
+            }
+        }
     }
 }

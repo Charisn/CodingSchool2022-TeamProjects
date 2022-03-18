@@ -6,9 +6,9 @@ using PetShopLib.Enums;
 
 namespace Session_11
 {
+
     public partial class MainForm : Form
     {
-
         private const string FILE_NAME = "PetShop.json";
         private PetShop _petShop;
 
@@ -128,10 +128,8 @@ namespace Session_11
                 //Not closing window.
             }
         }
-                  
-        
 
-    private void MainButtonManager_Click(object sender, EventArgs e)
+        private void MainButtonManager_Click(object sender, EventArgs e)
         {
             LoginForm managerForm = new LoginForm();
             managerForm.Show();
@@ -144,8 +142,15 @@ namespace Session_11
         //Apo kato edit vaggeli
         private void editToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            CustomerListForm cList = new CustomerListForm() ;
+            CustomerListForm cList = new CustomerListForm();
             cList.Show();
         }
+
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+            OrderForm orderForm = new OrderForm();
+            orderForm.Show();
+        }
+
     }
 }

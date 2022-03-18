@@ -68,7 +68,7 @@
     <value>File</value>
   </data>
   <data name="editToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>92, 22</value>
   </data>
   <data name="editToolStripMenuItem1.Text" xml:space="preserve">
     <value>List</value>
@@ -188,31 +188,31 @@
   <data name="&gt;&gt;MainButtonExit.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="BrowseButton.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnOrder.Font" type="System.Drawing.Font, System.Drawing">
     <value>Stencil, 15.75pt</value>
   </data>
-  <data name="BrowseButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 51</value>
+  <data name="btnOrder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 65</value>
   </data>
-  <data name="BrowseButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>164, 105</value>
+  <data name="btnOrder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 78</value>
   </data>
-  <data name="BrowseButton.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnOrder.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="BrowseButton.Text" xml:space="preserve">
-    <value>PETS</value>
+  <data name="btnOrder.Text" xml:space="preserve">
+    <value>Order</value>
   </data>
-  <data name="&gt;&gt;BrowseButton.Name" xml:space="preserve">
-    <value>BrowseButton</value>
+  <data name="&gt;&gt;btnOrder.Name" xml:space="preserve">
+    <value>btnOrder</value>
   </data>
-  <data name="&gt;&gt;BrowseButton.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnOrder.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;BrowseButton.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnOrder.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;BrowseButton.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnOrder.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

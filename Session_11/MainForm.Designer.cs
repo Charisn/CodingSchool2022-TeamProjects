@@ -40,6 +40,7 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainButtonManager = new System.Windows.Forms.Button();
             this.MainButtonExit = new System.Windows.Forms.Button();
+            this.btnOrder = new System.Windows.Forms.Button();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -121,8 +122,13 @@
             this.MainButtonExit.UseVisualStyleBackColor = false;
             this.MainButtonExit.Click += new System.EventHandler(this.MainButtonExit_Click);
             // 
-            // MainPetButton
+            // btnOrder
             // 
+            this.btnOrder.BackColor = System.Drawing.Color.LightSkyBlue;
+            resources.ApplyResources(this.btnOrder, "btnOrder");
+            this.btnOrder.Name = "btnOrder";
+            this.btnOrder.UseVisualStyleBackColor = false;
+            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
             // 
             // MainForm
             // 
@@ -130,6 +136,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = global::Session_11.Properties.Resources.PetShop_Image;
+            this.Controls.Add(this.btnOrder);
             this.Controls.Add(this.MainButtonExit);
             this.Controls.Add(this.MainButtonManager);
             this.Controls.Add(this.menuStrip2);
@@ -156,5 +163,6 @@
         private ToolStripMenuItem editToolStripMenuItem1;
         private Button MainButtonManager;
         private Button MainButtonExit;
+        private Button btnOrder;
     }
 }
