@@ -38,6 +38,7 @@
             this.petToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mamalsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.petFoodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editPetFood = new System.Windows.Forms.ToolStripMenuItem();
             this.employeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainButtonManager = new System.Windows.Forms.Button();
@@ -45,7 +46,6 @@
             this.btnOrder = new System.Windows.Forms.Button();
             this.StaffMainButton = new System.Windows.Forms.Button();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.editPetFood = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,6 +115,12 @@
             this.petFoodToolStripMenuItem.Name = "petFoodToolStripMenuItem";
             resources.ApplyResources(this.petFoodToolStripMenuItem, "petFoodToolStripMenuItem");
             // 
+            // editPetFood
+            // 
+            this.editPetFood.Name = "editPetFood";
+            resources.ApplyResources(this.editPetFood, "editPetFood");
+            this.editPetFood.Click += new System.EventHandler(this.editPetFood_Click);
+            // 
             // employeeToolStripMenuItem
             // 
             this.employeeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -164,17 +170,12 @@
             resources.ApplyResources(this.simpleButton1, "simpleButton1");
             this.simpleButton1.Name = "simpleButton1";
             // 
-            // editPetFood
-            // 
-            this.editPetFood.Name = "editPetFood";
-            resources.ApplyResources(this.editPetFood, "editPetFood");
-            this.editPetFood.Click += new System.EventHandler(this.editPetFood_Click);
-            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.BackgroundImage = global::Session_11.Properties.Resources.PetShop_Image;
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.StaffMainButton);
             this.Controls.Add(this.btnOrder);

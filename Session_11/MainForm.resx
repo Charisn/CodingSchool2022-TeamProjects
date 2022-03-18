@@ -104,7 +104,7 @@
     <value>Pet</value>
   </data>
   <data name="editPetFood.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>100, 22</value>
   </data>
   <data name="editPetFood.Text" xml:space="preserve">
     <value>Edit..</value>
@@ -116,7 +116,7 @@
     <value>Pet Food</value>
   </data>
   <data name="editToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>103, 22</value>
   </data>
   <data name="editToolStripMenuItem.Text" xml:space="preserve">
     <value>Edit...</value>
@@ -3164,6 +3164,12 @@
   <data name="&gt;&gt;petFoodToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;editPetFood.Name" xml:space="preserve">
+    <value>editPetFood</value>
+  </data>
+  <data name="&gt;&gt;editPetFood.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;employeeToolStripMenuItem.Name" xml:space="preserve">
     <value>employeeToolStripMenuItem</value>
   </data>
@@ -3174,12 +3180,6 @@
     <value>editToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;editToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;editPetFood.Name" xml:space="preserve">
-    <value>editPetFood</value>
-  </data>
-  <data name="&gt;&gt;editPetFood.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
