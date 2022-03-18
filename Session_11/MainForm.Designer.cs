@@ -41,6 +41,10 @@
             this.MainButtonManager = new System.Windows.Forms.Button();
             this.MainButtonExit = new System.Windows.Forms.Button();
             this.btnOrder = new System.Windows.Forms.Button();
+            this.StaffMainButton = new System.Windows.Forms.Button();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +62,9 @@
             // 
             // fileToolStripMenuItem
             // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveToolStripMenuItem,
+            this.loadToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             resources.ApplyResources(this.fileToolStripMenuItem, "fileToolStripMenuItem");
             // 
@@ -130,12 +137,38 @@
             this.btnOrder.UseVisualStyleBackColor = false;
             this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
             // 
+            // StaffMainButton
+            // 
+            this.StaffMainButton.BackColor = System.Drawing.Color.LightSkyBlue;
+            resources.ApplyResources(this.StaffMainButton, "StaffMainButton");
+            this.StaffMainButton.Name = "StaffMainButton";
+            this.StaffMainButton.UseVisualStyleBackColor = false;
+            // 
+            // simpleButton1
+            // 
+            resources.ApplyResources(this.simpleButton1, "simpleButton1");
+            this.simpleButton1.Name = "simpleButton1";
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            resources.ApplyResources(this.saveToolStripMenuItem, "saveToolStripMenuItem");
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.MainMenuStripSave);
+            // 
+            // loadToolStripMenuItem
+            // 
+            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
+            resources.ApplyResources(this.loadToolStripMenuItem, "loadToolStripMenuItem");
+            this.loadToolStripMenuItem.Click += new System.EventHandler(this.MainMenuStripLoad);
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = global::Session_11.Properties.Resources.PetShop_Image;
+            this.Controls.Add(this.simpleButton1);
+            this.Controls.Add(this.StaffMainButton);
             this.Controls.Add(this.btnOrder);
             this.Controls.Add(this.MainButtonExit);
             this.Controls.Add(this.MainButtonManager);
@@ -164,5 +197,9 @@
         private Button MainButtonManager;
         private Button MainButtonExit;
         private Button btnOrder;
+        private ToolStripMenuItem saveToolStripMenuItem;
+        private ToolStripMenuItem loadToolStripMenuItem;
+        private Button StaffMainButton;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }

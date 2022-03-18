@@ -43,7 +43,17 @@ namespace Session_11
                 SaveData();
 
             }
+
+            DelayAction();
         }
+
+        internal void DelayAction()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            System.Threading.Thread.Sleep(500);
+            MessageBox.Show("Process completed", "Pet Shop");
+        }
+
         private void CreateCustomers()
         {
             var customer = new Customer() {
@@ -86,7 +96,7 @@ namespace Session_11
 
             File.WriteAllText(FILE_NAME, json);
 
-            MessageBox.Show("OKAY!", "PetShop");
+            DelayAction();
 
         }
 
@@ -105,10 +115,6 @@ namespace Session_11
         {
             CustomerForm form = new CustomerForm();
             form = new CustomerForm();
-        }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
         }
 
         private void MainButtonExit_Click(object sender, EventArgs e)
@@ -152,5 +158,14 @@ namespace Session_11
             orderForm.Show();
         }
 
+        private void MainMenuStripSave(object sender, EventArgs e)
+        {
+            SaveData();
+        }
+
+        private void MainMenuStripLoad(object sender, EventArgs e)
+        {
+            LoadData();
+        }
     }
 }
