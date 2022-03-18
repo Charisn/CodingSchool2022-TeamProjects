@@ -38,7 +38,13 @@
             this.petFoodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editPetFoods = new System.Windows.Forms.ToolStripMenuItem();
+            this.MainButtonManager = new System.Windows.Forms.Button();
+            this.MainButtonExit = new System.Windows.Forms.Button();
+            this.btnOrder = new System.Windows.Forms.Button();
+            this.StaffMainButton = new System.Windows.Forms.Button();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +62,9 @@
             // 
             // fileToolStripMenuItem
             // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveToolStripMenuItem,
+            this.loadToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             resources.ApplyResources(this.fileToolStripMenuItem, "fileToolStripMenuItem");
             // 
@@ -71,6 +80,7 @@
             // 
             this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
             resources.ApplyResources(this.editToolStripMenuItem1, "editToolStripMenuItem1");
+            this.editToolStripMenuItem1.Click += new System.EventHandler(this.editToolStripMenuItem1_Click);
             // 
             // petToolStripMenuItem
             // 
@@ -87,8 +97,6 @@
             // 
             // petFoodToolStripMenuItem
             // 
-            this.petFoodToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editPetFoods});
             this.petFoodToolStripMenuItem.Name = "petFoodToolStripMenuItem";
             resources.ApplyResources(this.petFoodToolStripMenuItem, "petFoodToolStripMenuItem");
             // 
@@ -105,17 +113,68 @@
             resources.ApplyResources(this.editToolStripMenuItem, "editToolStripMenuItem");
             this.editToolStripMenuItem.Click += new System.EventHandler(this.MenuStripEmployee);
             // 
-            // editPetFoods
+            // MainButtonManager
             // 
-            this.editPetFoods.Name = "editPetFoods";
-            resources.ApplyResources(this.editPetFoods, "editPetFoods");
-            this.editPetFoods.Click += new System.EventHandler(this.editPetFoods_Click);
+            this.MainButtonManager.BackColor = System.Drawing.Color.LightSkyBlue;
+            resources.ApplyResources(this.MainButtonManager, "MainButtonManager");
+            this.MainButtonManager.Name = "MainButtonManager";
+            this.MainButtonManager.UseVisualStyleBackColor = false;
+            this.MainButtonManager.Click += new System.EventHandler(this.MainButtonManager_Click);
+            // 
+            // MainButtonExit
+            // 
+            this.MainButtonExit.BackColor = System.Drawing.Color.LightSkyBlue;
+            resources.ApplyResources(this.MainButtonExit, "MainButtonExit");
+            this.MainButtonExit.Name = "MainButtonExit";
+            this.MainButtonExit.UseVisualStyleBackColor = false;
+            this.MainButtonExit.Click += new System.EventHandler(this.MainButtonExit_Click);
+            // 
+            // btnOrder
+            // 
+            this.btnOrder.BackColor = System.Drawing.Color.LightSkyBlue;
+            resources.ApplyResources(this.btnOrder, "btnOrder");
+            this.btnOrder.Name = "btnOrder";
+            this.btnOrder.UseVisualStyleBackColor = false;
+            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
+            // 
+            // StaffMainButton
+            // 
+            this.StaffMainButton.BackColor = System.Drawing.Color.LightSkyBlue;
+            resources.ApplyResources(this.StaffMainButton, "StaffMainButton");
+            this.StaffMainButton.Name = "StaffMainButton";
+            this.StaffMainButton.UseVisualStyleBackColor = false;
+            // 
+            // simpleButton1
+            // 
+            resources.ApplyResources(this.simpleButton1, "simpleButton1");
+            this.simpleButton1.Name = "simpleButton1";
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            resources.ApplyResources(this.saveToolStripMenuItem, "saveToolStripMenuItem");
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.MainMenuStripSave);
+            // 
+            // loadToolStripMenuItem
+            // 
+            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
+            resources.ApplyResources(this.loadToolStripMenuItem, "loadToolStripMenuItem");
+            this.loadToolStripMenuItem.Click += new System.EventHandler(this.MainMenuStripLoad);
             // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
+            this.BackgroundImage = global::Session_11.Properties.Resources.PetShop_Image;
+            this.Controls.Add(this.simpleButton1);
+            this.Controls.Add(this.StaffMainButton);
+            this.Controls.Add(this.btnOrder);
+            this.Controls.Add(this.MainButtonExit);
+            this.Controls.Add(this.MainButtonManager);
             this.Controls.Add(this.menuStrip2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip2.ResumeLayout(false);
@@ -135,6 +194,12 @@
         private ToolStripMenuItem mamalsToolStripMenuItem;
         private ToolStripMenuItem editToolStripMenuItem;
         private ToolStripMenuItem editToolStripMenuItem1;
-        private ToolStripMenuItem editPetFoods;
+        private Button MainButtonManager;
+        private Button MainButtonExit;
+        private Button btnOrder;
+        private ToolStripMenuItem saveToolStripMenuItem;
+        private ToolStripMenuItem loadToolStripMenuItem;
+        private Button StaffMainButton;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }

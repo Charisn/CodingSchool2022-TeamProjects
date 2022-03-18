@@ -6,9 +6,9 @@ using PetShopLib.Enums;
 
 namespace Session_11
 {
+
     public partial class MainForm : Form
     {
-
         private const string FILE_NAME = "PetShop.json";
         private PetShop _petShop;
 
@@ -43,7 +43,17 @@ namespace Session_11
                 SaveData();
 
             }
+
+            DelayAction();
         }
+
+        internal void DelayAction()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            System.Threading.Thread.Sleep(500);
+            MessageBox.Show("Process completed", "Pet Shop");
+        }
+
         private void CreateCustomers()
         {
             var customer = new Customer() {
@@ -56,14 +66,6 @@ namespace Session_11
         }
         private void CreateEmployees()
         {
-            var employee = new Employee()
-            {
-                Name = "Pro",
-                SurName = "Kir",
-                EmployeeType = EmployeeTypeEnum.Staff,
-                SalaryPerMonth = 200
-            };
-            _petShop.Employees.Add(employee);
 
         }
         private void CreatePets()
@@ -94,7 +96,7 @@ namespace Session_11
 
             File.WriteAllText(FILE_NAME, json);
 
-            MessageBox.Show("OKAY!", "PetShop");
+            DelayAction();
 
         }
 
@@ -105,7 +107,7 @@ namespace Session_11
 
         private void MenuStripEmployee(object sender, EventArgs e)
         {
-            EmployeeListForm form = new EmployeeListForm();
+            EmployeeForm form = new EmployeeForm();
             form.Show();
         }
 
@@ -113,10 +115,6 @@ namespace Session_11
         {
             CustomerForm form = new CustomerForm();
             form = new CustomerForm();
-        }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
         }
 
         private void MainButtonExit_Click(object sender, EventArgs e)
@@ -136,30 +134,38 @@ namespace Session_11
                 //Not closing window.
             }
         }
-                  
-        
 
-    private void MainButtonManager_Click(object sender, EventArgs e)
+        private void MainButtonManager_Click(object sender, EventArgs e)
         {
             LoginForm managerForm = new LoginForm();
             managerForm.Show();
         }
 
-        private void BrowseButton_Click(object sender, EventArgs e)
+        private void MainPetButton(object sender, EventArgs e)
         {
 
         }
         //Apo kato edit vaggeli
         private void editToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            CustomerListForm cList = new CustomerListForm() ;
+            CustomerListForm cList = new CustomerListForm();
             cList.Show();
         }
 
-        private void editPetFoods_Click(object sender, EventArgs e)
+        private void btnOrder_Click(object sender, EventArgs e)
         {
-            PetFoodListForm petFoodListForm = new PetFoodListForm() ;
-            petFoodListForm.Show();
+            OrderForm orderForm = new OrderForm();
+            orderForm.Show();
+        }
+
+        private void MainMenuStripSave(object sender, EventArgs e)
+        {
+            SaveData();
+        }
+
+        private void MainMenuStripLoad(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }

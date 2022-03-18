@@ -61,17 +61,23 @@
     <value>132, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="saveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="saveToolStripMenuItem.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="loadToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="loadToolStripMenuItem.Text" xml:space="preserve">
+    <value>Load</value>
+  </data>
   <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 20</value>
   </data>
   <data name="fileToolStripMenuItem.Text" xml:space="preserve">
     <value>File</value>
-  </data>
-  <data name="editToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
-  </data>
-  <data name="editToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Edit..</value>
   </data>
   <data name="customerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 20</value>
@@ -79,35 +85,17 @@
   <data name="customerToolStripMenuItem.Text" xml:space="preserve">
     <value>Customer</value>
   </data>
-  <data name="mamalsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 22</value>
-  </data>
-  <data name="mamalsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Pet List</value>
-  </data>
   <data name="petToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>36, 20</value>
   </data>
   <data name="petToolStripMenuItem.Text" xml:space="preserve">
     <value>Pet</value>
   </data>
-  <data name="editPetFoods.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="editPetFoods.Text" xml:space="preserve">
-    <value>Edit..</value>
-  </data>
   <data name="petFoodToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>66, 20</value>
   </data>
   <data name="petFoodToolStripMenuItem.Text" xml:space="preserve">
     <value>Pet Food</value>
-  </data>
-  <data name="editToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="editToolStripMenuItem.Text" xml:space="preserve">
-    <value>Edit...</value>
   </data>
   <data name="employeeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 20</value>
@@ -138,6 +126,160 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;menuStrip2.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="editToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 22</value>
+  </data>
+  <data name="editToolStripMenuItem1.Text" xml:space="preserve">
+    <value>List</value>
+  </data>
+  <data name="mamalsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 22</value>
+  </data>
+  <data name="mamalsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Pet List</value>
+  </data>
+  <data name="editToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 22</value>
+  </data>
+  <data name="editToolStripMenuItem.Text" xml:space="preserve">
+    <value>Edit...</value>
+  </data>
+  <data name="MainButtonManager.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Stencil, 11.25pt</value>
+  </data>
+  <data name="MainButtonManager.Location" type="System.Drawing.Point, System.Drawing">
+    <value>906, 27</value>
+  </data>
+  <data name="MainButtonManager.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 55</value>
+  </data>
+  <data name="MainButtonManager.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="MainButtonManager.Text" xml:space="preserve">
+    <value>Manager</value>
+  </data>
+  <data name="&gt;&gt;MainButtonManager.Name" xml:space="preserve">
+    <value>MainButtonManager</value>
+  </data>
+  <data name="&gt;&gt;MainButtonManager.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MainButtonManager.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;MainButtonManager.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="MainButtonExit.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Stencil, 11.25pt</value>
+  </data>
+  <data name="MainButtonExit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 503</value>
+  </data>
+  <data name="MainButtonExit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 55</value>
+  </data>
+  <data name="MainButtonExit.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="MainButtonExit.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="&gt;&gt;MainButtonExit.Name" xml:space="preserve">
+    <value>MainButtonExit</value>
+  </data>
+  <data name="&gt;&gt;MainButtonExit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MainButtonExit.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;MainButtonExit.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnOrder.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Stencil, 15.75pt</value>
+  </data>
+  <data name="btnOrder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 65</value>
+  </data>
+  <data name="btnOrder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 78</value>
+  </data>
+  <data name="btnOrder.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btnOrder.Text" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="&gt;&gt;btnOrder.Name" xml:space="preserve">
+    <value>btnOrder</value>
+  </data>
+  <data name="&gt;&gt;btnOrder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnOrder.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnOrder.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="StaffMainButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Stencil, 15.75pt</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="StaffMainButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="StaffMainButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>158, 65</value>
+  </data>
+  <data name="StaffMainButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 78</value>
+  </data>
+  <data name="StaffMainButton.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="StaffMainButton.Text" xml:space="preserve">
+    <value>Staff</value>
+  </data>
+  <data name="&gt;&gt;StaffMainButton.Name" xml:space="preserve">
+    <value>StaffMainButton</value>
+  </data>
+  <data name="&gt;&gt;StaffMainButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;StaffMainButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;StaffMainButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="simpleButton1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>577, 394</value>
+  </data>
+  <data name="simpleButton1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="simpleButton1.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="simpleButton1.Text" xml:space="preserve">
+    <value>simpleButton1</value>
+  </data>
+  <data name="&gt;&gt;simpleButton1.Name" xml:space="preserve">
+    <value>simpleButton1</value>
+  </data>
+  <data name="&gt;&gt;simpleButton1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v21.2, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;simpleButton1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;simpleButton1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -2962,7 +3104,6 @@
         AA==
 </value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>
@@ -3017,10 +3158,16 @@
   <data name="&gt;&gt;editToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;editPetFoods.Name" xml:space="preserve">
-    <value>editPetFoods</value>
+  <data name="&gt;&gt;saveToolStripMenuItem.Name" xml:space="preserve">
+    <value>saveToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;editPetFoods.Type" xml:space="preserve">
+  <data name="&gt;&gt;saveToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;loadToolStripMenuItem.Name" xml:space="preserve">
+    <value>loadToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;loadToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
