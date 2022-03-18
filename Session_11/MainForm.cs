@@ -86,7 +86,6 @@ namespace Session_11
                 Price = 150,
                 Cost = 50
             };
-
         }
 
         private void SaveData()
@@ -176,6 +175,10 @@ namespace Session_11
         {
             //PetListForm petListForm = new PetListForm();
             //petListForm.Show();
+        }
+        private void MainFormClosing(object sencer, FormClosingEventArgs e)
+        {
+            SaveData();
         }
     }
 }

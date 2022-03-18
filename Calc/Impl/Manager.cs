@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PetShopLib.Impl
 {
-    internal class Manager
+    internal class Manager 
     {
     }
 }

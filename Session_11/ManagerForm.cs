@@ -30,7 +30,8 @@ namespace Session_11
             }
             else if (RadioPetReports.Checked == true)
             {
-                //Prepei na ftiaksw mia Pet Report forma
+                PetReportForm form = new PetReportForm();
+                form.ShowDialog();
             }
             else
             {
