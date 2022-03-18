@@ -156,6 +156,5 @@
         private ToolStripMenuItem editToolStripMenuItem1;
         private Button MainButtonManager;
         private Button MainButtonExit;
-        private Button MainPetButton;
     }
 }
