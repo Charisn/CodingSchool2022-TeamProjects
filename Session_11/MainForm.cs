@@ -107,7 +107,7 @@ namespace Session_11
 
         private void MenuStripEmployee(object sender, EventArgs e)
         {
-            EmployeeForm form = new EmployeeForm();
+            EmployeeListForm form = new EmployeeListForm();
             form.Show();
         }
 
@@ -166,6 +166,12 @@ namespace Session_11
         private void MainMenuStripLoad(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void editPetFood_Click(object sender, EventArgs e)
+        {
+            PetFoodListForm petFoodListForm = new PetFoodListForm();
+            petFoodListForm.Show();
         }
     }
 }
