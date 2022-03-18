@@ -32,7 +32,9 @@
             this.grdPetFoods = new DevExpress.XtraGrid.GridControl();
             this.grvPetFoods = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colPrice = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repAnimalTypes = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.colCost = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAnimalType = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnNew = new DevExpress.XtraEditors.SimpleButton();
             this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
@@ -41,6 +43,7 @@
             this.bsPetFoods = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.grdPetFoods)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvPetFoods)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repAnimalTypes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPetShop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPetFoods)).BeginInit();
             this.SuspendLayout();
@@ -50,6 +53,8 @@
             this.grdPetFoods.Location = new System.Drawing.Point(53, 25);
             this.grdPetFoods.MainView = this.grvPetFoods;
             this.grdPetFoods.Name = "grdPetFoods";
+            this.grdPetFoods.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repAnimalTypes});
             this.grdPetFoods.Size = new System.Drawing.Size(712, 361);
             this.grdPetFoods.TabIndex = 0;
             this.grdPetFoods.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -59,7 +64,8 @@
             // 
             this.grvPetFoods.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colPrice,
-            this.colCost});
+            this.colCost,
+            this.colAnimalType});
             this.grvPetFoods.GridControl = this.grdPetFoods;
             this.grvPetFoods.Name = "grvPetFoods";
             // 
@@ -68,16 +74,34 @@
             this.colPrice.Caption = "colPrice";
             this.colPrice.FieldName = "Price";
             this.colPrice.Name = "colPrice";
+            this.colPrice.OptionsColumn.AllowEdit = false;
             this.colPrice.Visible = true;
             this.colPrice.VisibleIndex = 0;
+            // 
+            // repAnimalTypes
+            // 
+            this.repAnimalTypes.AutoHeight = false;
+            this.repAnimalTypes.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repAnimalTypes.Name = "repAnimalTypes";
             // 
             // colCost
             // 
             this.colCost.Caption = "colCost";
             this.colCost.FieldName = "Cost";
             this.colCost.Name = "colCost";
+            this.colCost.OptionsColumn.AllowEdit = false;
             this.colCost.Visible = true;
             this.colCost.VisibleIndex = 1;
+            // 
+            // colAnimalType
+            // 
+            this.colAnimalType.Caption = "Animal Type";
+            this.colAnimalType.FieldName = "AnimalType";
+            this.colAnimalType.Name = "colAnimalType";
+            this.colAnimalType.OptionsColumn.AllowEdit = false;
+            this.colAnimalType.Visible = true;
+            this.colAnimalType.VisibleIndex = 2;
             // 
             // btnCancel
             // 
@@ -129,6 +153,7 @@
             this.Load += new System.EventHandler(this.PetFoodListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdPetFoods)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvPetFoods)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repAnimalTypes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPetShop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPetFoods)).EndInit();
             this.ResumeLayout(false);
@@ -147,5 +172,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colCost;
         private BindingSource bsPetShop;
         private BindingSource bsPetFoods;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repAnimalTypes;
+        private DevExpress.XtraGrid.Columns.GridColumn colAnimalType;
     }
 }

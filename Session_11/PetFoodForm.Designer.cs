@@ -42,6 +42,8 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ctrlAnimalTypes = new DevExpress.XtraEditors.LookUpEdit();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.bsPetFoods)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -54,10 +56,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlAnimalTypes.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.ctrlAnimalTypes);
             this.layoutControl1.Controls.Add(this.ctrlCost);
             this.layoutControl1.Controls.Add(this.ctrlPrice);
             this.layoutControl1.Controls.Add(this.btnCancel);
@@ -72,25 +77,25 @@
             // 
             // ctrlCost
             // 
-            this.ctrlCost.Location = new System.Drawing.Point(47, 36);
+            this.ctrlCost.Location = new System.Drawing.Point(82, 36);
             this.ctrlCost.Name = "ctrlCost";
-            this.ctrlCost.Size = new System.Drawing.Size(588, 20);
+            this.ctrlCost.Size = new System.Drawing.Size(553, 20);
             this.ctrlCost.StyleController = this.layoutControl1;
             this.ctrlCost.TabIndex = 8;
             // 
             // ctrlPrice
             // 
-            this.ctrlPrice.Location = new System.Drawing.Point(47, 12);
+            this.ctrlPrice.Location = new System.Drawing.Point(82, 12);
             this.ctrlPrice.Name = "ctrlPrice";
-            this.ctrlPrice.Size = new System.Drawing.Size(588, 20);
+            this.ctrlPrice.Size = new System.Drawing.Size(553, 20);
             this.ctrlPrice.StyleController = this.layoutControl1;
             this.ctrlPrice.TabIndex = 7;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(540, 432);
+            this.btnCancel.Location = new System.Drawing.Point(540, 434);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(95, 31);
+            this.btnCancel.Size = new System.Drawing.Size(95, 29);
             this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -115,7 +120,8 @@
             this.emptySpaceItem3,
             this.layoutControlItem1,
             this.layoutControlItem2,
-            this.layoutControlItem3});
+            this.layoutControlItem3,
+            this.layoutControlItem4});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(647, 475);
             this.Root.TextVisible = false;
@@ -123,33 +129,33 @@
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 48);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 72);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(627, 263);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(627, 247);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 420);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 422);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(528, 35);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(528, 33);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 311);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 319);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(627, 109);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(627, 103);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.btnCancel;
-            this.layoutControlItem1.Location = new System.Drawing.Point(528, 420);
+            this.layoutControlItem1.Location = new System.Drawing.Point(528, 422);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(99, 35);
+            this.layoutControlItem1.Size = new System.Drawing.Size(99, 33);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -160,7 +166,7 @@
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(627, 24);
             this.layoutControlItem2.Text = "Price";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(23, 13);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(58, 13);
             // 
             // layoutControlItem3
             // 
@@ -169,7 +175,26 @@
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(627, 24);
             this.layoutControlItem3.Text = "Cost";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(23, 13);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(58, 13);
+            // 
+            // ctrlAnimalTypes
+            // 
+            this.ctrlAnimalTypes.Location = new System.Drawing.Point(82, 60);
+            this.ctrlAnimalTypes.Name = "ctrlAnimalTypes";
+            this.ctrlAnimalTypes.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ctrlAnimalTypes.Size = new System.Drawing.Size(553, 20);
+            this.ctrlAnimalTypes.StyleController = this.layoutControl1;
+            this.ctrlAnimalTypes.TabIndex = 9;
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.ctrlAnimalTypes;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 48);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(627, 24);
+            this.layoutControlItem4.Text = "Animal Type";
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(58, 13);
             // 
             // PetFoodForm
             // 
@@ -192,6 +217,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlAnimalTypes.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -211,5 +238,7 @@
         private DevExpress.XtraEditors.TextEdit ctrlPrice;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraEditors.LookUpEdit ctrlAnimalTypes;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using PetShopLib.Enums;
 using PetShopLib.Impl;
 using System;
 using System.Collections.Generic;
@@ -41,7 +42,8 @@ namespace Session_11
 
         private void PetFoodForm_Load(object sender, EventArgs e)
         {
-            //PopulateControls();
+            
+            PopulateAnimalTypes();
 
 
             if (_petFood == null)
@@ -59,10 +61,27 @@ namespace Session_11
 
         }
 
+
+        private void PopulateAnimalTypes()
+        {
+
+            List<AnimalTypeEnum> animalTypes = new List<AnimalTypeEnum>();
+            animalTypes.Add(AnimalTypeEnum.Bird); //list
+            animalTypes.Add(AnimalTypeEnum.Fish);
+            animalTypes.Add(AnimalTypeEnum.Lizard);
+            animalTypes.Add(AnimalTypeEnum.Cat);
+            animalTypes.Add(AnimalTypeEnum.Dog);
+
+            ctrlAnimalTypes.Properties.DataSource = animalTypes;
+            ctrlAnimalTypes.Properties.NullText = null;
+
+        }
+
         private void SetDataBindings()
         {
             ctrlPrice.DataBindings.Add(new Binding("EditValue", bsPetFoods, "Price", true));
             ctrlCost.DataBindings.Add(new Binding("EditValue", bsPetFoods, "Cost", true));
+            ctrlAnimalTypes.DataBindings.Add(new Binding("EditValue", bsPetFoods, "AnimalType", true));
         }
 
         
