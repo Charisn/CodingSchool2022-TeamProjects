@@ -144,7 +144,6 @@ namespace Session_11
         {
 
         }
-        //Apo kato edit vaggeli
         private void editToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             CustomerListForm cList = new CustomerListForm();
@@ -175,8 +174,8 @@ namespace Session_11
 
         private void MenuStripPetList_Click(object sender, EventArgs e)
         {
-            PetListForm petListForm = new PetListForm();
-            petListForm.Show();
+            //PetListForm petListForm = new PetListForm();
+            //petListForm.Show();
         }
     }
 }
