@@ -52,7 +52,6 @@ namespace Session_11
                 _petShop.PetFoods.Add(_petFood);
                 bsPetFoods.DataSource = _petFood;
 
-
             }
 
             bsPetFoods.DataSource = _petFood;
@@ -83,8 +82,6 @@ namespace Session_11
             ctrlCost.DataBindings.Add(new Binding("EditValue", bsPetFoods, "Cost", true));
             ctrlAnimalTypes.DataBindings.Add(new Binding("EditValue", bsPetFoods, "AnimalType", true));
         }
-
-        
 
         private void btnSave_Click_1(object sender, EventArgs e)
         {

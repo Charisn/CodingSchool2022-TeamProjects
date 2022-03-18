@@ -8,16 +8,19 @@ using System.Threading.Tasks;
 
 namespace PetShopLib.Impl
 {
-    internal class PetReport : IPetReport
+    public class PetReport : IPetReport
     {
-        public int Year { get; set; }
+        public short Year { get; set; }
         public short Month { get; set; }
         public int TotalSold { get; set; }
         public AnimalTypeEnum AnimalType { get; set; }
 
         public PetReport()
         {
-
+            //Pet = new Pet();
         }
+
+        //public List<Pet> PetSold { get; set; }
+        //edw 8elw na kanw kataxwrhsh mias listas apo to transaction
     }
 }

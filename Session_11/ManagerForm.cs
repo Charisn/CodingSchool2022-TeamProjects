@@ -22,7 +22,8 @@ namespace Session_11
         {
            if ( RadioTransactionHistory.Checked == true )
             {
-                //Prepei na ftiaksw mia transaction history forma
+                TransactionsForm form = new TransactionsForm();
+                form.ShowDialog();
             }
            else if (RadioMonthlyLedger.Checked == true )
             {

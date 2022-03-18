@@ -83,7 +83,7 @@ namespace PetShopLib.Interfaces
 
     internal interface IMonthlyLedger
     {
-        int Year { get; set; }
+        short Year { get; set; }
 
         short Month { get; set; }
 
@@ -96,7 +96,7 @@ namespace PetShopLib.Interfaces
 
     internal interface IPetReport : IAnimal
     {
-        int Year { get; set; }
+        short Year { get; set; }
 
         short Month { get; set; }
 

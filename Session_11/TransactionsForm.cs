@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Session_11
 {
-    public partial class OrderForm : DevExpress.XtraEditors.XtraForm
+    public partial class TransactionsForm : DevExpress.XtraEditors.XtraForm
     {
-        public OrderForm()
+        public TransactionsForm()
         {
             InitializeComponent();
         }

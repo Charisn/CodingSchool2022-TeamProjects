@@ -136,7 +136,7 @@ namespace Session_11
         private void MainButtonManager_Click(object sender, EventArgs e)
         {
             LoginForm managerForm = new LoginForm();
-            managerForm.Show();
+            managerForm.ShowDialog();
         }
 
         private void MainPetButton(object sender, EventArgs e)
@@ -151,8 +151,8 @@ namespace Session_11
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
-            OrderForm orderForm = new OrderForm();
-            orderForm.Show();
+            TransactionsForm transactionForm = new TransactionsForm();
+            transactionForm.Show();
         }
 
         private void MainMenuStripSave(object sender, EventArgs e)
