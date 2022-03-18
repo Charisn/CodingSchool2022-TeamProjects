@@ -37,10 +37,14 @@
             this.ctrlSurname = new DevExpress.XtraEditors.TextEdit();
             this.ctrlSalaryPerMonth = new DevExpress.XtraEditors.TextEdit();
             this.bsEmployees = new System.Windows.Forms.BindingSource(this.components);
+            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.ctrlEmployeeType = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlSurname.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlSalaryPerMonth.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsEmployees)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlEmployeeType.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -96,11 +100,40 @@
             this.ctrlSalaryPerMonth.Size = new System.Drawing.Size(143, 20);
             this.ctrlSalaryPerMonth.TabIndex = 7;
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(483, 462);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(84, 43);
+            this.btnSave.TabIndex = 8;
+            this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(573, 462);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(84, 43);
+            this.btnCancel.TabIndex = 9;
+            this.btnCancel.Text = "Cancel";
+            // 
+            // ctrlEmployeeType
+            // 
+            this.ctrlEmployeeType.Location = new System.Drawing.Point(149, 106);
+            this.ctrlEmployeeType.Name = "ctrlEmployeeType";
+            this.ctrlEmployeeType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ctrlEmployeeType.Size = new System.Drawing.Size(143, 20);
+            this.ctrlEmployeeType.TabIndex = 10;
+            // 
             // EmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(701, 517);
+            this.Controls.Add(this.ctrlEmployeeType);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.ctrlSalaryPerMonth);
             this.Controls.Add(this.ctrlSurname);
             this.Controls.Add(this.ctrlName);
@@ -115,6 +148,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ctrlSurname.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlSalaryPerMonth.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsEmployees)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlEmployeeType.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,5 +164,8 @@
         private DevExpress.XtraEditors.TextEdit ctrlSurname;
         private DevExpress.XtraEditors.TextEdit ctrlSalaryPerMonth;
         private BindingSource bsEmployees;
+        private DevExpress.XtraEditors.SimpleButton btnSave;
+        private DevExpress.XtraEditors.SimpleButton btnCancel;
+        private DevExpress.XtraEditors.LookUpEdit ctrlEmployeeType;
     }
 }

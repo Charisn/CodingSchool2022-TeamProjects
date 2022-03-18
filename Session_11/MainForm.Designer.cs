@@ -117,7 +117,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Session_11.Properties.Resources.PetShop_Image;
+           // this.BackgroundImage = global::Session_11.Properties.Resources.PetShop_Image;
             this.ClientSize = new System.Drawing.Size(1024, 570);
             this.Controls.Add(this.menuStrip2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

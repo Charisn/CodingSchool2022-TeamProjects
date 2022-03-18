@@ -11,6 +11,8 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PetShopLib.Impl;
+using PetShopLib.Enums;
+using DevExpress.XtraEditors.Controls;
 
 namespace Session_11
 {
@@ -28,6 +30,37 @@ namespace Session_11
         {
             //PopulateControls();
             PopulateEmployees();
+        }
+
+        private void PopulateControls()
+        {
+
+            Dictionary<EmployeeTypeEnum, string> employeeTypes = new Dictionary<EmployeeTypeEnum, string>();
+            employeeTypes.Add(EmployeeTypeEnum.Manager, "Manager");
+            employeeTypes.Add(EmployeeTypeEnum.Staff, "Staff");
+            
+
+            repEmployeeType.DataSource = employeeTypes;
+            repEmployeeType.Columns.Add(new LookUpColumnInfo("Value"));
+            repEmployeeType.DisplayMember = "Value";
+            repEmployeeType.ValueMember = "Key";
+            repEmployeeType.ShowHeader = false;
+            repEmployeeType.NullText = null;
+
+
+
+            //Dictionary<GenderEnum, string> genders = new Dictionary<GenderEnum, string>();
+            //genders.Add(GenderEnum.Male, "Male");
+            //genders.Add(GenderEnum.Female, "Female");
+            //genders.Add(GenderEnum.OtherGender, "Other Gender");
+
+            //lookup.DataSource = genders;
+            //lookup.Columns.Add(new LookUpColumnInfo("Value"));
+            //lookup.DisplayMember = "Value";
+            //lookup.ValueMember = "Key";
+            //lookup.ShowHeader = false;
+            //lookup.NullText = null;
+
         }
 
         private void PopulateEmployees()

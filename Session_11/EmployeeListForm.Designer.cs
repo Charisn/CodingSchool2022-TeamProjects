@@ -35,13 +35,16 @@
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.grdEmployees = new DevExpress.XtraGrid.GridControl();
             this.grvEmployees = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.bsPetShop = new System.Windows.Forms.BindingSource(this.components);
-            this.bsEmployees = new System.Windows.Forms.BindingSource(this.components);
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSurname = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSalaryPerMonth = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repEmployeeType = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.colEmployeeType = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.bsPetShop = new System.Windows.Forms.BindingSource(this.components);
+            this.bsEmployees = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.grdEmployees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvEmployees)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repEmployeeType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPetShop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsEmployees)).BeginInit();
             this.SuspendLayout();
@@ -86,6 +89,8 @@
             this.grdEmployees.Location = new System.Drawing.Point(76, 12);
             this.grdEmployees.MainView = this.grvEmployees;
             this.grdEmployees.Name = "grdEmployees";
+            this.grdEmployees.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repEmployeeType});
             this.grdEmployees.Size = new System.Drawing.Size(586, 302);
             this.grdEmployees.TabIndex = 4;
             this.grdEmployees.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -96,7 +101,8 @@
             this.grvEmployees.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colName,
             this.colSurname,
-            this.colSalaryPerMonth});
+            this.colSalaryPerMonth,
+            this.colEmployeeType});
             this.grvEmployees.GridControl = this.grdEmployees;
             this.grvEmployees.Name = "grvEmployees";
             // 
@@ -111,7 +117,7 @@
             // colSurname
             // 
             this.colSurname.Caption = "Surname";
-            this.colSurname.FieldName = "Surname";
+            this.colSurname.FieldName = "SurName";
             this.colSurname.Name = "colSurname";
             this.colSurname.Visible = true;
             this.colSurname.VisibleIndex = 1;
@@ -123,6 +129,22 @@
             this.colSalaryPerMonth.Name = "colSalaryPerMonth";
             this.colSalaryPerMonth.Visible = true;
             this.colSalaryPerMonth.VisibleIndex = 2;
+            // 
+            // repEmployeeType
+            // 
+            this.repEmployeeType.AutoHeight = false;
+            this.repEmployeeType.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repEmployeeType.Name = "repEmployeeType";
+            // 
+            // colEmployeeType
+            // 
+            this.colEmployeeType.Caption = "Employee Type";
+            this.colEmployeeType.ColumnEdit = this.repEmployeeType;
+            this.colEmployeeType.FieldName = "EmployeeType";
+            this.colEmployeeType.Name = "colEmployeeType";
+            this.colEmployeeType.Visible = true;
+            this.colEmployeeType.VisibleIndex = 3;
             // 
             // EmployeeListForm
             // 
@@ -139,6 +161,7 @@
             this.Load += new System.EventHandler(this.EmployeeListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdEmployees)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvEmployees)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repEmployeeType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPetShop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsEmployees)).EndInit();
             this.ResumeLayout(false);
@@ -158,5 +181,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colName;
         private DevExpress.XtraGrid.Columns.GridColumn colSurname;
         private DevExpress.XtraGrid.Columns.GridColumn colSalaryPerMonth;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repEmployeeType;
+        private DevExpress.XtraGrid.Columns.GridColumn colEmployeeType;
     }
 }

@@ -57,6 +57,14 @@ namespace Session_11
         }
         private void CreateEmployees()
         {
+            var employee = new Employee()
+            {
+                Name = "Pro",
+                SurName = "Kir",
+                EmployeeType = EmployeeTypeEnum.Staff,
+                SalaryPerMonth = 200
+            };
+            _petShop.Employees.Add(employee);
 
         }
         private void CreatePets()
@@ -97,7 +105,7 @@ namespace Session_11
 
         private void MenuStripEmployee(object sender, EventArgs e)
         {
-            EmployeeForm form = new EmployeeForm();
+            EmployeeListForm form = new EmployeeListForm();
             form.Show();
         }
 
