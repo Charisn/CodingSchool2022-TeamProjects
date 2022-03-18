@@ -28,10 +28,18 @@ namespace Session_11
             PopulatePetFoods();
         }
 
+      
+
+
+
+
+
+
+
         private void PopulatePetFoods()
         {
             string s = File.ReadAllText(FILE_NAME);
-            var petShop = (PetShop)JsonSerializer.Deserialize(s, typeof(PetShop)); //mporei na yparksei thema edw epeidi einai null
+            var petShop = (PetShop)JsonSerializer.Deserialize(s, typeof(PetShop)); 
 
             bsPetShop.DataSource = petShop;
 
@@ -48,6 +56,38 @@ namespace Session_11
             PetFoodForm petFoodForm = new PetFoodForm(petShop);
             petFoodForm.ShowDialog();
             grvPetFoods.RefreshData();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            var petShop = bsPetShop.Current as PetShop;
+            var petfood = bsPetFoods.Current as PetFood;
+
+            PetFoodForm petFoodForm = new PetFoodForm(petShop, petfood);
+            petFoodForm.ShowDialog();
+            grvPetFoods.RefreshData();
+
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            var res = MessageBox.Show(this, "Are you sure you want to delete this pet food?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (res != DialogResult.Yes)
+                return;
+            var petfood = bsPetFoods.Current as PetFood;
+            bsPetFoods.Remove(petfood);
+            SaveData();
+
+        }
+
+        public void SaveData()
+        {
+            var petShop = bsPetShop.Current as PetShop;
+            string json = JsonSerializer.Serialize(petShop);
+            File.WriteAllText(FILE_NAME, json);
+
+
         }
     }
 }

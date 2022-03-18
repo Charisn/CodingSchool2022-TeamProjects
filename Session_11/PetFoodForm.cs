@@ -61,10 +61,13 @@ namespace Session_11
 
         private void SetDataBindings()
         {
-
+            ctrlPrice.DataBindings.Add(new Binding("EditValue", bsPetFoods, "Price", true));
+            ctrlCost.DataBindings.Add(new Binding("EditValue", bsPetFoods, "Cost", true));
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        
+
+        private void btnSave_Click_1(object sender, EventArgs e)
         {
             string json = JsonSerializer.Serialize(_petShop);
             File.WriteAllText(FILE_NAME, json);

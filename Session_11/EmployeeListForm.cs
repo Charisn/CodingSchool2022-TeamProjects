@@ -20,7 +20,7 @@ namespace Session_11
     {
 
         private const string FILE_NAME = "PetShop.json";
-       // private PetShop _petShop;
+       
         public EmployeeListForm()
         {
             InitializeComponent();
@@ -28,7 +28,7 @@ namespace Session_11
 
         private void EmployeeListForm_Load(object sender, EventArgs e)
         {
-            //PopulateControls();
+            PopulateControls();
             PopulateEmployees();
         }
 
@@ -49,31 +49,21 @@ namespace Session_11
 
 
 
-            //Dictionary<GenderEnum, string> genders = new Dictionary<GenderEnum, string>();
-            //genders.Add(GenderEnum.Male, "Male");
-            //genders.Add(GenderEnum.Female, "Female");
-            //genders.Add(GenderEnum.OtherGender, "Other Gender");
-
-            //lookup.DataSource = genders;
-            //lookup.Columns.Add(new LookUpColumnInfo("Value"));
-            //lookup.DisplayMember = "Value";
-            //lookup.ValueMember = "Key";
-            //lookup.ShowHeader = false;
-            //lookup.NullText = null;
+            
 
         }
 
         private void PopulateEmployees()
         {
             string s = File.ReadAllText(FILE_NAME);
-            var petShop = (PetShop)JsonSerializer.Deserialize(s, typeof(PetShop)); //mporei na yparksei thema edw epeidi einai null
-
+            var petShop = (PetShop)JsonSerializer.Deserialize(s, typeof(PetShop));
             bsPetShop.DataSource = petShop;
 
             bsEmployees.DataSource = bsPetShop;
             bsEmployees.DataMember = "Employees";
 
             grdEmployees.DataSource = bsEmployees;
+           
         }
 
         private void btnNew_Click(object sender, EventArgs e)

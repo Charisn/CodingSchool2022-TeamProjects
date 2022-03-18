@@ -63,21 +63,8 @@ namespace Session_11
             employeeTypes.Add(EmployeeTypeEnum.Manager);
 
             ctrlEmployeeType.Properties.DataSource = employeeTypes;
+            ctrlEmployeeType.Properties.NullText = null;
 
-            //public void PopulateGender(RepositoryItemLookUpEdit lookup)
-            //{
-            //    Dictionary<GenderEnum, string> genders = new Dictionary<GenderEnum, string>();
-            //    genders.Add(GenderEnum.Male, "Male");
-            //    genders.Add(GenderEnum.Female, "Female");
-            //    genders.Add(GenderEnum.OtherGender, "Other Gender");
-
-            //    lookup.DataSource = genders;
-            //    lookup.Columns.Add(new LookUpColumnInfo("Value"));
-            //    lookup.DisplayMember = "Value";
-            //    lookup.ValueMember = "Key";
-            //    lookup.ShowHeader = false;
-            //    lookup.NullText = null;
-            //}
         }
 
         private void SetDataBindings()

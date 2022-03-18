@@ -31,12 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.grdPetFoods = new DevExpress.XtraGrid.GridControl();
             this.grvPetFoods = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colPrice = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCost = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnNew = new DevExpress.XtraEditors.SimpleButton();
             this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
-            this.colPrice = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCost = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bsPetShop = new System.Windows.Forms.BindingSource(this.components);
             this.bsPetFoods = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.grdPetFoods)).BeginInit();
@@ -63,6 +63,22 @@
             this.grvPetFoods.GridControl = this.grdPetFoods;
             this.grvPetFoods.Name = "grvPetFoods";
             // 
+            // colPrice
+            // 
+            this.colPrice.Caption = "colPrice";
+            this.colPrice.FieldName = "Price";
+            this.colPrice.Name = "colPrice";
+            this.colPrice.Visible = true;
+            this.colPrice.VisibleIndex = 0;
+            // 
+            // colCost
+            // 
+            this.colCost.Caption = "colCost";
+            this.colCost.FieldName = "Cost";
+            this.colCost.Name = "colCost";
+            this.colCost.Visible = true;
+            this.colCost.VisibleIndex = 1;
+            // 
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(713, 429);
@@ -87,6 +103,7 @@
             this.btnEdit.Size = new System.Drawing.Size(87, 43);
             this.btnEdit.TabIndex = 5;
             this.btnEdit.Text = "Edit..";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
@@ -95,22 +112,7 @@
             this.btnDelete.Size = new System.Drawing.Size(87, 43);
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Delete";
-            // 
-            // colPrice
-            // 
-            this.colPrice.Caption = "colPrice";
-            this.colPrice.FieldName = "Price";
-            this.colPrice.Name = "colPrice";
-            this.colPrice.Visible = true;
-            this.colPrice.VisibleIndex = 0;
-            // 
-            // colCost
-            // 
-            this.colCost.Caption = "colCost";
-            this.colCost.FieldName = "Cost";
-            this.colCost.Name = "colCost";
-            this.colCost.Visible = true;
-            this.colCost.VisibleIndex = 1;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // PetFoodListForm
             // 

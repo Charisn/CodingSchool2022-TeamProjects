@@ -38,6 +38,7 @@
             this.petFoodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editPetFoods = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,80 +51,72 @@
             this.petToolStripMenuItem,
             this.petFoodToolStripMenuItem,
             this.employeeToolStripMenuItem});
-            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.menuStrip2, "menuStrip2");
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1024, 24);
-            this.menuStrip2.TabIndex = 1;
-            this.menuStrip2.Text = "menuStrip2";
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            resources.ApplyResources(this.fileToolStripMenuItem, "fileToolStripMenuItem");
             // 
             // customerToolStripMenuItem
             // 
             this.customerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editToolStripMenuItem1});
             this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
-            this.customerToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.customerToolStripMenuItem.Text = "Customer";
+            resources.ApplyResources(this.customerToolStripMenuItem, "customerToolStripMenuItem");
             this.customerToolStripMenuItem.Click += new System.EventHandler(this.MenuStripCustomer);
             // 
             // editToolStripMenuItem1
             // 
             this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
-            this.editToolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
-            this.editToolStripMenuItem1.Text = "Edit..";
+            resources.ApplyResources(this.editToolStripMenuItem1, "editToolStripMenuItem1");
             // 
             // petToolStripMenuItem
             // 
             this.petToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mamalsToolStripMenuItem});
             this.petToolStripMenuItem.Name = "petToolStripMenuItem";
-            this.petToolStripMenuItem.Size = new System.Drawing.Size(36, 20);
-            this.petToolStripMenuItem.Text = "Pet";
+            resources.ApplyResources(this.petToolStripMenuItem, "petToolStripMenuItem");
             // 
             // mamalsToolStripMenuItem
             // 
             this.mamalsToolStripMenuItem.Name = "mamalsToolStripMenuItem";
-            this.mamalsToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.mamalsToolStripMenuItem.Text = "Pet List";
+            resources.ApplyResources(this.mamalsToolStripMenuItem, "mamalsToolStripMenuItem");
             this.mamalsToolStripMenuItem.Click += new System.EventHandler(this.Menu_PetClick);
             // 
             // petFoodToolStripMenuItem
             // 
+            this.petFoodToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editPetFoods});
             this.petFoodToolStripMenuItem.Name = "petFoodToolStripMenuItem";
-            this.petFoodToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-            this.petFoodToolStripMenuItem.Text = "Pet Food";
+            resources.ApplyResources(this.petFoodToolStripMenuItem, "petFoodToolStripMenuItem");
             // 
             // employeeToolStripMenuItem
             // 
             this.employeeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editToolStripMenuItem});
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.employeeToolStripMenuItem.Text = "Employee";
+            resources.ApplyResources(this.employeeToolStripMenuItem, "employeeToolStripMenuItem");
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.editToolStripMenuItem.Text = "Edit...";
+            resources.ApplyResources(this.editToolStripMenuItem, "editToolStripMenuItem");
             this.editToolStripMenuItem.Click += new System.EventHandler(this.MenuStripEmployee);
+            // 
+            // editPetFoods
+            // 
+            this.editPetFoods.Name = "editPetFoods";
+            resources.ApplyResources(this.editPetFoods, "editPetFoods");
+            this.editPetFoods.Click += new System.EventHandler(this.editPetFoods_Click);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-           // this.BackgroundImage = global::Session_11.Properties.Resources.PetShop_Image;
-            this.ClientSize = new System.Drawing.Size(1024, 570);
             this.Controls.Add(this.menuStrip2);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pet Shop";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
@@ -142,5 +135,6 @@
         private ToolStripMenuItem mamalsToolStripMenuItem;
         private ToolStripMenuItem editToolStripMenuItem;
         private ToolStripMenuItem editToolStripMenuItem1;
+        private ToolStripMenuItem editPetFoods;
     }
 }

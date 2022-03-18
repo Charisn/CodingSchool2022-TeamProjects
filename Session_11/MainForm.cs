@@ -155,5 +155,11 @@ namespace Session_11
             CustomerListForm cList = new CustomerListForm() ;
             cList.Show();
         }
+
+        private void editPetFoods_Click(object sender, EventArgs e)
+        {
+            PetFoodListForm petFoodListForm = new PetFoodListForm() ;
+            petFoodListForm.Show();
+        }
     }
 }

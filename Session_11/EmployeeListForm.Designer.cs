@@ -38,8 +38,8 @@
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSurname = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSalaryPerMonth = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repEmployeeType = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.colEmployeeType = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repEmployeeType = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.bsPetShop = new System.Windows.Forms.BindingSource(this.components);
             this.bsEmployees = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.grdEmployees)).BeginInit();
@@ -111,6 +111,7 @@
             this.colName.Caption = "Name";
             this.colName.FieldName = "Name";
             this.colName.Name = "colName";
+            this.colName.OptionsColumn.AllowEdit = false;
             this.colName.Visible = true;
             this.colName.VisibleIndex = 0;
             // 
@@ -119,6 +120,7 @@
             this.colSurname.Caption = "Surname";
             this.colSurname.FieldName = "SurName";
             this.colSurname.Name = "colSurname";
+            this.colSurname.OptionsColumn.AllowEdit = false;
             this.colSurname.Visible = true;
             this.colSurname.VisibleIndex = 1;
             // 
@@ -127,15 +129,9 @@
             this.colSalaryPerMonth.Caption = "Salary Per Month";
             this.colSalaryPerMonth.FieldName = "SalaryPerMonth";
             this.colSalaryPerMonth.Name = "colSalaryPerMonth";
+            this.colSalaryPerMonth.OptionsColumn.AllowEdit = false;
             this.colSalaryPerMonth.Visible = true;
             this.colSalaryPerMonth.VisibleIndex = 2;
-            // 
-            // repEmployeeType
-            // 
-            this.repEmployeeType.AutoHeight = false;
-            this.repEmployeeType.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repEmployeeType.Name = "repEmployeeType";
             // 
             // colEmployeeType
             // 
@@ -143,8 +139,16 @@
             this.colEmployeeType.ColumnEdit = this.repEmployeeType;
             this.colEmployeeType.FieldName = "EmployeeType";
             this.colEmployeeType.Name = "colEmployeeType";
+            this.colEmployeeType.OptionsColumn.AllowEdit = false;
             this.colEmployeeType.Visible = true;
             this.colEmployeeType.VisibleIndex = 3;
+            // 
+            // repEmployeeType
+            // 
+            this.repEmployeeType.AutoHeight = false;
+            this.repEmployeeType.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repEmployeeType.Name = "repEmployeeType";
             // 
             // EmployeeListForm
             // 
