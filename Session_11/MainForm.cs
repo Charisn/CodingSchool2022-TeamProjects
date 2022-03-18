@@ -137,7 +137,7 @@ namespace Session_11
             managerForm.Show();
         }
 
-        private void BrowseButton_Click(object sender, EventArgs e)
+        private void MainPetButton(object sender, EventArgs e)
         {
 
         }

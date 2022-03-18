@@ -53,8 +53,8 @@ namespace Session_11
 
         private void CancelButtonManager_Click(object sender, EventArgs e)
         {
-            this.Close();
             MessageBox.Show("This window will close now", "Cancel");
+            this.Close();
         }
     }
 }
