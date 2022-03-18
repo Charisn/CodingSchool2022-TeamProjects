@@ -141,5 +141,11 @@ namespace Session_11
         {
 
         }
+        //Apo kato edit vaggeli
+        private void editToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            CustomerListForm cList = new CustomerListForm() ;
+            cList.Show();
+        }
     }
 }

@@ -72,6 +72,7 @@
             // 
             this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
             resources.ApplyResources(this.editToolStripMenuItem1, "editToolStripMenuItem1");
+            this.editToolStripMenuItem1.Click += new System.EventHandler(this.editToolStripMenuItem1_Click);
             // 
             // petToolStripMenuItem
             // 
