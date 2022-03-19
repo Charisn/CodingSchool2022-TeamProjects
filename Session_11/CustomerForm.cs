@@ -5,8 +5,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,25 +16,43 @@ namespace Session_11
 {
     public partial class CustomerForm : DevExpress.XtraEditors.XtraForm
     {
-        private const string FILE_NAME = "storage.json";
-        public List<Customer> _customers;
+        private const string FILE_NAME = "PetShop.json";
+        
+        private Customer _customer;
+        private PetShop _petShop;
+        private PetFood _originalPetFood = new PetFood();
         public CustomerForm()
         {
             InitializeComponent();
+            
+        }
+        public CustomerForm(PetShop petShop)
+        {
+            InitializeComponent();
+            _petShop = petShop;
+        }
+        public CustomerForm(PetShop petShop, Customer customer):this(petShop)
+        {
+            
+            _customer = customer;
         }
 
         private void CustomerForm_Load(object sender, EventArgs e)
         {
-            
-            
-            PetShop _petShop = new PetShop();
-            _petShop.Customers = new List<Customer>();
-            var customer = new Customer();
-            customer.Name = "Vaggelis";
-            _petShop.Customers.Add(customer);
-            bsCustomers.DataSource = _petShop.Customers;
+           
 
-            ctrlName.EditValue = customer.Name;
+
+            if (_customer == null)
+            {
+                _customer = new Customer();
+                _petShop.Customers.Add(_customer);
+                bsCustomers.DataSource = _customer;
+
+
+            }
+
+            bsCustomers.DataSource = _customer;
+
             SetDataBindings();
 
         }
@@ -47,7 +67,9 @@ namespace Session_11
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            Customer s = new Customer();
+            string json = JsonSerializer.Serialize(_customer);
+            File.WriteAllText(FILE_NAME, json);
+            DialogResult = DialogResult.OK;
         }
     }
 }

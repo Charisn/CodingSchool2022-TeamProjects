@@ -32,7 +32,7 @@
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.comboBoxEdit2 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.btnOK = new DevExpress.XtraEditors.SimpleButton();
+            this.btnOKΚ = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.ctrlPrice = new DevExpress.XtraEditors.TextEdit();
             this.ctrlCost = new DevExpress.XtraEditors.TextEdit();
@@ -72,7 +72,7 @@
             // 
             this.layoutControl1.Controls.Add(this.comboBoxEdit2);
             this.layoutControl1.Controls.Add(this.comboBoxEdit1);
-            this.layoutControl1.Controls.Add(this.btnOK);
+            this.layoutControl1.Controls.Add(this.btnOKΚ);
             this.layoutControl1.Controls.Add(this.btnCancel);
             this.layoutControl1.Controls.Add(this.ctrlPrice);
             this.layoutControl1.Controls.Add(this.ctrlCost);
@@ -105,15 +105,15 @@
             this.comboBoxEdit1.StyleController = this.layoutControl1;
             this.comboBoxEdit1.TabIndex = 6;
             // 
-            // btnOK
+            // btnOKΚ
             // 
-            this.btnOK.Location = new System.Drawing.Point(389, 440);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(142, 22);
-            this.btnOK.StyleController = this.layoutControl1;
-            this.btnOK.TabIndex = 4;
-            this.btnOK.Text = "OK";
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            this.btnOKΚ.Location = new System.Drawing.Point(389, 440);
+            this.btnOKΚ.Name = "btnOKΚ";
+            this.btnOKΚ.Size = new System.Drawing.Size(142, 22);
+            this.btnOKΚ.StyleController = this.layoutControl1;
+            this.btnOKΚ.TabIndex = 4;
+            this.btnOKΚ.Text = "OK";
+            this.btnOKΚ.Click += new System.EventHandler(this.btnOKΚ_Click);
             // 
             // btnCancel
             // 
@@ -212,7 +212,7 @@
             // 
             // layoutControlItem5
             // 
-            this.layoutControlItem5.Control = this.btnOK;
+            this.layoutControlItem5.Control = this.btnOKΚ;
             this.layoutControlItem5.Location = new System.Drawing.Point(377, 428);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(146, 26);
@@ -281,7 +281,7 @@
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
-        private DevExpress.XtraEditors.SimpleButton btnOK;
+        private DevExpress.XtraEditors.SimpleButton btnOKΚ;
         private DevExpress.XtraEditors.SimpleButton btnCancel;
         private DevExpress.XtraEditors.TextEdit ctrlPrice;
         private DevExpress.XtraEditors.TextEdit ctrlCost;

@@ -8,9 +8,12 @@ using PetShopLib.Interfaces;
 namespace PetShopLib.Impl
 {
     internal class Transaction : ITransaction
-    { 
+    {
+       private MonthlyLedger _monthlyLedger = new MonthlyLedger();
         public Transaction()
         {
+            
+            _monthlyLedger.Transactions.Add(this);
             
         }
         public DateTime Date { get; set; }
