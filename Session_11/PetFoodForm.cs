@@ -24,6 +24,8 @@ namespace Session_11
         private PetShop _petShop;
         private PetFood _petFood;
 
+        private PetFood _originalPetFood = new PetFood();
+
         public PetFoodForm()
         {
             InitializeComponent();
@@ -64,15 +66,19 @@ namespace Session_11
         private void PopulateAnimalTypes()
         {
 
-            List<AnimalTypeEnum> animalTypes = new List<AnimalTypeEnum>();
-            animalTypes.Add(AnimalTypeEnum.Bird); //list
-            animalTypes.Add(AnimalTypeEnum.Fish);
-            animalTypes.Add(AnimalTypeEnum.Lizard);
-            animalTypes.Add(AnimalTypeEnum.Cat);
-            animalTypes.Add(AnimalTypeEnum.Dog);
+            //List<AnimalTypeEnum> animalTypes = new List<AnimalTypeEnum>();
+            //animalTypes.Add(AnimalTypeEnum.Bird); //list
+            //animalTypes.Add(AnimalTypeEnum.Fish);
+            //animalTypes.Add(AnimalTypeEnum.Lizard);
+            //animalTypes.Add(AnimalTypeEnum.Cat);
+            //animalTypes.Add(AnimalTypeEnum.Dog);
 
-            ctrlAnimalTypes.Properties.DataSource = animalTypes;
+            //ctrlAnimalTypes.Properties.DataSource = animalTypes;
             ctrlAnimalTypes.Properties.NullText = null;
+
+            ctrlAnimalTypes.Properties.DataSource = Enum.GetValues(typeof(AnimalTypeEnum));
+
+            
 
         }
 
@@ -88,6 +94,12 @@ namespace Session_11
             string json = JsonSerializer.Serialize(_petShop);
             File.WriteAllText(FILE_NAME, json);
             DialogResult = DialogResult.OK;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            //this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }

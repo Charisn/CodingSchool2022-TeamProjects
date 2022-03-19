@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.bsPetFoods = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.ctrlAnimalTypes = new DevExpress.XtraEditors.LookUpEdit();
             this.ctrlCost = new DevExpress.XtraEditors.TextEdit();
             this.ctrlPrice = new DevExpress.XtraEditors.TextEdit();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -42,11 +43,11 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.ctrlAnimalTypes = new DevExpress.XtraEditors.LookUpEdit();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.bsPetFoods)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlAnimalTypes.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlCost.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlPrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
@@ -56,7 +57,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ctrlAnimalTypes.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,6 +74,16 @@
             this.layoutControl1.Size = new System.Drawing.Size(647, 475);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // ctrlAnimalTypes
+            // 
+            this.ctrlAnimalTypes.Location = new System.Drawing.Point(82, 60);
+            this.ctrlAnimalTypes.Name = "ctrlAnimalTypes";
+            this.ctrlAnimalTypes.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ctrlAnimalTypes.Size = new System.Drawing.Size(553, 20);
+            this.ctrlAnimalTypes.StyleController = this.layoutControl1;
+            this.ctrlAnimalTypes.TabIndex = 9;
             // 
             // ctrlCost
             // 
@@ -99,6 +109,7 @@
             this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
@@ -177,16 +188,6 @@
             this.layoutControlItem3.Text = "Cost";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(58, 13);
             // 
-            // ctrlAnimalTypes
-            // 
-            this.ctrlAnimalTypes.Location = new System.Drawing.Point(82, 60);
-            this.ctrlAnimalTypes.Name = "ctrlAnimalTypes";
-            this.ctrlAnimalTypes.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.ctrlAnimalTypes.Size = new System.Drawing.Size(553, 20);
-            this.ctrlAnimalTypes.StyleController = this.layoutControl1;
-            this.ctrlAnimalTypes.TabIndex = 9;
-            // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.ctrlAnimalTypes;
@@ -208,6 +209,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bsPetFoods)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlAnimalTypes.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlCost.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlPrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
@@ -217,7 +219,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ctrlAnimalTypes.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             this.ResumeLayout(false);
 

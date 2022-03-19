@@ -22,5 +22,10 @@ namespace PetShopLib.Impl
             
 
         }
+
+        public PetFood ShallowCopy()
+        {
+            return (PetFood)MemberwiseClone();
+        }
     }
 }
