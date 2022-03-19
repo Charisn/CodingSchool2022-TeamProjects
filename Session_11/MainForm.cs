@@ -143,11 +143,6 @@ namespace Session_11
         {
 
         }
-        private void editToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            CustomerListForm cList = new CustomerListForm();
-            cList.Show();
-        }
 
         private void btnOrder_Click(object sender, EventArgs e)
         {

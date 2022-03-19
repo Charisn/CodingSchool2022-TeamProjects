@@ -37,6 +37,7 @@
             this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.petToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuStripPets = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuStripPetList = new System.Windows.Forms.ToolStripMenuItem();
             this.petFoodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editPetFood = new System.Windows.Forms.ToolStripMenuItem();
             this.employeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,7 +46,6 @@
             this.MainButtonExit = new System.Windows.Forms.Button();
             this.btnOrder = new System.Windows.Forms.Button();
             this.StaffMainButton = new System.Windows.Forms.Button();
-            this.MenuStripPetList = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,13 +87,12 @@
             this.editToolStripMenuItem1});
             this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
             resources.ApplyResources(this.customerToolStripMenuItem, "customerToolStripMenuItem");
-            this.customerToolStripMenuItem.Click += new System.EventHandler(this.MenuStripCustomer);
             // 
             // editToolStripMenuItem1
             // 
             this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
             resources.ApplyResources(this.editToolStripMenuItem1, "editToolStripMenuItem1");
-            this.editToolStripMenuItem1.Click += new System.EventHandler(this.editToolStripMenuItem1_Click);
+            this.editToolStripMenuItem1.Click += new System.EventHandler(this.MenuStripCustomer);
             // 
             // petToolStripMenuItem
             // 
@@ -108,6 +107,12 @@
             this.MenuStripPets.Name = "MenuStripPets";
             resources.ApplyResources(this.MenuStripPets, "MenuStripPets");
             this.MenuStripPets.Click += new System.EventHandler(this.Menu_PetClick);
+            // 
+            // MenuStripPetList
+            // 
+            this.MenuStripPetList.Name = "MenuStripPetList";
+            resources.ApplyResources(this.MenuStripPetList, "MenuStripPetList");
+            this.MenuStripPetList.Click += new System.EventHandler(this.MenuStripPetList_Click);
             // 
             // petFoodToolStripMenuItem
             // 
@@ -165,12 +170,6 @@
             resources.ApplyResources(this.StaffMainButton, "StaffMainButton");
             this.StaffMainButton.Name = "StaffMainButton";
             this.StaffMainButton.UseVisualStyleBackColor = false;
-            // 
-            // MenuStripPetList
-            // 
-            this.MenuStripPetList.Name = "MenuStripPetList";
-            resources.ApplyResources(this.MenuStripPetList, "MenuStripPetList");
-            this.MenuStripPetList.Click += new System.EventHandler(this.MenuStripPetList_Click);
             // 
             // MainForm
             // 
