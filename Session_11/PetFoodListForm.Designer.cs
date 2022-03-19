@@ -32,9 +32,9 @@
             this.grdPetFoods = new DevExpress.XtraGrid.GridControl();
             this.grvPetFoods = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colPrice = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repAnimalTypes = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.colCost = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAnimalType = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repAnimalTypes = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnNew = new DevExpress.XtraEditors.SimpleButton();
             this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
@@ -78,13 +78,6 @@
             this.colPrice.Visible = true;
             this.colPrice.VisibleIndex = 0;
             // 
-            // repAnimalTypes
-            // 
-            this.repAnimalTypes.AutoHeight = false;
-            this.repAnimalTypes.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repAnimalTypes.Name = "repAnimalTypes";
-            // 
             // colCost
             // 
             this.colCost.Caption = "colCost";
@@ -102,6 +95,13 @@
             this.colAnimalType.OptionsColumn.AllowEdit = false;
             this.colAnimalType.Visible = true;
             this.colAnimalType.VisibleIndex = 2;
+            // 
+            // repAnimalTypes
+            // 
+            this.repAnimalTypes.AutoHeight = false;
+            this.repAnimalTypes.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repAnimalTypes.Name = "repAnimalTypes";
             // 
             // btnCancel
             // 

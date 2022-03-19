@@ -9,11 +9,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using PetShopLib.Impl;
 
 namespace Session_11
 {
-    public partial class TransactionNewForm : DevExpress.XtraEditors.XtraForm
+    public partial class TransactionNewForm : Form
     {
+        private const string FILE_NAME = "PetShop.json";
+
+        private Pet _pet;
+        private PetFood _petFood;
+
         public TransactionNewForm()
         {
             InitializeComponent();
@@ -21,6 +27,14 @@ namespace Session_11
 
         private void TransactionNewForm_Load(object sender, EventArgs e)
         {
+            PopulateControls();
+
+        }
+        private void PopulateControls()
+        {
+            var helper = new ControlsHelper();
+
+            helper.PopulatePetType(ctrlPet.Properties);
 
         }
 
@@ -28,6 +42,11 @@ namespace Session_11
         {
             CustomerForm linkLabel = new CustomerForm();
             linkLabel.Show();
+        }
+
+        private void SetDataBindings()
+        {
+            BindingSource bsPetfoodQty = new BindingSource();
         }
     }
 }

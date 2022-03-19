@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,7 +47,9 @@
             this.MainButtonExit = new System.Windows.Forms.Button();
             this.btnOrder = new System.Windows.Forms.Button();
             this.StaffMainButton = new System.Windows.Forms.Button();
+            this.bsPetShop = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPetShop)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip2
@@ -188,6 +191,7 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPetShop)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,5 +215,6 @@
         private Button StaffMainButton;
         private ToolStripMenuItem editPetFood;
         private ToolStripMenuItem MenuStripPetList;
+        private BindingSource bsPetShop;
     }
 }

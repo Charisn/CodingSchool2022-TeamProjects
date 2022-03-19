@@ -147,7 +147,7 @@ namespace Session_11
         private void btnOrder_Click(object sender, EventArgs e)
         {
             TransactionNewForm transactionForm = new TransactionNewForm();
-            transactionForm.Show();
+            transactionForm.ShowDialog();
         }
 
         private void MainMenuStripSave(object sender, EventArgs e)
