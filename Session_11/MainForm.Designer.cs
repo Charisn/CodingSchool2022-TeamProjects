@@ -37,7 +37,6 @@
             this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.petToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuStripPets = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuStripPetList = new System.Windows.Forms.ToolStripMenuItem();
             this.petFoodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editPetFood = new System.Windows.Forms.ToolStripMenuItem();
@@ -100,16 +99,9 @@
             // petToolStripMenuItem
             // 
             this.petToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuStripPets,
             this.MenuStripPetList});
             this.petToolStripMenuItem.Name = "petToolStripMenuItem";
             resources.ApplyResources(this.petToolStripMenuItem, "petToolStripMenuItem");
-            // 
-            // MenuStripPets
-            // 
-            this.MenuStripPets.Name = "MenuStripPets";
-            resources.ApplyResources(this.MenuStripPets, "MenuStripPets");
-            this.MenuStripPets.Click += new System.EventHandler(this.Menu_PetClick);
             // 
             // MenuStripPetList
             // 
@@ -204,7 +196,6 @@
         private ToolStripMenuItem petToolStripMenuItem;
         private ToolStripMenuItem petFoodToolStripMenuItem;
         private ToolStripMenuItem employeeToolStripMenuItem;
-        private ToolStripMenuItem MenuStripPets;
         private ToolStripMenuItem editToolStripMenuItem;
         private ToolStripMenuItem editToolStripMenuItem1;
         private Button MainButtonManager;

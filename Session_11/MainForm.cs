@@ -139,11 +139,6 @@ namespace Session_11
             managerForm.ShowDialog();
         }
 
-        private void MainPetButton(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnOrder_Click(object sender, EventArgs e)
         {
             TransactionNewForm transactionForm = new TransactionNewForm();
@@ -168,8 +163,8 @@ namespace Session_11
 
         private void MenuStripPetList_Click(object sender, EventArgs e)
         {
-            PetFormList petFormList = new PetFormList();
-            petFormList.Show();
+            PetFormList petList = new PetFormList();
+            petList.Show();
         }
         private void MainFormClosing(object sencer, FormClosingEventArgs e)
         {

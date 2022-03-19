@@ -26,11 +26,12 @@ namespace Session_11
 
         private void PetFoodListForm_Load(object sender, EventArgs e)
         {
+          //  PopulateControls();
             PopulatePetFoods();
         }
 
 
-        
+      
 
 
 
