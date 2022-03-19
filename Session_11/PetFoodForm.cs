@@ -47,7 +47,6 @@ namespace Session_11
             
             PopulateAnimalTypes();
 
-
             if (_petFood == null)
             {
                 _petFood = new PetFood();
@@ -60,20 +59,20 @@ namespace Session_11
 
             SetDataBindings();
 
+
+
+
+            bsPetFoods.DataSource = _petFood;
+
+           // SetDataBindings();
+
         }
 
 
         private void PopulateAnimalTypes()
         {
 
-            //List<AnimalTypeEnum> animalTypes = new List<AnimalTypeEnum>();
-            //animalTypes.Add(AnimalTypeEnum.Bird); //list
-            //animalTypes.Add(AnimalTypeEnum.Fish);
-            //animalTypes.Add(AnimalTypeEnum.Lizard);
-            //animalTypes.Add(AnimalTypeEnum.Cat);
-            //animalTypes.Add(AnimalTypeEnum.Dog);
-
-            //ctrlAnimalTypes.Properties.DataSource = animalTypes;
+            
             ctrlAnimalTypes.Properties.NullText = null;
 
             ctrlAnimalTypes.Properties.DataSource = Enum.GetValues(typeof(AnimalTypeEnum));
@@ -91,6 +90,9 @@ namespace Session_11
 
         private void btnSave_Click_1(object sender, EventArgs e)
         {
+           
+
+
             string json = JsonSerializer.Serialize(_petShop);
             File.WriteAllText(FILE_NAME, json);
             DialogResult = DialogResult.OK;
