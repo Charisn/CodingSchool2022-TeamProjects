@@ -5,29 +5,55 @@ using PetShopLib.Enums;
 using PetShopLib.Impl;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Session_11
 {
     internal class ControlsHelper
     {
+        private const string FILE_NAME = "PetShop.json";
+        private PetShop _petShop;
+
         public void PopulatePetType(RepositoryItemLookUpEdit lookup)
         {
-            Dictionary<AnimalTypeEnum, string> animalTypes = new Dictionary<AnimalTypeEnum, string>();
-            animalTypes.Add(AnimalTypeEnum.Bird, "Bird");
-            animalTypes.Add(AnimalTypeEnum.Fish, "Fish");
-            animalTypes.Add(AnimalTypeEnum.Lizard, "Lizard");
-            animalTypes.Add(AnimalTypeEnum.Cat, "Cat");
-            animalTypes.Add(AnimalTypeEnum.Dog, "Dog");
+            string s = File.ReadAllText(FILE_NAME);
+            var petShop = (PetShop)JsonSerializer.Deserialize(s, typeof(PetShop));
+            lookup.DataSource = petShop.Pets;
+            lookup.Columns.Add(new LookUpColumnInfo("Breed", "Breed"));
+            lookup.DisplayMember = "Breed";
+            lookup.ValueMember = "Cost";
+            lookup.NullText = "Choose a Pet";
+        }
+        public void PopulateCustomer(RepositoryItemLookUpEdit lookup)
+        {
+            string s = File.ReadAllText(FILE_NAME);
+            var petShop = (PetShop)JsonSerializer.Deserialize(s, typeof(PetShop));
+            lookup.DataSource = petShop.Customers;
+            lookup.Columns.Add(new LookUpColumnInfo("Name", "Name"));
+            lookup.DisplayMember = "Name";
+            lookup.ValueMember = "TIN";
+            lookup.NullText = "Choose a Customer";
+        }
+        public void PopulateEmployee(RepositoryItemLookUpEdit lookup)
+        {
+            string s = File.ReadAllText(FILE_NAME);
+            var petShop = (PetShop)JsonSerializer.Deserialize(s, typeof(PetShop));
+            lookup.DataSource = petShop.Employees;
+            lookup.Columns.Add(new LookUpColumnInfo("Name", "Name"));
+            lookup.DisplayMember = "Name";
+            lookup.ValueMember = "EmployeeType";
+            lookup.NullText = "Choose an Employee";
+        }
 
-            lookup.DataSource = animalTypes;
-            lookup.Columns.Add(new LookUpColumnInfo("Value"));
-            lookup.DisplayMember = "Value";
-            lookup.ValueMember = "Key";
-            lookup.ShowHeader = false;
-            lookup.NullText = null;
+        public void SaveToJson()
+        {
+            string json = JsonSerializer.Serialize(_petShop);
+            File.WriteAllText(FILE_NAME, json);
+            MessageBox.Show("Saved Successefully", "Saved");
         }
     }
 }

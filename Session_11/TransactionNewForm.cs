@@ -16,9 +16,9 @@ namespace Session_11
     public partial class TransactionNewForm : Form
     {
         private const string FILE_NAME = "PetShop.json";
-
+        
         private Pet _pet;
-        private PetFood _petFood;
+        private PetShop _petShop;
 
         public TransactionNewForm()
         {
@@ -35,7 +35,8 @@ namespace Session_11
             var helper = new ControlsHelper();
 
             helper.PopulatePetType(ctrlPet.Properties);
-
+            helper.PopulateCustomer(ctrlCustomer.Properties);
+            helper.PopulateEmployee(ctrlEmployee.Properties);
         }
 
         private void AddNewCustomer(object sender, LinkLabelLinkClickedEventArgs e)
@@ -47,6 +48,18 @@ namespace Session_11
         private void SetDataBindings()
         {
             BindingSource bsPetfoodQty = new BindingSource();
+        }
+
+        private void Calculations()
+        {
+            bsPetShop.DataSource = _petShop;
+            //ctrlPetFoodPrice.Text = _petShop.PetFood
+            //decimal TotalPrice => { ctrlPetFoodPrice.Text + ctrlPetPrice.Text }
+        }
+
+        private void btnSaveNewTrans_Click(object sender, EventArgs e)
+        {
+           // var save = new SaveToJson();
         }
     }
 }

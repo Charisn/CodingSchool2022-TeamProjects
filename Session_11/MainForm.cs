@@ -27,12 +27,11 @@ namespace Session_11
 
         private void LoadData()
         {
-            if (File.Exists(FILE_NAME))
+            if (File.Exists(FILE_NAME) && FILE_NAME != null)
             {
                 string s = File.ReadAllText(FILE_NAME);
                 _petShop = (PetShop)JsonSerializer.Deserialize(s, typeof(PetShop));
 
-                DelayAction();
             }
             else
             {
@@ -65,7 +64,13 @@ namespace Session_11
         }
         private void CreateEmployees()
         {
-
+            var employee = new Employee()
+            {
+                Name = "Charis",
+                SurName = "ADD NAME",
+                EmployeeType = EmployeeTypeEnum.Staff,
+                SalaryPerMonth = 0
+            };
         }
         private void CreatePets()
         {
@@ -86,6 +91,10 @@ namespace Session_11
                 Price = 150,
                 Cost = 50
             };
+
+            string json = JsonSerializer.Serialize(petfoods);
+
+            File.WriteAllText(FILE_NAME, json);
         }
 
         private void SaveData()

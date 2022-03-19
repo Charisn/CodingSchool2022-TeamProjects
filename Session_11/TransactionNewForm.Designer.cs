@@ -42,22 +42,25 @@
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblPetFoodPrice = new System.Windows.Forms.Label();
             this.ctrlPetFoodPrice = new DevExpress.XtraEditors.SpinEdit();
-            this.txtTotalPrice = new DevExpress.XtraEditors.TextEdit();
             this.CustomerForm = new System.Windows.Forms.LinkLabel();
-            this.bsPetshop = new System.Windows.Forms.BindingSource(this.components);
+            this.bsPet = new System.Windows.Forms.BindingSource(this.components);
+            this.bsPetShop = new System.Windows.Forms.BindingSource(this.components);
+            this.ctrlTotalPrice = new System.Windows.Forms.TextBox();
+            this.btnSaveNewTrans = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCancelNewTrans = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlCustomer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlEmployee.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlPet.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlPetPrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlPetFoodQty.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlPetFoodPrice.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTotalPrice.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsPetshop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPetShop)).BeginInit();
             this.SuspendLayout();
             // 
             // ctrlCustomer
             // 
-            this.ctrlCustomer.Location = new System.Drawing.Point(327, 37);
+            this.ctrlCustomer.Location = new System.Drawing.Point(343, 38);
             this.ctrlCustomer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ctrlCustomer.Name = "ctrlCustomer";
             this.ctrlCustomer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -68,7 +71,7 @@
             // lblCustomer
             // 
             this.lblCustomer.AutoSize = true;
-            this.lblCustomer.Location = new System.Drawing.Point(258, 40);
+            this.lblCustomer.Location = new System.Drawing.Point(274, 41);
             this.lblCustomer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCustomer.Name = "lblCustomer";
             this.lblCustomer.Size = new System.Drawing.Size(59, 15);
@@ -78,7 +81,7 @@
             // lblEmployee
             // 
             this.lblEmployee.AutoSize = true;
-            this.lblEmployee.Location = new System.Drawing.Point(258, 70);
+            this.lblEmployee.Location = new System.Drawing.Point(274, 71);
             this.lblEmployee.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmployee.Name = "lblEmployee";
             this.lblEmployee.Size = new System.Drawing.Size(59, 15);
@@ -87,7 +90,7 @@
             // 
             // ctrlEmployee
             // 
-            this.ctrlEmployee.Location = new System.Drawing.Point(327, 67);
+            this.ctrlEmployee.Location = new System.Drawing.Point(343, 68);
             this.ctrlEmployee.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ctrlEmployee.Name = "ctrlEmployee";
             this.ctrlEmployee.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -98,7 +101,7 @@
             // lblPetID
             // 
             this.lblPetID.AutoSize = true;
-            this.lblPetID.Location = new System.Drawing.Point(293, 100);
+            this.lblPetID.Location = new System.Drawing.Point(309, 101);
             this.lblPetID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPetID.Name = "lblPetID";
             this.lblPetID.Size = new System.Drawing.Size(24, 15);
@@ -107,7 +110,7 @@
             // 
             // ctrlPet
             // 
-            this.ctrlPet.Location = new System.Drawing.Point(327, 97);
+            this.ctrlPet.Location = new System.Drawing.Point(343, 98);
             this.ctrlPet.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ctrlPet.Name = "ctrlPet";
             this.ctrlPet.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -118,7 +121,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(34, 40);
+            this.label4.Location = new System.Drawing.Point(28, 19);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 15);
@@ -133,7 +136,7 @@
             0,
             0,
             0});
-            this.ctrlPetPrice.Location = new System.Drawing.Point(124, 97);
+            this.ctrlPetPrice.Location = new System.Drawing.Point(118, 76);
             this.ctrlPetPrice.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ctrlPetPrice.Name = "ctrlPetPrice";
             this.ctrlPetPrice.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -148,7 +151,7 @@
             0,
             0,
             0});
-            this.ctrlPetFoodQty.Location = new System.Drawing.Point(124, 37);
+            this.ctrlPetFoodQty.Location = new System.Drawing.Point(118, 16);
             this.ctrlPetFoodQty.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ctrlPetFoodQty.Name = "ctrlPetFoodQty";
             this.ctrlPetFoodQty.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -160,7 +163,7 @@
             // PetPrice
             // 
             this.PetPrice.AutoSize = true;
-            this.PetPrice.Location = new System.Drawing.Point(59, 100);
+            this.PetPrice.Location = new System.Drawing.Point(53, 79);
             this.PetPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PetPrice.Name = "PetPrice";
             this.PetPrice.Size = new System.Drawing.Size(53, 15);
@@ -171,17 +174,17 @@
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTotal.Location = new System.Drawing.Point(241, 125);
+            this.lblTotal.Location = new System.Drawing.Point(118, 101);
             this.lblTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(41, 18);
+            this.lblTotal.Size = new System.Drawing.Size(76, 18);
             this.lblTotal.TabIndex = 13;
-            this.lblTotal.Text = "Total";
+            this.lblTotal.Text = "Total Price";
             // 
             // lblPetFoodPrice
             // 
             this.lblPetFoodPrice.AutoSize = true;
-            this.lblPetFoodPrice.Location = new System.Drawing.Point(34, 70);
+            this.lblPetFoodPrice.Location = new System.Drawing.Point(28, 49);
             this.lblPetFoodPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPetFoodPrice.Name = "lblPetFoodPrice";
             this.lblPetFoodPrice.Size = new System.Drawing.Size(83, 15);
@@ -195,7 +198,7 @@
             0,
             0,
             0});
-            this.ctrlPetFoodPrice.Location = new System.Drawing.Point(124, 67);
+            this.ctrlPetFoodPrice.Location = new System.Drawing.Point(118, 46);
             this.ctrlPetFoodPrice.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ctrlPetFoodPrice.Name = "ctrlPetFoodPrice";
             this.ctrlPetFoodPrice.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -203,18 +206,10 @@
             this.ctrlPetFoodPrice.Size = new System.Drawing.Size(117, 20);
             this.ctrlPetFoodPrice.TabIndex = 14;
             // 
-            // txtTotalPrice
-            // 
-            this.txtTotalPrice.Location = new System.Drawing.Point(210, 149);
-            this.txtTotalPrice.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtTotalPrice.Name = "txtTotalPrice";
-            this.txtTotalPrice.Size = new System.Drawing.Size(117, 20);
-            this.txtTotalPrice.TabIndex = 16;
-            // 
             // CustomerForm
             // 
             this.CustomerForm.AutoSize = true;
-            this.CustomerForm.Location = new System.Drawing.Point(327, 18);
+            this.CustomerForm.Location = new System.Drawing.Point(343, 19);
             this.CustomerForm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CustomerForm.Name = "CustomerForm";
             this.CustomerForm.Size = new System.Drawing.Size(143, 15);
@@ -223,13 +218,41 @@
             this.CustomerForm.Text = "Can\'t Find The Customer?";
             this.CustomerForm.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.AddNewCustomer);
             // 
+            // ctrlTotalPrice
+            // 
+            this.ctrlTotalPrice.Location = new System.Drawing.Point(102, 122);
+            this.ctrlTotalPrice.Name = "ctrlTotalPrice";
+            this.ctrlTotalPrice.ReadOnly = true;
+            this.ctrlTotalPrice.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ctrlTotalPrice.Size = new System.Drawing.Size(117, 23);
+            this.ctrlTotalPrice.TabIndex = 18;
+            // 
+            // btnSaveNewTrans
+            // 
+            this.btnSaveNewTrans.Location = new System.Drawing.Point(309, 124);
+            this.btnSaveNewTrans.Name = "btnSaveNewTrans";
+            this.btnSaveNewTrans.Size = new System.Drawing.Size(92, 41);
+            this.btnSaveNewTrans.TabIndex = 19;
+            this.btnSaveNewTrans.Text = "Save";
+            this.btnSaveNewTrans.Click += new System.EventHandler(this.btnSaveNewTrans_Click);
+            // 
+            // btnCancelNewTrans
+            // 
+            this.btnCancelNewTrans.Location = new System.Drawing.Point(420, 124);
+            this.btnCancelNewTrans.Name = "btnCancelNewTrans";
+            this.btnCancelNewTrans.Size = new System.Drawing.Size(92, 41);
+            this.btnCancelNewTrans.TabIndex = 20;
+            this.btnCancelNewTrans.Text = "Exit";
+            // 
             // TransactionNewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(525, 185);
+            this.ClientSize = new System.Drawing.Size(544, 174);
+            this.Controls.Add(this.btnCancelNewTrans);
+            this.Controls.Add(this.btnSaveNewTrans);
+            this.Controls.Add(this.ctrlTotalPrice);
             this.Controls.Add(this.CustomerForm);
-            this.Controls.Add(this.txtTotalPrice);
             this.Controls.Add(this.lblPetFoodPrice);
             this.Controls.Add(this.ctrlPetFoodPrice);
             this.Controls.Add(this.lblTotal);
@@ -243,8 +266,12 @@
             this.Controls.Add(this.ctrlEmployee);
             this.Controls.Add(this.lblCustomer);
             this.Controls.Add(this.ctrlCustomer);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TransactionNewForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Transaction";
             this.Load += new System.EventHandler(this.TransactionNewForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ctrlCustomer.Properties)).EndInit();
@@ -253,8 +280,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ctrlPetPrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlPetFoodQty.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlPetFoodPrice.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTotalPrice.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsPetshop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPetShop)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,8 +302,11 @@
         private Label lblTotal;
         private Label lblPetFoodPrice;
         private DevExpress.XtraEditors.SpinEdit ctrlPetFoodPrice;
-        private DevExpress.XtraEditors.TextEdit txtTotalPrice;
         private LinkLabel CustomerForm;
-        private BindingSource bsPetshop;
+        private BindingSource bsPet;
+        private BindingSource bsPetShop;
+        private TextBox ctrlTotalPrice;
+        private DevExpress.XtraEditors.SimpleButton btnSaveNewTrans;
+        private DevExpress.XtraEditors.SimpleButton btnCancelNewTrans;
     }
 }
