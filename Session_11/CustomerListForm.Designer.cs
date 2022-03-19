@@ -47,6 +47,8 @@
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.bsPetShop = new System.Windows.Forms.BindingSource(this.components);
             this.bsCustomers = new System.Windows.Forms.BindingSource(this.components);
+            this.btnClose = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCustomers)).BeginInit();
@@ -59,10 +61,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPetShop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCustomers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.btnClose);
             this.layoutControl1.Controls.Add(this.btnEdit);
             this.layoutControl1.Controls.Add(this.btnNew);
             this.layoutControl1.Controls.Add(this.btnDelete);
@@ -78,9 +82,9 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(417, 397);
+            this.btnEdit.Location = new System.Drawing.Point(320, 397);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(138, 22);
+            this.btnEdit.Size = new System.Drawing.Size(105, 22);
             this.btnEdit.StyleController = this.layoutControl1;
             this.btnEdit.TabIndex = 7;
             this.btnEdit.Text = "Edit...";
@@ -88,9 +92,9 @@
             // 
             // btnNew
             // 
-            this.btnNew.Location = new System.Drawing.Point(559, 397);
+            this.btnNew.Location = new System.Drawing.Point(429, 397);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(112, 22);
+            this.btnNew.Size = new System.Drawing.Size(114, 22);
             this.btnNew.StyleController = this.layoutControl1;
             this.btnNew.TabIndex = 6;
             this.btnNew.Text = "New Customer...";
@@ -98,9 +102,9 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(675, 397);
+            this.btnDelete.Location = new System.Drawing.Point(547, 397);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(112, 22);
+            this.btnDelete.Size = new System.Drawing.Size(119, 22);
             this.btnDelete.StyleController = this.layoutControl1;
             this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "Delete Customer";
@@ -169,7 +173,8 @@
             this.layoutControlItem2,
             this.layoutControlItem3,
             this.emptySpaceItem1,
-            this.layoutControlItem4});
+            this.layoutControlItem4,
+            this.layoutControlItem5});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(799, 431);
             this.Root.TextVisible = false;
@@ -186,18 +191,18 @@
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnDelete;
-            this.layoutControlItem2.Location = new System.Drawing.Point(663, 385);
+            this.layoutControlItem2.Location = new System.Drawing.Point(535, 385);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(116, 26);
+            this.layoutControlItem2.Size = new System.Drawing.Size(123, 26);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnNew;
-            this.layoutControlItem3.Location = new System.Drawing.Point(547, 385);
+            this.layoutControlItem3.Location = new System.Drawing.Point(417, 385);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(116, 26);
+            this.layoutControlItem3.Size = new System.Drawing.Size(118, 26);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
@@ -206,17 +211,36 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 385);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(405, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(308, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.btnEdit;
-            this.layoutControlItem4.Location = new System.Drawing.Point(405, 385);
+            this.layoutControlItem4.Location = new System.Drawing.Point(308, 385);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(142, 26);
+            this.layoutControlItem4.Size = new System.Drawing.Size(109, 26);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(670, 397);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(117, 22);
+            this.btnClose.StyleController = this.layoutControl1;
+            this.btnClose.TabIndex = 8;
+            this.btnClose.Text = "Close";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.btnClose;
+            this.layoutControlItem5.Location = new System.Drawing.Point(658, 385);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(121, 26);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
             // 
             // CustomerListForm
             // 
@@ -239,6 +263,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPetShop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCustomers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -263,5 +288,7 @@
         private BindingSource bsCustomers;
         private DevExpress.XtraEditors.SimpleButton btnEdit;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private DevExpress.XtraEditors.SimpleButton btnClose;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
     }
 }

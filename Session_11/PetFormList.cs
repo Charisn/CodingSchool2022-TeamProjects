@@ -116,5 +116,10 @@ namespace Session_11
             bsPets.Remove(pet);
             SaveData();
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
