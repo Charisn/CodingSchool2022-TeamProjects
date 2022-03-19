@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace PetShopLib.Impl
 {
+    [Serializable]
     public class PetShop
     {
         public List<Customer> Customers { get; set; }
