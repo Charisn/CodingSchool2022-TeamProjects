@@ -86,5 +86,10 @@ namespace Session_11
 
 
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -7,7 +7,7 @@ using PetShopLib.Interfaces;
 
 namespace PetShopLib.Impl
 {
-    internal class Transaction : ITransaction
+    public class Transaction : ITransaction
     {
        private MonthlyLedger _monthlyLedger = new MonthlyLedger();
         public Transaction()

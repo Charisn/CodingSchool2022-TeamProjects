@@ -88,6 +88,7 @@
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnDelete
             // 
@@ -145,6 +146,7 @@
             this.colBreed.Caption = "Breed";
             this.colBreed.FieldName = "Breed";
             this.colBreed.Name = "colBreed";
+            this.colBreed.OptionsColumn.AllowEdit = false;
             this.colBreed.Visible = true;
             this.colBreed.VisibleIndex = 0;
             // 
@@ -153,6 +155,7 @@
             this.colAnimalType.Caption = "AnimalType";
             this.colAnimalType.FieldName = "AnimalType";
             this.colAnimalType.Name = "colAnimalType";
+            this.colAnimalType.OptionsColumn.AllowEdit = false;
             this.colAnimalType.Visible = true;
             this.colAnimalType.VisibleIndex = 1;
             // 
@@ -161,6 +164,7 @@
             this.colPetStatus.Caption = "PetStatus";
             this.colPetStatus.FieldName = "PetStatus";
             this.colPetStatus.Name = "colPetStatus";
+            this.colPetStatus.OptionsColumn.AllowEdit = false;
             this.colPetStatus.Visible = true;
             this.colPetStatus.VisibleIndex = 2;
             // 
@@ -171,6 +175,7 @@
             this.colPrice.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colPrice.FieldName = "Price";
             this.colPrice.Name = "colPrice";
+            this.colPrice.OptionsColumn.AllowEdit = false;
             this.colPrice.Visible = true;
             this.colPrice.VisibleIndex = 3;
             // 
@@ -181,6 +186,7 @@
             this.colCost.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colCost.FieldName = "Cost";
             this.colCost.Name = "colCost";
+            this.colCost.OptionsColumn.AllowEdit = false;
             this.colCost.Visible = true;
             this.colCost.VisibleIndex = 4;
             // 

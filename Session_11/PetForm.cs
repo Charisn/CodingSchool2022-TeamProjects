@@ -76,6 +76,11 @@ namespace Session_11
             File.WriteAllText(FILE_NAME, json);
             DialogResult = DialogResult.OK;
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
         
 

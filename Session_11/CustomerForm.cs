@@ -18,9 +18,10 @@ namespace Session_11
     {
         private const string FILE_NAME = "PetShop.json";
         
-        private Customer _customer;
+        
         private PetShop _petShop;
-        private PetFood _originalPetFood = new PetFood();
+        private Customer _customer;
+        private Customer _originalcustomer = new Customer();
         public CustomerForm()
         {
             InitializeComponent();
@@ -67,9 +68,19 @@ namespace Session_11
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            string json = JsonSerializer.Serialize(_customer);
+            string json = JsonSerializer.Serialize(_petShop);
             File.WriteAllText(FILE_NAME, json);
             DialogResult = DialogResult.OK;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ctrlFullname_EditValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
