@@ -26,35 +26,11 @@ namespace Session_11
 
         private void PetFoodListForm_Load(object sender, EventArgs e)
         {
-            PopulateControls();
             PopulatePetFoods();
         }
 
 
-        private void PopulateControls()
-        {
-
-            Dictionary<AnimalTypeEnum, string> animalTypes = new Dictionary<AnimalTypeEnum, string>();
-            animalTypes.Add(AnimalTypeEnum.Bird, "Bird");
-            animalTypes.Add(AnimalTypeEnum.Fish, "Fish");
-            animalTypes.Add(AnimalTypeEnum.Lizard, "Lizard");
-            animalTypes.Add(AnimalTypeEnum.Cat, "Cat");
-            animalTypes.Add(AnimalTypeEnum.Dog, "Dog");
-
-
-
-            repAnimalTypes.DataSource = animalTypes;
-            repAnimalTypes.Columns.Add(new LookUpColumnInfo("Value"));
-            repAnimalTypes.DisplayMember = "Value";
-            repAnimalTypes.ValueMember = "Key";
-            repAnimalTypes.ShowHeader = false;
-            repAnimalTypes.NullText = null;
-
-
-
-
-
-        }
+        
 
 
 
