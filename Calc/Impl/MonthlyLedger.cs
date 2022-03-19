@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PetShopLib.Impl
 {
-    internal class MonthlyLedger : IMonthlyLedger
+    public class MonthlyLedger : IMonthlyLedger
     {
         private const short RENTING_COST = 2000;
         private const string FILE_NAME = "PetShop.json";
@@ -42,21 +42,34 @@ namespace PetShopLib.Impl
             decimal total_cost = 0;
             foreach (var item in Transactions)
             {
-                total_cost += item.TotalPrice;
+                Income += item.TotalPrice;
             }
 
-            return total_cost;
+            return Income;
         }
 
         public decimal CalculateExpenses()
         {
-           decimal Expenses = RENTING_COST + CalculatePetCost() +CalculatePetFoodCost() + CalculateSalaries() ;
+            Expenses = RENTING_COST + CalculatePetCost() +CalculatePetFoodCost() + CalculateSalaries() ;
             return Expenses;
         }
 
-        public void CalculateTotal()
+        public decimal CalculateTotal()
         {
-            decimal balance = CalculateIncome() - CalculateExpenses() ;
+             Total = CalculateIncome() - CalculateExpenses() ;
+            return Total;
+        }
+
+        public decimal CalculateSalaries()
+        {
+            decimal total_SalaryCost = 0;
+            foreach (var item in _petShop.Employees)
+            {
+                total_SalaryCost += item.SalaryPerMonth;
+
+            }
+
+            return total_SalaryCost;
         }
 
         public decimal CalculatePetCost()
@@ -83,17 +96,7 @@ namespace PetShopLib.Impl
             return total_petFoodCost;
         }
 
-        public decimal CalculateSalaries()
-        {
-            decimal total_SalaryCost = 0;
-            foreach (var item in _petShop.Employees)
-            {
-                total_SalaryCost += item.SalaryPerMonth;
-
-            }
-
-            return total_SalaryCost;
-        }
+       
 
      
 
