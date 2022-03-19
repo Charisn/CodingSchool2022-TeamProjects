@@ -117,6 +117,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.ctrlPet.Size = new System.Drawing.Size(169, 20);
             this.ctrlPet.TabIndex = 4;
+            this.ctrlPet.EditValueChanged += new System.EventHandler(this.ctrlPet_EditValueChanged);
             // 
             // label4
             // 
@@ -243,6 +244,7 @@
             this.btnCancelNewTrans.Size = new System.Drawing.Size(92, 41);
             this.btnCancelNewTrans.TabIndex = 20;
             this.btnCancelNewTrans.Text = "Exit";
+            this.btnCancelNewTrans.Click += new System.EventHandler(this.btnCancelNewTrans_Click);
             // 
             // TransactionNewForm
             // 

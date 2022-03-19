@@ -25,7 +25,7 @@ namespace Session_11
             lookup.DataSource = petShop.Pets;
             lookup.Columns.Add(new LookUpColumnInfo("Breed", "Breed"));
             lookup.DisplayMember = "Breed";
-            lookup.ValueMember = "Cost";
+            lookup.ValueMember = "ID";
             lookup.NullText = "Choose a Pet";
         }
         public void PopulateCustomer(RepositoryItemLookUpEdit lookup)
