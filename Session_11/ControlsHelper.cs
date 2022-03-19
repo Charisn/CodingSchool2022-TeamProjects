@@ -31,7 +31,6 @@ using System.Threading.Tasks;
 //            genders.Add(AnimalTypeEnum.Male, "Male");
 //            genders.Add(AnimalTypeEnum.Female, "Female");
 //            genders.Add(AnimalTypeEnum.OtherGender, "Other Gender");
-
 //            lookup.DataSource = genders;
 //            lookup.Columns.Add(new LookUpColumnInfo("Value"));
 //            lookup.DisplayMember = "Value";
@@ -39,6 +38,5 @@ using System.Threading.Tasks;
 //            lookup.ShowHeader = false;
 //            lookup.NullText = null;
 //        }
-
 //    }
 //}

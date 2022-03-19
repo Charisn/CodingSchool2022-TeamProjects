@@ -21,8 +21,8 @@ namespace Session_11
 
         private void Menu_PetClick(object sender, EventArgs e)
         {
-            PetListForm petForm = new PetListForm();
-            petForm.Show();
+            //PetListForm petForm = new PetListForm();
+            //petForm.Show();
         }
 
         private void LoadData()
@@ -146,7 +146,7 @@ namespace Session_11
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
-            TransactionsForm transactionForm = new TransactionsForm();
+            TransactionNewForm transactionForm = new TransactionNewForm();
             transactionForm.Show();
         }
 

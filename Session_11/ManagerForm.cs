@@ -22,7 +22,7 @@ namespace Session_11
         {
            if ( RadioTransactionHistory.Checked == true )
             {
-                TransactionsForm form = new TransactionsForm();
+                TransactionListForm form = new TransactionListForm();
                 form.ShowDialog();
             }
            else if (RadioMonthlyLedger.Checked == true )
