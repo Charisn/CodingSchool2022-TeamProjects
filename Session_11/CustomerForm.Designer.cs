@@ -84,6 +84,7 @@
             // 
             this.ctrlTIN.Location = new System.Drawing.Point(66, 84);
             this.ctrlTIN.Name = "ctrlTIN";
+            this.ctrlTIN.Properties.MaxLength = 9;
             this.ctrlTIN.Size = new System.Drawing.Size(448, 20);
             this.ctrlTIN.StyleController = this.layoutControl1;
             this.ctrlTIN.TabIndex = 11;
@@ -92,6 +93,7 @@
             // 
             this.ctrlPhone.Location = new System.Drawing.Point(66, 60);
             this.ctrlPhone.Name = "ctrlPhone";
+            this.ctrlPhone.Properties.MaxLength = 10;
             this.ctrlPhone.Size = new System.Drawing.Size(448, 20);
             this.ctrlPhone.StyleController = this.layoutControl1;
             this.ctrlPhone.TabIndex = 10;

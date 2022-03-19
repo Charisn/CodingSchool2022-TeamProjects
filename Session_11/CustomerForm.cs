@@ -77,5 +77,10 @@ namespace Session_11
         {
             this.Close();
         }
+
+        private void ctrlFullname_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

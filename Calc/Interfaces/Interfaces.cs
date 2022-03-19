@@ -29,7 +29,7 @@ namespace PetShopLib.Interfaces
 
     internal interface ICustomer : IPerson
     {
-        int Phone { get; set; }
+        long Phone { get; set; }
 
         int TIN { get; set; }
     }

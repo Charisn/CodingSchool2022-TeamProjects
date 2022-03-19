@@ -30,6 +30,7 @@
 		{
             this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
             this.btnNew = new DevExpress.XtraEditors.SimpleButton();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
@@ -45,10 +46,9 @@
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.bsPetShop = new System.Windows.Forms.BindingSource(this.components);
             this.bsCustomers = new System.Windows.Forms.BindingSource(this.components);
-            this.btnClose = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCustomers)).BeginInit();
@@ -59,9 +59,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPetShop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCustomers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -79,6 +79,16 @@
             this.layoutControl1.Size = new System.Drawing.Size(799, 431);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(670, 397);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(117, 22);
+            this.btnClose.StyleController = this.layoutControl1;
+            this.btnClose.TabIndex = 8;
+            this.btnClose.Text = "Close";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnEdit
             // 
@@ -137,6 +147,7 @@
             this.colName.Caption = "Name";
             this.colName.FieldName = "Name";
             this.colName.Name = "colName";
+            this.colName.OptionsColumn.AllowEdit = false;
             this.colName.Visible = true;
             this.colName.VisibleIndex = 0;
             // 
@@ -145,6 +156,7 @@
             this.colSurName.Caption = "SurName";
             this.colSurName.FieldName = "SurName";
             this.colSurName.Name = "colSurName";
+            this.colSurName.OptionsColumn.AllowEdit = false;
             this.colSurName.Visible = true;
             this.colSurName.VisibleIndex = 1;
             // 
@@ -153,6 +165,7 @@
             this.colPhone.Caption = "Phone";
             this.colPhone.FieldName = "Phone";
             this.colPhone.Name = "colPhone";
+            this.colPhone.OptionsColumn.AllowEdit = false;
             this.colPhone.Visible = true;
             this.colPhone.VisibleIndex = 2;
             // 
@@ -161,6 +174,7 @@
             this.colTIN.Caption = "TIN";
             this.colTIN.FieldName = "TIN";
             this.colTIN.Name = "colTIN";
+            this.colTIN.OptionsColumn.AllowEdit = false;
             this.colTIN.Visible = true;
             this.colTIN.VisibleIndex = 3;
             // 
@@ -223,16 +237,6 @@
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(670, 397);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(117, 22);
-            this.btnClose.StyleController = this.layoutControl1;
-            this.btnClose.TabIndex = 8;
-            this.btnClose.Text = "Close";
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btnClose;
@@ -261,9 +265,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPetShop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCustomers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             this.ResumeLayout(false);
 
 		}

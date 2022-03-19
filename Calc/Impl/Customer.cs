@@ -9,7 +9,7 @@ namespace PetShopLib.Impl
 {
     public class Customer : ICustomer
     {
-        public int Phone { get ; set; }
+        public long Phone { get ; set; }
         public int TIN { get; set; }
         public string Name { get; set; }
         public string SurName { get; set; }
