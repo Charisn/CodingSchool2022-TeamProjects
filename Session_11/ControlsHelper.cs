@@ -9,36 +9,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//namespace Session_10
-//{
-//    internal class ControlsHelper
-//    {
-//        public void PopulatePetType(RepositoryItemLookUpEdit lookup)
-//        {
-//            var animalType = new List<AnimalType>();
-//            animalType.Add(new AnimalType() { Code = "000001", Name = "Under-Graduate" , ID = "59A21C37-3FCA-4B40-AB75-22E662942044" });
-//            animalType.Add(new AnimalType() { Code = "000002", Name = "Post-Graduate", ID = "99447DAD-3845-4DF7-8A8F-8C9F8ABCF843" });
-//            lookup.DataSource = animalType;
-//            lookup.Columns.Add(new LookUpColumnInfo("Code", "Code"));
-//            lookup.Columns.Add(new LookUpColumnInfo("Name", "Name"));
-//            lookup.DisplayMember = "Name";
-//            lookup.ValueMember = "ID";
-//        }
+namespace Session_11
+{
+    internal class ControlsHelper
+    {
+        public void PopulatePetType(RepositoryItemLookUpEdit lookup)
+        {
+            Dictionary<AnimalTypeEnum, string> animalTypes = new Dictionary<AnimalTypeEnum, string>();
+            animalTypes.Add(AnimalTypeEnum.Bird, "Bird");
+            animalTypes.Add(AnimalTypeEnum.Fish, "Fish");
+            animalTypes.Add(AnimalTypeEnum.Lizard, "Lizard");
+            animalTypes.Add(AnimalTypeEnum.Cat, "Cat");
+            animalTypes.Add(AnimalTypeEnum.Dog, "Dog");
 
-//        public void PopulateGender(RepositoryItemLookUpEdit lookup)
-//        {
-//            Dictionary<AnimalTypeEnum, string> genders = new Dictionary<AnimalTypeEnum, string>();
-//            genders.Add(AnimalTypeEnum.Male, "Male");
-//            genders.Add(AnimalTypeEnum.Female, "Female");
-//            genders.Add(AnimalTypeEnum.OtherGender, "Other Gender");
-
-//            lookup.DataSource = genders;
-//            lookup.Columns.Add(new LookUpColumnInfo("Value"));
-//            lookup.DisplayMember = "Value";
-//            lookup.ValueMember = "Key";
-//            lookup.ShowHeader = false;
-//            lookup.NullText = null;
-//        }
-
-//    }
-//}
+            lookup.DataSource = animalTypes;
+            lookup.Columns.Add(new LookUpColumnInfo("Value"));
+            lookup.DisplayMember = "Value";
+            lookup.ValueMember = "Key";
+            lookup.ShowHeader = false;
+            lookup.NullText = null;
+        }
+    }
+}
