@@ -91,14 +91,8 @@
   <data name="customerToolStripMenuItem.Text" xml:space="preserve">
     <value>Customer</value>
   </data>
-  <data name="MenuStripPets.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 22</value>
-  </data>
-  <data name="MenuStripPets.Text" xml:space="preserve">
-    <value>Pets</value>
-  </data>
   <data name="MenuStripPetList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="MenuStripPetList.Text" xml:space="preserve">
     <value>Pet List</value>
@@ -3135,12 +3129,6 @@
     <value>petToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;petToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MenuStripPets.Name" xml:space="preserve">
-    <value>MenuStripPets</value>
-  </data>
-  <data name="&gt;&gt;MenuStripPets.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;MenuStripPetList.Name" xml:space="preserve">
