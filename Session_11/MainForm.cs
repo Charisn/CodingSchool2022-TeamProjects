@@ -21,8 +21,8 @@ namespace Session_11
 
         private void Menu_PetClick(object sender, EventArgs e)
         {
-            PetForm petForm = new PetForm();
-            petForm.ShowDialog();
+            PetListForm petForm = new PetListForm();
+            petForm.Show();
         }
 
         private void LoadData()
@@ -111,8 +111,8 @@ namespace Session_11
 
         private void MenuStripCustomer(object sender, EventArgs e)
         {
-            CustomerForm form = new CustomerForm();
-            form = new CustomerForm();
+            CustomerListForm form = new CustomerListForm();
+            form.Show();
         }
 
         private void MainButtonExit_Click(object sender, EventArgs e)

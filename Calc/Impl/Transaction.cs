@@ -24,10 +24,12 @@ namespace PetShopLib.Impl
         public decimal TotalPrice { get; set; }
         public Guid ID { get; set; }
 
-        private void CalcTotalPrice()
+        private void CalcTotalPrice(Transaction totalPrice)
         {
             PetFoodPrice *= PetFoodQty;
             TotalPrice += PetPrice;
+            totalPrice.TotalPrice = TotalPrice;
+            //trans.TotalPrice = (x => x.TotalPrice);
         }
     }
 }
