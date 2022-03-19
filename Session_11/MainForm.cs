@@ -163,8 +163,8 @@ namespace Session_11
 
         private void MenuStripPetList_Click(object sender, EventArgs e)
         {
-            //PetListForm petListForm = new PetListForm();
-            //petListForm.Show();
+            PetFormList petListForm = new PetFormList();
+            petListForm.Show();
         }
         private void MainFormClosing(object sencer, FormClosingEventArgs e)
         {
