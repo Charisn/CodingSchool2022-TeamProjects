@@ -79,6 +79,7 @@ namespace Session_11
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            _petShop.Pets.Remove(_pet);
             this.Close();
         }
     }
