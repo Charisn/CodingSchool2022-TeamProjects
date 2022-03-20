@@ -17,8 +17,11 @@ namespace PetShopLib.Impl
 
         public List<Pet> Pets { get; set; }
 
+        public List<Transaction> Transactions { get; set; }
+
         public PetShop()
         {
+            Transactions = new List<Transaction>();
             Customers = new List<Customer>();
             Employees = new List<Employee>();
             PetFoods = new List<PetFood>(); 

@@ -12,7 +12,6 @@ namespace Session_11
         private const string FILE_NAME = "PetShop.json";
         private PetShop _petShop;
 
-
         public MainForm()
         {
             InitializeComponent();
@@ -35,6 +34,7 @@ namespace Session_11
             }
             else
             {
+                //prepei na arxikopoiw tis listes edw oxi dummy data, giati alliws 8a fainontai ws null
                 _petShop = new PetShop();
                 CreateCustomers();
                 CreateEmployees();
@@ -42,9 +42,7 @@ namespace Session_11
                 CreatePetFoods();
                 SaveData();
             }
-
         }
-
         internal void DelayAction()
         {
             Cursor.Current = Cursors.WaitCursor;
@@ -52,6 +50,7 @@ namespace Session_11
             MessageBox.Show("Process completed", "Pet Shop");
         }
 
+        #region DummyData
         private void CreateCustomers()
         {
             var customer = new Customer() {
@@ -96,6 +95,7 @@ namespace Session_11
 
             File.WriteAllText(FILE_NAME, json);
         }
+        #endregion
 
         private void SaveData()
         {

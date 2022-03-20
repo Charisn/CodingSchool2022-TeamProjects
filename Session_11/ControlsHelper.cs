@@ -48,12 +48,5 @@ namespace Session_11
             lookup.ValueMember = "EmployeeType";
             lookup.NullText = "Choose an Employee";
         }
-
-        public void SaveToJson()
-        {
-            string json = JsonSerializer.Serialize(_petShop);
-            File.WriteAllText(FILE_NAME, json);
-            MessageBox.Show("Saved Successefully", "Saved");
-        }
     }
 }

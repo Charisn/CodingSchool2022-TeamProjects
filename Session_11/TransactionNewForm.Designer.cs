@@ -48,6 +48,8 @@
             this.ctrlTotalPrice = new System.Windows.Forms.TextBox();
             this.btnSaveNewTrans = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancelNewTrans = new DevExpress.XtraEditors.SimpleButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.bsTransactions = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ctrlCustomer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlEmployee.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlPet.Properties)).BeginInit();
@@ -56,6 +58,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ctrlPetFoodPrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPetShop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTransactions)).BeginInit();
             this.SuspendLayout();
             // 
             // ctrlCustomer
@@ -160,6 +163,7 @@
             this.ctrlPetFoodQty.Properties.Name = "ctrlPetFoodQty";
             this.ctrlPetFoodQty.Size = new System.Drawing.Size(117, 20);
             this.ctrlPetFoodQty.TabIndex = 10;
+            this.ctrlPetFoodQty.EditValueChanged += new System.EventHandler(this.ctrlPetFoodQty_EditValueChanged);
             // 
             // PetPrice
             // 
@@ -246,11 +250,23 @@
             this.btnCancelNewTrans.Text = "Exit";
             this.btnCancelNewTrans.Click += new System.EventHandler(this.btnCancelNewTrans_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label1.Location = new System.Drawing.Point(70, 152);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(182, 13);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "1 Free Bag of Food for Every Pet Sold!";
+            // 
             // TransactionNewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(544, 174);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancelNewTrans);
             this.Controls.Add(this.btnSaveNewTrans);
             this.Controls.Add(this.ctrlTotalPrice);
@@ -284,6 +300,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ctrlPetFoodPrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPetShop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTransactions)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,5 +327,7 @@
         private TextBox ctrlTotalPrice;
         private DevExpress.XtraEditors.SimpleButton btnSaveNewTrans;
         private DevExpress.XtraEditors.SimpleButton btnCancelNewTrans;
+        private Label label1;
+        private BindingSource bsTransactions;
     }
 }
