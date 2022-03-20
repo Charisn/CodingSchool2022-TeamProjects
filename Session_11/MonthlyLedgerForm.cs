@@ -21,7 +21,8 @@ public partial class MonthlyLedgerForm : DevExpress.XtraEditors.XtraForm
     public MonthlyLedgerForm()
     {
         InitializeComponent();
-       // PopulateEmployees();
+        // PopulateEmployees();
+       
     }
 
     public void PopulateTransactions()

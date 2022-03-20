@@ -100,7 +100,7 @@ namespace Session_11
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            //this.DialogResult = DialogResult.OK;
+            _petShop.PetFoods.Remove(_petFood);
             this.Close();
         }
     }
