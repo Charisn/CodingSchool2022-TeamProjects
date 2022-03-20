@@ -13,7 +13,7 @@ namespace PetShopLib.Impl
 
         public Transaction()
         {
-            _monthlyLedger.Transactions.Add(this);
+            // _monthlyLedger.Transactions.Add(this);
             ID = Guid.NewGuid();
         }
 
@@ -27,6 +27,7 @@ namespace PetShopLib.Impl
         public decimal PetFoodPrice { get; set; }
         public decimal TotalPrice { get; set; }
         public Guid ID { get; set; }
+
 
     }
 }

@@ -45,11 +45,11 @@
             this.CustomerForm = new System.Windows.Forms.LinkLabel();
             this.bsPet = new System.Windows.Forms.BindingSource(this.components);
             this.bsPetShop = new System.Windows.Forms.BindingSource(this.components);
-            this.ctrlTotalPrice = new System.Windows.Forms.TextBox();
             this.btnSaveNewTrans = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancelNewTrans = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.bsTransactions = new System.Windows.Forms.BindingSource(this.components);
+            this.ctrlTotalPrice = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlCustomer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlEmployee.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlPet.Properties)).BeginInit();
@@ -59,6 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bsPet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPetShop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTransactions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlTotalPrice.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ctrlCustomer
@@ -179,7 +180,7 @@
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTotal.Location = new System.Drawing.Point(118, 101);
+            this.lblTotal.Location = new System.Drawing.Point(134, 101);
             this.lblTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(76, 18);
@@ -223,15 +224,6 @@
             this.CustomerForm.Text = "Can\'t Find The Customer?";
             this.CustomerForm.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.AddNewCustomer);
             // 
-            // ctrlTotalPrice
-            // 
-            this.ctrlTotalPrice.Location = new System.Drawing.Point(102, 122);
-            this.ctrlTotalPrice.Name = "ctrlTotalPrice";
-            this.ctrlTotalPrice.ReadOnly = true;
-            this.ctrlTotalPrice.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ctrlTotalPrice.Size = new System.Drawing.Size(117, 23);
-            this.ctrlTotalPrice.TabIndex = 18;
-            // 
             // btnSaveNewTrans
             // 
             this.btnSaveNewTrans.Location = new System.Drawing.Point(309, 124);
@@ -261,15 +253,23 @@
             this.label1.TabIndex = 21;
             this.label1.Text = "1 Free Bag of Food for Every Pet Sold!";
             // 
+            // ctrlTotalPrice
+            // 
+            this.ctrlTotalPrice.Location = new System.Drawing.Point(118, 121);
+            this.ctrlTotalPrice.Name = "ctrlTotalPrice";
+            this.ctrlTotalPrice.Properties.ReadOnly = true;
+            this.ctrlTotalPrice.Size = new System.Drawing.Size(117, 20);
+            this.ctrlTotalPrice.TabIndex = 22;
+            // 
             // TransactionNewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(544, 174);
+            this.Controls.Add(this.ctrlTotalPrice);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancelNewTrans);
             this.Controls.Add(this.btnSaveNewTrans);
-            this.Controls.Add(this.ctrlTotalPrice);
             this.Controls.Add(this.CustomerForm);
             this.Controls.Add(this.lblPetFoodPrice);
             this.Controls.Add(this.ctrlPetFoodPrice);
@@ -301,6 +301,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bsPet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPetShop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTransactions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlTotalPrice.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -324,10 +325,10 @@
         private LinkLabel CustomerForm;
         private BindingSource bsPet;
         private BindingSource bsPetShop;
-        private TextBox ctrlTotalPrice;
         private DevExpress.XtraEditors.SimpleButton btnSaveNewTrans;
         private DevExpress.XtraEditors.SimpleButton btnCancelNewTrans;
         private Label label1;
         private BindingSource bsTransactions;
+        private DevExpress.XtraEditors.TextEdit ctrlTotalPrice;
     }
 }

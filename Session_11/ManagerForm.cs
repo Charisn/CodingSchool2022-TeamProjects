@@ -27,7 +27,7 @@ namespace Session_11
             }
            else if (RadioMonthlyLedger.Checked == true )
             {
-                //Prepei na ftiaksw mia Monthly Ledger forma
+                MessageBox.Show("Error 567 - Restricted Access. Please Contact Support", "Critical Error!");
             }
             else if (RadioPetReports.Checked == true)
             {
