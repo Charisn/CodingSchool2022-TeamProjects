@@ -18,30 +18,24 @@ namespace Session_11
         private const string FILE_NAME = "PetShop.json";
         private PetShop _petShop;
 
-        public void PopulatePetType(RepositoryItemLookUpEdit lookup)
+        public void PopulatePetType(RepositoryItemLookUpEdit lookup, PetShop petShop)
         {
-            string s = File.ReadAllText(FILE_NAME);
-            var petShop = (PetShop)JsonSerializer.Deserialize(s, typeof(PetShop));
             lookup.DataSource = petShop.Pets;
             lookup.Columns.Add(new LookUpColumnInfo("Breed", "Breed"));
             lookup.DisplayMember = "Breed";
             lookup.ValueMember = "ID";
             lookup.NullText = "Choose a Pet";
         }
-        public void PopulateCustomer(RepositoryItemLookUpEdit lookup)
+        public void PopulateCustomer(RepositoryItemLookUpEdit lookup, PetShop petShop)
         {
-            string s = File.ReadAllText(FILE_NAME);
-            var petShop = (PetShop)JsonSerializer.Deserialize(s, typeof(PetShop));
             lookup.DataSource = petShop.Customers;
             lookup.Columns.Add(new LookUpColumnInfo("Name", "Name"));
             lookup.DisplayMember = "Name";
             lookup.ValueMember = "TIN";
             lookup.NullText = "Choose a Customer";
         }
-        public void PopulateEmployee(RepositoryItemLookUpEdit lookup)
+        public void PopulateEmployee(RepositoryItemLookUpEdit lookup, PetShop petShop)
         {
-            string s = File.ReadAllText(FILE_NAME);
-            var petShop = (PetShop)JsonSerializer.Deserialize(s, typeof(PetShop));
             lookup.DataSource = petShop.Employees;
             lookup.Columns.Add(new LookUpColumnInfo("Name", "Name"));
             lookup.DisplayMember = "Name";

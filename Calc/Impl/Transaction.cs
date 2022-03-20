@@ -13,7 +13,7 @@ namespace PetShopLib.Impl
 
         public Transaction()
         {
-            _monthlyLedger.Transactions.Add(this);
+            // _monthlyLedger.Transactions.Add(this);
             ID = Guid.NewGuid();
         }
 

@@ -21,6 +21,9 @@ namespace Session_11
         public TransactionListForm()
         {
             InitializeComponent();
+            PetShop petShop = new PetShop();
+            bsTrans.DataSource = petShop.Transactions;
+            grdTransaction.DataSource = bsTrans;
         }
 
         private void PopulateTransaction()
@@ -28,8 +31,7 @@ namespace Session_11
             string s = File.ReadAllText(FILE_NAME);
             var petshop = (PetShop)JsonSerializer.Deserialize(s, typeof(PetShop));
 
-
-
         }
+        
     }
 }
