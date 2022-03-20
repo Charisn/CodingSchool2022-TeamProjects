@@ -49,6 +49,7 @@
             this.btnSaveNewTrans = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancelNewTrans = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.bsTransactions = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ctrlCustomer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlEmployee.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlPet.Properties)).BeginInit();
@@ -57,6 +58,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ctrlPetFoodPrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPetShop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTransactions)).BeginInit();
             this.SuspendLayout();
             // 
             // ctrlCustomer
@@ -298,6 +300,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ctrlPetFoodPrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPetShop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTransactions)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -325,5 +328,6 @@
         private DevExpress.XtraEditors.SimpleButton btnSaveNewTrans;
         private DevExpress.XtraEditors.SimpleButton btnCancelNewTrans;
         private Label label1;
+        private BindingSource bsTransactions;
     }
 }

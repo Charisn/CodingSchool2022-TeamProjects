@@ -10,12 +10,13 @@ namespace PetShopLib.Impl
     public class Transaction : ITransaction
     {
        private MonthlyLedger _monthlyLedger = new MonthlyLedger();
+
         public Transaction()
         {
-            
             _monthlyLedger.Transactions.Add(this);
-            
+            ID = Guid.NewGuid();
         }
+
         public DateTime Date { get; set; }
         public Guid CustomerID { get; set; }
         public Guid EmployeeID { get; set; }
@@ -27,12 +28,5 @@ namespace PetShopLib.Impl
         public decimal TotalPrice { get; set; }
         public Guid ID { get; set; }
 
-        private void CalcTotalPrice(Transaction totalPrice)
-        {
-            PetFoodPrice *= PetFoodQty;
-            TotalPrice += PetPrice;
-            totalPrice.TotalPrice = TotalPrice;
-            //trans.TotalPrice = (x => x.TotalPrice);
-        }
     }
 }
