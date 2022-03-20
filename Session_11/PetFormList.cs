@@ -109,7 +109,7 @@ namespace Session_11
 
         private void btnDelete_Click_1(object sender, EventArgs e)
         {
-            var res = MessageBox.Show(this, "Are you sure you want to delete this pet food?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var res = MessageBox.Show(this, "Are you sure you want to delete this pet?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (res != DialogResult.Yes)
                 return;
             var pet = bsPets.Current as PetFood;
