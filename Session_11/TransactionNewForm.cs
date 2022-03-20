@@ -60,11 +60,16 @@ namespace Session_11
             bsPetShop.DataMember = "Pets";
             ctrlPet.Properties.DataSource = bsPetShop;
             var ctrlpet = ctrlPet.EditValue;
-            
             var pet = _petShop.Pets.Find(x => x.ID.Equals(ctrlpet));
+            var animal = pet.AnimalType; // edw exw to Dog se animalTypeEnum
+            var petFood = _petShop.PetFoods.Find(x => x.AnimalType.Equals(animal));
+
             if (pet != null)
             {
-                ctrlPetFoodPrice.EditValue = pet.Price;
+                //ctrlPetFoodPrice.EditValue = pet.Price;
+                ctrlPetPrice.EditValue=pet.Price;
+
+                ctrlPetFoodPrice.EditValue = petFood.Price;
             } 
 
         }
