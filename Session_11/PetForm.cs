@@ -63,6 +63,7 @@ namespace Session_11
             comboBoxEdit1.Properties.Items.Add(PetStatusEnum.Unhealthy);
             comboBoxEdit1.Properties.Items.Add(PetStatusEnum.Healthy);
             comboBoxEdit1.Properties.Items.Add(PetStatusEnum.Recovering);
+            comboBoxEdit1.Properties.Items.Add(PetStatusEnum.Sold);
             comboBoxEdit2.Properties.Items.Add(AnimalTypeEnum.Dog);
             comboBoxEdit2.Properties.Items.Add(AnimalTypeEnum.Cat);
             comboBoxEdit2.Properties.Items.Add(AnimalTypeEnum.Fish);
@@ -79,6 +80,7 @@ namespace Session_11
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            _petShop.Pets.Remove(_pet);
             this.Close();
         }
     }

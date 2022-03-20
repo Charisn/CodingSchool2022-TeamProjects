@@ -75,6 +75,7 @@ namespace Session_11
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            _petShop.Customers.Remove(_customer);
             this.Close();
         }
 
