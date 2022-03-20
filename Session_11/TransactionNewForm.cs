@@ -78,8 +78,16 @@ namespace Session_11
             var animal = pet.AnimalType; // edw exw to Dog se animalTypeEnum
             var petFood = _petShop.PetFoods.Find(x => x.AnimalType.Equals(animal));
 
+            if (pet.PetStatus == PetShopLib.Enums.PetStatusEnum.Unhealthy)
+            {
+                MessageBox.Show("Pet selected is unavailable", "Warning");
+                //DialogResult = DialogResult.Yes;
+                //ctrlPet
+            }
+
             decimal _totalpetFood = Convert.ToDecimal(petFood.Price);
             decimal _totalPet = Convert.ToDecimal(pet.Price);
+
             int _qty = Convert.ToInt16(ctrlPetFoodQty.Value);
             var _grandTotal = (_totalpetFood * (_qty - 1) + _totalPet);
             ctrlTotalPrice.EditValue = _grandTotal;
@@ -104,6 +112,7 @@ namespace Session_11
         {
             _petShop.Transactions.Add(_transaction);
         }
+
 
         private void ctrlPet_EditValueChanged(object sender, EventArgs e)
         {

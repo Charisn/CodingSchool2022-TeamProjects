@@ -39,9 +39,7 @@ namespace Session_11
 
         private void TotalPetsSold()
         {
-            //edw 8a balw th lista twn sunalagwn mias kai h mia sunallagh periorizei se 1 pet sold
-            //List<transactions> transactions = new List<transactions>();
-            //int TotalSold = pets.Count;
+
         }
 
     }

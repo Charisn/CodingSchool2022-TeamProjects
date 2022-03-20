@@ -28,5 +28,6 @@ namespace PetShopLib.Impl
         public decimal TotalPrice { get; set; }
         public Guid ID { get; set; }
 
+
     }
 }
