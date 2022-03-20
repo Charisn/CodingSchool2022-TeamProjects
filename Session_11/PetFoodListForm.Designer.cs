@@ -62,6 +62,13 @@
             // 
             // grvPetFoods
             // 
+            this.grvPetFoods.Appearance.ColumnFilterButton.BackColor = System.Drawing.Color.White;
+            this.grvPetFoods.Appearance.ColumnFilterButton.BackColor2 = System.Drawing.Color.White;
+            this.grvPetFoods.Appearance.ColumnFilterButton.BorderColor = System.Drawing.Color.White;
+            this.grvPetFoods.Appearance.ColumnFilterButton.ForeColor = System.Drawing.Color.White;
+            this.grvPetFoods.Appearance.ColumnFilterButton.Options.UseBackColor = true;
+            this.grvPetFoods.Appearance.ColumnFilterButton.Options.UseBorderColor = true;
+            this.grvPetFoods.Appearance.ColumnFilterButton.Options.UseForeColor = true;
             this.grvPetFoods.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colPrice,
             this.colCost,
@@ -140,6 +147,8 @@
             // 
             // PetFoodListForm
             // 
+            this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 493);
