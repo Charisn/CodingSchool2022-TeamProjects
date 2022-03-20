@@ -30,11 +30,14 @@ namespace Session_11
         private void TransactionNewForm_Load(object sender, EventArgs e)
         {
             PopulateControls();
+            ctrlPetPrice.ReadOnly = true;
+            ctrlPetFoodPrice.ReadOnly = true;
+            ctrlTotalPrice.ReadOnly = true;
         }
         private void PopulateControls()
         {
             var helper = new ControlsHelper();
-
+            
             helper.PopulatePetType(ctrlPet.Properties);
             helper.PopulateCustomer(ctrlCustomer.Properties);
             helper.PopulateEmployee(ctrlEmployee.Properties);
@@ -53,6 +56,9 @@ namespace Session_11
 
         private void Calculations()
         {
+            if (ctrlPetFoodQty.Value == null || ctrlPetFoodQty.Value <1 ) 
+            { ctrlPetFoodQty.Value = 1; }
+            
             string s = File.ReadAllText(FILE_NAME);
             _petShop = (PetShop)JsonSerializer.Deserialize(s, typeof(PetShop));
 
@@ -63,13 +69,18 @@ namespace Session_11
             var pet = _petShop.Pets.Find(x => x.ID.Equals(ctrlpet));
             var animal = pet.AnimalType; // edw exw to Dog se animalTypeEnum
             var petFood = _petShop.PetFoods.Find(x => x.AnimalType.Equals(animal));
+            decimal _totalpetFood = Convert.ToDecimal(petFood.Price);
+            decimal _totalPet = Convert.ToDecimal(pet.Price);
+            int _qty = Convert.ToInt16(ctrlPetFoodQty.Value);
+            var _grandTotal = (_totalpetFood * (_qty - 1) + _totalPet);
+            ctrlTotalPrice.Text = _grandTotal.ToString();
 
             if (pet != null)
             {
-                //ctrlPetFoodPrice.EditValue = pet.Price;
                 ctrlPetPrice.EditValue=pet.Price;
-
                 ctrlPetFoodPrice.EditValue = petFood.Price;
+                //ctrlTotalPrice.Text = ctrlPetFoodPrice.EditValue * ctrlPetFoodQty.EditValue;
+                
             } 
 
         }
@@ -100,6 +111,11 @@ namespace Session_11
             {
                 //Not closing window.
             }
+        }
+
+        private void ctrlPetFoodQty_EditValueChanged(object sender, EventArgs e)
+        {
+            Calculations();
         }
     }
 }
