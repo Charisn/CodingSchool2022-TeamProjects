@@ -28,31 +28,7 @@ namespace Session_11
             PopulatePets();
             
         }
-        private void PopulateControls()
-        {
-
-            //Dictionary<AnimalTypeEnum, string> animalTypes = new Dictionary<AnimalTypeEnum, string>();
-            //animalTypes.Add(AnimalTypeEnum.Bird, "Bird");
-            //animalTypes.Add(AnimalTypeEnum.Fish, "Fish");
-            //animalTypes.Add(AnimalTypeEnum.Lizard, "Lizard");
-            //animalTypes.Add(AnimalTypeEnum.Cat, "Cat");
-            //animalTypes.Add(AnimalTypeEnum.Dog, "Dog");
-
-
-
-            //repAnimalTypes.DataSource = animalTypes;
-            //repAnimalTypes.Columns.Add(new LookUpColumnInfo("Value"));
-            //repAnimalTypes.DisplayMember = "Value";
-            //repAnimalTypes.ValueMember = "Key";
-            //repAnimalTypes.ShowHeader = false;
-            //repAnimalTypes.NullText = null;
-
-            //Dictionary<PetStatusEnum, string> petStatus = new Dictionary<PetStatusEnum, string>();
-            //petStatus.Add(PetStatusEnum.Healthy, "Healthy");
-            //petStatus.Add(PetStatusEnum.Recovering, "Recovering");
-            //petStatus.Add(PetStatusEnum.Unhealthy, "Unhealthy");
-
-        }
+        
         private void PopulatePets()
         { 
             string s = File.ReadAllText(FILE_NAME);
@@ -66,20 +42,7 @@ namespace Session_11
             grdPets.DataSource = bsPets;
         }
 
-        private void btnNew_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            
-        }
+       
         public void SaveData()
         {
             var petShop = bsPetShop.Current as PetShop;
@@ -113,8 +76,9 @@ namespace Session_11
             var res = MessageBox.Show(this, "Are you sure you want to delete this pet?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (res != DialogResult.Yes)
                 return;
-            var pet = bsPets.Current as PetFood;
+            var pet = bsPets.Current as Pet;
             bsPets.Remove(pet);
+            grvPets.RefreshData();
             SaveData();
         }
 
