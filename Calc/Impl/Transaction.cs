@@ -7,7 +7,8 @@ using PetShopLib.Interfaces;
 
 namespace PetShopLib.Impl
 {
-    public class Transaction : ITransaction
+    
+    public class Transaction : ITransaction 
     {
        private MonthlyLedger _monthlyLedger = new MonthlyLedger();
 
@@ -29,5 +30,5 @@ namespace PetShopLib.Impl
         public Guid ID { get; set; }
 
 
-    }    
+    }   
 }
