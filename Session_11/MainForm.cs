@@ -26,7 +26,7 @@ namespace Session_11
 
         private void LoadData()
         {
-            if (File.Exists(FILE_NAME) && _petShop != null)
+            if (File.Exists(FILE_NAME))
             {
                 string s = File.ReadAllText(FILE_NAME);
                 _petShop = (PetShop)JsonSerializer.Deserialize(s, typeof(PetShop));
@@ -48,8 +48,8 @@ namespace Session_11
             var customer = new Customer() {
                 Name = "{ADD NAME}" ,
                 SurName = "{ADD SURNAME}",
-                TIN = 458587521 ,
-                Phone = 69832321234
+                TIN = 45858751 ,
+                Phone = 698323214
             };
             _petShop.Customers.Add(customer);
         }
@@ -62,6 +62,7 @@ namespace Session_11
                 EmployeeType = EmployeeTypeEnum.Staff,
                 SalaryPerMonth = 0
             };
+            _petShop.Employees.Add(employee);
         }
         private void CreatePets()
         {
@@ -73,6 +74,7 @@ namespace Session_11
                 PetStatus = PetStatusEnum.Healthy,
                 Cost = 4
             };
+            _petShop.Pets.Add(pets);
         }
         private void CreatePetFoods()
         {
@@ -82,10 +84,7 @@ namespace Session_11
                 Price = 150,
                 Cost = 50
             };
-
-            string json = JsonSerializer.Serialize(petfoods);
-
-            File.WriteAllText(FILE_NAME, json);
+            _petShop.PetFoods.Add(petfoods);
         }
         #endregion
 

@@ -27,15 +27,19 @@ namespace PetShopLib.Impl
 
         public MonthlyLedger()
         {
-            _petShop = PopulatePetShop();
+            //_petShop = PopulatePetShop();
         }
 
-        public PetShop PopulatePetShop()
-        {
-            string s = File.ReadAllText(FILE_NAME);
-            var petShop = (PetShop)JsonSerializer.Deserialize(s, typeof(PetShop));
-            return petShop;
-        }
+        //public PetShop PopulatePetShop()
+        //{
+        //    if (File.Exists(FILE_NAME))
+        //    {
+        //        string s = File.ReadAllText(FILE_NAME);
+        //        var petShop = (PetShop)JsonSerializer.Deserialize(s, typeof(PetShop));
+        //        return petShop;
+        //    }
+            
+        //}
 
         public decimal CalculateIncome()
         {

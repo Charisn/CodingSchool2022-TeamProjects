@@ -23,9 +23,9 @@ namespace Session_11
 
         public TransactionNewForm()
         {
-            InitializeComponent();
-            _transaction = new Transaction();
             LoadPetsShopJson();
+            InitializeComponent();
+            _transaction = new Transaction();            
             _petShop.Transactions.Add(_transaction);
             
         }
@@ -100,13 +100,14 @@ namespace Session_11
                 ctrlPetFoodPrice.EditValue = petFood.Price;
                 _transaction.PetFoodQty = _qty;
                 _transaction.PetFoodPrice = _totalpetFood;
+
                // _transaction.PetPrice = animal.;
 
             } 
         }
         private void Save()
         {
-            string json = JsonSerializer.Serialize(_petShop.Transactions);
+            string json = JsonSerializer.Serialize(_petShop);
             File.WriteAllText(FILE_NAME, json);
             DialogResult = DialogResult.OK;
         }
