@@ -26,7 +26,7 @@ namespace Session_11
 
         private void LoadData()
         {
-            if (File.Exists(FILE_NAME) || FILE_NAME != null)
+            if (File.Exists(FILE_NAME) && _petShop != null)
             {
                 string s = File.ReadAllText(FILE_NAME);
                 _petShop = (PetShop)JsonSerializer.Deserialize(s, typeof(PetShop));
@@ -42,21 +42,14 @@ namespace Session_11
                 SaveData();
             }
         }
-        internal void DelayAction()
-        {
-            Cursor.Current = Cursors.WaitCursor;
-            System.Threading.Thread.Sleep(500);
-            MessageBox.Show("Saved completed", "Pet Shop");
-        }
-
         #region DummyData
         private void CreateCustomers()
         {
             var customer = new Customer() {
-                Name = "Mitsos",
-                SurName = "Tade",
-                TIN = 4585875,
-                Phone = 698888888
+                Name = "{ADD NAME}" ,
+                SurName = "{ADD SURNAME}",
+                TIN = 458587521 ,
+                Phone = 69832321234
             };
             _petShop.Customers.Add(customer);
         }
@@ -64,8 +57,8 @@ namespace Session_11
         {
             var employee = new Employee()
             {
-                Name = "Charis",
-                SurName = "ADD NAME",
+                Name = "{ADD NAME}",
+                SurName = "{ADD SURNAME}",
                 EmployeeType = EmployeeTypeEnum.Staff,
                 SalaryPerMonth = 0
             };
@@ -74,7 +67,7 @@ namespace Session_11
         {
             var pets = new Pet()
             {
-                Breed = "Tsiouaoua",
+                Breed = "{ADD NAME}",
                 AnimalType = AnimalTypeEnum.Dog,
                 Price = 10,
                 PetStatus = PetStatusEnum.Healthy,
@@ -101,9 +94,6 @@ namespace Session_11
             string json = JsonSerializer.Serialize(_petShop);
 
             File.WriteAllText(FILE_NAME, json);
-
-            DelayAction();
-
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -156,12 +146,13 @@ namespace Session_11
         private void MainMenuStripSave(object sender, EventArgs e)
         {
             SaveData();
+            InteractWithUser();
         }
 
         private void MainMenuStripLoad(object sender, EventArgs e)
         {
             LoadData();
-            MessageBox.Show("File is now Loaded!", "OK");
+            InteractWithUser();
         }
 
         private void editPetFood_Click(object sender, EventArgs e)
@@ -177,12 +168,12 @@ namespace Session_11
         }
         private void MainFormClosing(object sencer, FormClosingEventArgs e)
         {
+            e.Cancel = true;
             SaveData();
         }
-
-        private void StaffMainButton_Click(object sender, EventArgs e)
+        private void InteractWithUser()
         {
-
+            MessageBox.Show("Completed Successefully!", "Pet Shop");
         }
     }
 }

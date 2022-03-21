@@ -71,6 +71,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.ctrlCustomer.Size = new System.Drawing.Size(169, 20);
             this.ctrlCustomer.TabIndex = 0;
+            this.ctrlCustomer.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ctrlCustomer_ButtonPressed);
             // 
             // lblCustomer
             // 

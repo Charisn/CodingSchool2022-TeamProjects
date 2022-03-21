@@ -37,9 +37,9 @@ namespace Session_11
             ctrlPetFoodPrice.ReadOnly = true;
             ctrlTotalPrice.ReadOnly = true;
 
-            bsTransactions.DataSource = _transaction;
+            bsTransactions.DataSource = _petShop.Transactions;
 
-            DataBindingsTrans();
+            SetDataBindings();
         }
         private void PopulateControls()
         {
@@ -58,20 +58,22 @@ namespace Session_11
 
         private void SetDataBindings()
         {
-            BindingSource bsPetfoodQty = new BindingSource();
+            //BindingSource bsTransactions = new BindingSource();
+            ctrlPetFoodPrice.DataBindings.Add(new Binding("EditValue", bsTransactions, "PetFoodPrice", true));
+            ctrlPetPrice.DataBindings.Add(new Binding("EditValue", bsTransactions, "PetPrice", true));
+            ctrlPetFoodQty.DataBindings.Add(new Binding("EditValue", bsTransactions, "PetFoodQty", true));
+            ctrlTotalPrice.DataBindings.Add(new Binding("EditValue", bsTransactions, "TotalPrice", true));
         }
 
         private void Calculations()
         {
             if (ctrlPetFoodQty.Value == null || ctrlPetFoodQty.Value <1 ) 
             { ctrlPetFoodQty.Value = 1; }
-            
-            string s = File.ReadAllText(FILE_NAME);
-            _petShop = (PetShop)JsonSerializer.Deserialize(s, typeof(PetShop));
 
             bsPetShop.DataSource = _petShop;
             bsPetShop.DataMember = "Pets";
             ctrlPet.Properties.DataSource = bsPetShop;
+            
 
             var ctrlpet = ctrlPet.EditValue;
             var pet = _petShop.Pets.Find(x => x.ID.Equals(ctrlpet));
@@ -96,29 +98,27 @@ namespace Session_11
             {
                 ctrlPetPrice.EditValue=pet.Price;
                 ctrlPetFoodPrice.EditValue = petFood.Price;
+                _transaction.PetFoodQty = _qty;
+                _transaction.PetFoodPrice = _totalpetFood;
+               // _transaction.PetPrice = animal.;
+
             } 
         }
-
-        private void DataBindingsTrans()
+        private void Save()
         {
-            ctrlPetFoodPrice.DataBindings.Add(new Binding("EditValue", bsTransactions, "PetFoodPrice", true));
-            ctrlPetPrice.DataBindings.Add(new Binding("EditValue", bsTransactions, "PetPrice", true));
-            ctrlPetFoodQty.DataBindings.Add(new Binding("EditValue", bsTransactions, "PetFoodQty", true));
-            ctrlTotalPrice.DataBindings.Add(new Binding("EditValue", bsTransactions, "TotalPrice", true));
+            string json = JsonSerializer.Serialize(_petShop.Transactions);
+            File.WriteAllText(FILE_NAME, json);
+            DialogResult = DialogResult.OK;
         }
-
-
         private void btnSaveNewTrans_Click(object sender, EventArgs e)
         {
             _petShop.Transactions.Add(_transaction);
+            Save();
         }
-
-
         private void ctrlPet_EditValueChanged(object sender, EventArgs e)
         {
             Calculations();
         }
-
         private void btnCancelNewTrans_Click(object sender, EventArgs e)
         {
             string message = "Do you want to close this window?";
@@ -138,18 +138,15 @@ namespace Session_11
         private void ctrlPetFoodQty_EditValueChanged(object sender, EventArgs e)
         {
             Calculations();
-        }
-
-        private void Save()
-        {
-                string json = JsonSerializer.Serialize(_petShop);
-                File.WriteAllText(FILE_NAME, json);
-                DialogResult = DialogResult.OK;
-        }
+        }        
         private void LoadPetsShopJson()
         {
             string s = File.ReadAllText(FILE_NAME);
             _petShop = (PetShop)JsonSerializer.Deserialize(s, typeof(PetShop));
+        }
+        private void ctrlCustomer_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            this.ctrlCustomer.Refresh();
         }
     }
 }
