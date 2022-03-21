@@ -84,6 +84,7 @@
             // 
             this.ctrlTIN.Location = new System.Drawing.Point(66, 84);
             this.ctrlTIN.Name = "ctrlTIN";
+            this.ctrlTIN.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.ctrlTIN.Properties.MaxLength = 9;
             this.ctrlTIN.Size = new System.Drawing.Size(448, 20);
             this.ctrlTIN.StyleController = this.layoutControl1;
