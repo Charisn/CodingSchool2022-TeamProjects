@@ -45,7 +45,6 @@
             this.MainButtonManager = new System.Windows.Forms.Button();
             this.MainButtonExit = new System.Windows.Forms.Button();
             this.btnOrder = new System.Windows.Forms.Button();
-            this.StaffMainButton = new System.Windows.Forms.Button();
             this.bsPetShop = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsPetShop)).BeginInit();
@@ -159,20 +158,12 @@
             this.btnOrder.UseVisualStyleBackColor = false;
             this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
             // 
-            // StaffMainButton
-            // 
-            this.StaffMainButton.BackColor = System.Drawing.Color.LightSkyBlue;
-            resources.ApplyResources(this.StaffMainButton, "StaffMainButton");
-            this.StaffMainButton.Name = "StaffMainButton";
-            this.StaffMainButton.UseVisualStyleBackColor = false;
-            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = global::Session_11.Properties.Resources.PetShop_Image;
-            this.Controls.Add(this.StaffMainButton);
             this.Controls.Add(this.btnOrder);
             this.Controls.Add(this.MainButtonExit);
             this.Controls.Add(this.MainButtonManager);
@@ -203,7 +194,6 @@
         private Button btnOrder;
         private ToolStripMenuItem saveToolStripMenuItem;
         private ToolStripMenuItem loadToolStripMenuItem;
-        private Button StaffMainButton;
         private ToolStripMenuItem editPetFood;
         private ToolStripMenuItem MenuStripPetList;
         private BindingSource bsPetShop;

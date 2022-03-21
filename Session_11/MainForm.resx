@@ -92,7 +92,7 @@
     <value>Customer</value>
   </data>
   <data name="MenuStripPetList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>112, 22</value>
   </data>
   <data name="MenuStripPetList.Text" xml:space="preserve">
     <value>Pet List</value>
@@ -150,16 +150,20 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;menuStrip2.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="MainButtonManager.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Stencil, 11.25pt</value>
+    <value>Stencil, 14.25pt</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="MainButtonManager.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="MainButtonManager.Location" type="System.Drawing.Point, System.Drawing">
-    <value>906, 27</value>
+    <value>171, 65</value>
   </data>
   <data name="MainButtonManager.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 55</value>
+    <value>154, 78</value>
   </data>
   <data name="MainButtonManager.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -177,7 +181,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;MainButtonManager.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="MainButtonExit.Font" type="System.Drawing.Font, System.Drawing">
     <value>Stencil, 11.25pt</value>
@@ -204,7 +208,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;MainButtonExit.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="btnOrder.Font" type="System.Drawing.Font, System.Drawing">
     <value>Stencil, 15.75pt</value>
@@ -213,7 +217,7 @@
     <value>12, 65</value>
   </data>
   <data name="btnOrder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 78</value>
+    <value>153, 78</value>
   </data>
   <data name="btnOrder.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -231,37 +235,6 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnOrder.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="StaffMainButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Stencil, 15.75pt</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="StaffMainButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="StaffMainButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>158, 65</value>
-  </data>
-  <data name="StaffMainButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 78</value>
-  </data>
-  <data name="StaffMainButton.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="StaffMainButton.Text" xml:space="preserve">
-    <value>Staff</value>
-  </data>
-  <data name="&gt;&gt;StaffMainButton.Name" xml:space="preserve">
-    <value>StaffMainButton</value>
-  </data>
-  <data name="&gt;&gt;StaffMainButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;StaffMainButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;StaffMainButton.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="bsPetShop.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

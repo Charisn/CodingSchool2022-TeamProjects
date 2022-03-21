@@ -26,6 +26,7 @@ namespace Session_11
         private void PetFormList_Load(object sender, EventArgs e)
         {
             PopulatePets();
+            
         }
         private void PopulateControls()
         {

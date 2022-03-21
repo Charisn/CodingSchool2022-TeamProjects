@@ -94,6 +94,8 @@
             this.Controls.Add(this.RadioMonthlyLedger);
             this.Controls.Add(this.RadioTransactionHistory);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ManagerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manager";

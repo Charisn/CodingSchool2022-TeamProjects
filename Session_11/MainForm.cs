@@ -26,7 +26,7 @@ namespace Session_11
 
         private void LoadData()
         {
-            if (File.Exists(FILE_NAME) && FILE_NAME != null)
+            if (File.Exists(FILE_NAME) || FILE_NAME != null)
             {
                 string s = File.ReadAllText(FILE_NAME);
                 _petShop = (PetShop)JsonSerializer.Deserialize(s, typeof(PetShop));
@@ -34,7 +34,6 @@ namespace Session_11
             }
             else
             {
-                //prepei na arxikopoiw tis listes edw oxi dummy data, giati alliws 8a fainontai ws null
                 _petShop = new PetShop();
                 CreateCustomers();
                 CreateEmployees();
@@ -47,7 +46,7 @@ namespace Session_11
         {
             Cursor.Current = Cursors.WaitCursor;
             System.Threading.Thread.Sleep(500);
-            MessageBox.Show("Process completed", "Pet Shop");
+            MessageBox.Show("Saved completed", "Pet Shop");
         }
 
         #region DummyData
@@ -126,7 +125,7 @@ namespace Session_11
 
         private void MainButtonExit_Click(object sender, EventArgs e)
         {
-            string message = "Do you want to leave our shop?";
+            string message = "Do you want to leave the shop?";
             string title = "Close Window";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result = MessageBox.Show(message, title, buttons);
@@ -162,6 +161,7 @@ namespace Session_11
         private void MainMenuStripLoad(object sender, EventArgs e)
         {
             LoadData();
+            MessageBox.Show("File is now Loaded!", "OK");
         }
 
         private void editPetFood_Click(object sender, EventArgs e)
@@ -178,6 +178,11 @@ namespace Session_11
         private void MainFormClosing(object sencer, FormClosingEventArgs e)
         {
             SaveData();
+        }
+
+        private void StaffMainButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
