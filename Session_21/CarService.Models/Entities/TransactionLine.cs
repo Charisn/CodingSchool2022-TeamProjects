@@ -15,4 +15,9 @@ public class TransactionLine
     public int Hours { get; set; }
     public decimal PricePerHour { get; set; }
     public decimal Price { get; set; }
+    public ServiceTask ServiceTask { get; set; }
+    public Engineer Engineer { get; set; }
+    public TransactionLine()
+    {
+    }
 }

@@ -14,6 +14,7 @@ public class Engineer
     public string FullName { get { return $"{Name} {Surname}"; } set { FullName = $"{Name} {Surname}"; } }
     public Guid ManagerID { get; set; }
     public int SalaryPerMonth { get; set; }
+    public Manager Manager { get; set; }
     public Engineer()
     {
         Id = Guid.NewGuid();
