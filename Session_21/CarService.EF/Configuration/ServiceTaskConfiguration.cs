@@ -13,6 +13,10 @@ internal class ServiceTaskConfiguration : IEntityTypeConfiguration<ServiceTask>
 {
     public void Configure(EntityTypeBuilder<ServiceTask> builder)
     {
-        throw new NotImplementedException();
+
+        builder.HasKey(servicetask => servicetask.Id);
+
+        builder.Property(serviceTask => serviceTask.Code).HasMaxLength(100);
+        builder.Property(serviceTask => serviceTask.Description).HasMaxLength(200);
     }
 }

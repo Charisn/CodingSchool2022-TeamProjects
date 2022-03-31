@@ -1,4 +1,5 @@
-﻿using CarService.Models.Entities;
+﻿using CarService.EF.Configuration;
+using CarService.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -27,17 +28,21 @@ public class CarServiceContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
         modelBuilder.ApplyConfiguration(new CustomerConfiguration());
-        modelBuilder.ApplyConfiguration(new ManagersConfiguration());
-        modelBuilder.ApplyConfiguration(new CarsConfiguration());
-        modelBuilder.ApplyConfiguration(new ServiceTasksConfiguration());
+        modelBuilder.ApplyConfiguration(new ManagerConfiguration());
+        modelBuilder.ApplyConfiguration(new CarConfiguration());
+        modelBuilder.ApplyConfiguration(new ServiceTaskConfiguration());
         modelBuilder.ApplyConfiguration(new TransactionConfiguration());
         modelBuilder.ApplyConfiguration(new TransactionLineConfiguration());
         modelBuilder.ApplyConfiguration(new EngineerConfiguration());
+
+        modelBuilder.Entity<Manager>().Ignore(manager => manager.FullName);
+        modelBuilder.Entity<Engineer>().Ignore(engineer => engineer.FullName);
+        modelBuilder.Entity<Customer>().Ignore(customer => customer.FullName);
     }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
-        var connString = @"";
+        var connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=DbCarService;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         optionsBuilder.UseSqlServer(connString);
     }
 }

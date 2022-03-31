@@ -18,6 +18,8 @@ public class Manager
 
     public int SalaryPerMonth { get; set; }
 
+    public List<Engineer> Engineers { get; set; }
+
     public Manager()
     {
         Id = Guid.NewGuid();

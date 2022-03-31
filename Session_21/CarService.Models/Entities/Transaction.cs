@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CarService.Models.Entities;
-
+[Serializable]
 public class Transaction
 {
     public Guid Id { get; set; }
@@ -16,7 +16,7 @@ public class Transaction
     public decimal TotalPrice { get; set; }
     public Manager Manager { get; set; }
     public Car Car { get; set; }
-    public Customer customer { get; set; } 
+    public Customer Customer { get; set; } 
     public List<TransactionLine> TransactionLines { get; set; }
     public Transaction()
     {

@@ -15,9 +15,9 @@ public class Customer
 
     public string FullName{get{return $"{Name} {Surname}";} set{FullName = $"{Name} {Surname}";}}
 
-    public long Phone { get; set; }
+    public string Phone { get; set; }
 
-    public long TIN { get; set; }
+    public string TIN { get; set; }
     public Customer()
     {
         Id = Guid.NewGuid();
