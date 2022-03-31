@@ -13,4 +13,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CarService.EF\CarService.EF.csproj" />
+    <ProjectReference Include="..\CarService.Models\CarService.Models.csproj" />
+  </ItemGroup>
+
 </Project>

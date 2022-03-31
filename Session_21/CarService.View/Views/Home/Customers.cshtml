@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Customers";
+}
+
+<h1 class="center customerH1">List Of Customers</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <form asp-action="Index">
+            <table>
+                @foreach (var label in new List<string>() { "Name", "Surname", "Phone", "TIN" })
+                {
+                    <tr>
+                        <td>
+                            <label>@label</label>
+                        </td>
+                        <td>
+                            <input type="text" />
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <td>
+                        <button type="submit" value="Index" class="btn-primary btn">Create</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        </div>
+        <div class="col-sm">
+            <table class="customerTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Phone</th>
+                    <th>TIN</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        </div>
+        
+    </div>
+</div>

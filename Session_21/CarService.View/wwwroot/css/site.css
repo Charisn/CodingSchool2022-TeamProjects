@@ -16,3 +16,19 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.center {
+    text-align: center;
+}
+
+.customerH1 {
+    margin-bottom: 10%;
+}
+
+.customerTable th {
+    border-bottom: 1px solid black;
+    padding: 0px 25px 0px 25px;
+}
+.customerTable td{
+    text-align: center;
+}
