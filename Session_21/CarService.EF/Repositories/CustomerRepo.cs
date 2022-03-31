@@ -36,16 +36,19 @@ public class CustomerRepo : IEntityRepo<Customer>
     public Customer? GetById(Guid id)
     {
         using var context = new CarServiceContext();
-        return context.Customers.Where(car => car.Id == id).SingleOrDefault();
+        return context.Customers.Where(customer => customer.Id == id).SingleOrDefault();
     }
 
     public async Task Update(Guid id, Customer entity)
     {
         using var context = new CarServiceContext();
-        var foundCar = context.Cars.SingleOrDefault(car => car.Id == id);
-        if (foundCar is null)
+        var foundCustomer = context.Customers.SingleOrDefault(customer => customer.Id == id);
+        if (foundCustomer is null)
             return;
-        //na 8umh8w na balw
+        foundCustomer.Name = entity.Name;
+        foundCustomer.Surname = entity.Surname;
+        foundCustomer.TIN = entity.TIN;
+        foundCustomer.Phone = entity.Phone;
         await context.SaveChangesAsync();
     }
 }
