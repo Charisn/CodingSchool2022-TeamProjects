@@ -17,16 +17,17 @@ namespace Session_11
     public partial class TransactionNewForm : Form
     {
         private const string FILE_NAME = "PetShop.json";
-        private const string TRANSACTIONS = "Transactions.json";
-        private Transaction _transaction;
+        private Transaction _thisTransaction;
         private PetShop _petShop;
+        private Customer _currentCustomer;
+        private Employee _currentEmployee;
 
         public TransactionNewForm()
         {
             LoadPetsShopJson();
             InitializeComponent();
-            _transaction = new Transaction();            
-            _petShop.Transactions.Add(_transaction);
+            _thisTransaction = new Transaction();            
+            _petShop.Transactions.Add(_thisTransaction);
             
         }
 
@@ -65,7 +66,7 @@ namespace Session_11
             ctrlTotalPrice.DataBindings.Add(new Binding("EditValue", bsTransactions, "TotalPrice", true));
         }
 
-        private void Calculations()
+        public void Calculations()
         {
             if (ctrlPetFoodQty.Value == null || ctrlPetFoodQty.Value <1 ) 
             { ctrlPetFoodQty.Value = 1; }
@@ -73,48 +74,53 @@ namespace Session_11
             bsPetShop.DataSource = _petShop;
             bsPetShop.DataMember = "Pets";
             ctrlPet.Properties.DataSource = bsPetShop;
-            
-
             var ctrlpet = ctrlPet.EditValue;
             var pet = _petShop.Pets.Find(x => x.ID.Equals(ctrlpet));
-            var animal = pet.AnimalType; // edw exw to Dog se animalTypeEnum
-            var petFood = _petShop.PetFoods.Find(x => x.AnimalType.Equals(animal));
+            if (pet == null)
+                return;
+            var petFood = _petShop.PetFoods.Find(x => x.AnimalType.Equals(pet.AnimalType));
+            decimal _currentFoodPrice = Convert.ToDecimal(petFood.Price);
+            decimal _totalPet = Convert.ToDecimal(pet.Price);
+            int _qty = Convert.ToInt16(ctrlPetFoodQty.Value);
+            var _grandTotal = (_currentFoodPrice * (_qty - 1) + _totalPet);
+            var _currentFood = _petShop.PetFoods.Find(x => x.ID.Equals(_currentFoodPrice));
+            var _petPrice = ctrlPetPrice.Value;
+            
+            if (pet != null)
+            {
+                ctrlTotalPrice.EditValue = _grandTotal;
+                ctrlPetPrice.EditValue=pet.Price;
+                ctrlPetFoodPrice.EditValue = petFood.Price;
+            }
 
             if (pet.PetStatus == PetShopLib.Enums.PetStatusEnum.Unhealthy)
             {
                 MessageBox.Show("Pet selected is unavailable", "Warning");
-                //DialogResult = DialogResult.Yes;
-                //ctrlPet
+                ctrlPet.EditValue = null;
             }
 
-            decimal _totalpetFood = Convert.ToDecimal(petFood.Price);
-            decimal _totalPet = Convert.ToDecimal(pet.Price);
-
-            int _qty = Convert.ToInt16(ctrlPetFoodQty.Value);
-            var _grandTotal = (_totalpetFood * (_qty - 1) + _totalPet);
-            ctrlTotalPrice.EditValue = _grandTotal;
-
-            if (pet != null)
-            {
-                ctrlPetPrice.EditValue=pet.Price;
-                ctrlPetFoodPrice.EditValue = petFood.Price;
-                _transaction.PetFoodQty = _qty;
-                _transaction.PetFoodPrice = _totalpetFood;
-
-               // _transaction.PetPrice = animal.;
-
-            } 
+            _currentCustomer = _petShop.Customers.FirstOrDefault(x => x.TIN.Equals(ctrlCustomer.EditValue));
+            _currentEmployee = _petShop.Employees.FirstOrDefault(x => x.Name.Equals(ctrlEmployee.EditValue));
+            _thisTransaction.PetFoodQty = _qty;
+            _thisTransaction.PetFoodPrice = _currentFoodPrice;
+            _thisTransaction.TotalPrice = _grandTotal;
+            _thisTransaction.PetPrice = _petPrice;
+            _thisTransaction.CustomerID = _currentCustomer.ID;
+            _thisTransaction.EmployeeID = _currentEmployee.ID;
+            _thisTransaction.PetID = pet.ID;
+            //_thisTransaction.PetFoodID = _petFoodID.ToString();
         }
         private void Save()
         {
             string json = JsonSerializer.Serialize(_petShop);
             File.WriteAllText(FILE_NAME, json);
             DialogResult = DialogResult.OK;
+
         }
         private void btnSaveNewTrans_Click(object sender, EventArgs e)
         {
-            _petShop.Transactions.Add(_transaction);
-            Save();
+            _petShop.Transactions.Add(_thisTransaction);
+            //Save();
         }
         private void ctrlPet_EditValueChanged(object sender, EventArgs e)
         {

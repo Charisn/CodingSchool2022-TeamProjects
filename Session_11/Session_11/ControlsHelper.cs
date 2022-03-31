@@ -39,7 +39,7 @@ namespace Session_11
             lookup.DataSource = petShop.Employees;
             lookup.Columns.Add(new LookUpColumnInfo("Name", "Name"));
             lookup.DisplayMember = "Name";
-            lookup.ValueMember = "EmployeeType";
+            lookup.ValueMember = "Name";
             lookup.NullText = "Choose an Employee";
         }
     }

@@ -18,9 +18,13 @@ namespace PetShopLib.Impl
 
         public Employee()
         {
-           
-                ID = Guid.NewGuid();
-            
+            ID = Guid.NewGuid();            
+        }
+        public Employee(string name, string surname, decimal salary) : this()
+        {
+            SalaryPerMonth = salary;
+            Name = name;
+            SurName = surname;
         }
     }
 }
