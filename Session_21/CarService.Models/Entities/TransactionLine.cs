@@ -19,5 +19,6 @@ public class TransactionLine
     public Engineer Engineer { get; set; }
     public TransactionLine()
     {
+        Id = Guid.NewGuid();
     }
 }
