@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CarService.EF.Repositories;
 
-internal class CarRepo : IEntityRepo<Car>
+public class CarRepo : IEntityRepo<Car>
 {
     public async Task Create(Car entity)
     {
