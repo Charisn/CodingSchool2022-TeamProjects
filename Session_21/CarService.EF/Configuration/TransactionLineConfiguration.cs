@@ -14,8 +14,5 @@ internal class TransactionLineConfiguration : IEntityTypeConfiguration<Transacti
     public void Configure(EntityTypeBuilder<TransactionLine> builder)
     {
         builder.HasKey(transactionLine => transactionLine.Id);
-
-        //builder.HasOne(transactionLine => transactionLine.Engineer).WithMany();
-        //builder.HasOne(transactionLine => transactionLine.ServiceTask).WithMany();
     }
 }
