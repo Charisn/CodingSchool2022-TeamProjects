@@ -26,29 +26,32 @@ namespace Session_11
 
         private void LoadData()
         {
-            if (File.Exists(FILE_NAME))
-            {
-                string s = File.ReadAllText(FILE_NAME);
-                _petShop = (PetShop)JsonSerializer.Deserialize(s, typeof(PetShop));
+            
+                if (File.Exists(FILE_NAME))
+                {
+                    string s = File.ReadAllText(FILE_NAME);
+                    _petShop = (PetShop)JsonSerializer.Deserialize(s, typeof(PetShop));
 
-            }
-            else
-            {
-                _petShop = new PetShop();
-                CreateCustomers();
-                CreateEmployees();
-                CreatePets();
-                CreatePetFoods();
-                SaveData();
-            }
-        } 
+                }
+                else
+                {
+                    _petShop = new PetShop();
+                    CreateCustomers();
+                    CreateEmployees();
+                    CreatePets();
+                    CreatePetFoods();
+                    SaveData();
+                }
+            
+        }
         #region DummyData
         private void CreateCustomers()
         {
-            var customer = new Customer() {
-                Name = "{ADD NAME}" ,
+            var customer = new Customer()
+            {
+                Name = "{ADD NAME}",
                 SurName = "{ADD SURNAME}",
-                TIN = 45858751 ,
+                TIN = 45858751,
                 Phone = 698323214
             };
             _petShop.Customers.Add(customer);
