@@ -1,4 +1,5 @@
 ﻿@model CarService.Models.Entities.Car
+
 @{
     ViewData["Title"] = "Create";
 }
@@ -12,16 +13,14 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Brand" class="control-label"></label>
-                <input asp-for="Brand" class="form-control" />
-                <span asp-validation-for="Brand" class="text-danger"></span>
+                @Html.DropDownListFor(x=>x.Brand, new SelectList(Enum.GetValues(typeof(CarService.Models.Entities.Enumerations.BrandEnum))), ("Select Brand"))                
             </div>
             <div class="form-group">
                 <label asp-for="Model" class="control-label"></label>
                 <input asp-for="Model" class="form-control" />
                 <span asp-validation-for="Model" class="text-danger"></span>
             </div>
-            <div class="form-group">s
+            <div class="form-group">
                 <label asp-for="RegistrationNumber" class="control-label"></label>
                 <input asp-for="RegistrationNumber" class="form-control" />
                 <span asp-validation-for="RegistrationNumber" class="text-danger"></span>
