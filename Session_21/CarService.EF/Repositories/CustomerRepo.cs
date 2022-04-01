@@ -1,5 +1,6 @@
 ﻿using CarService.EF.Context;
 using CarService.Models.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,12 @@ public class CustomerRepo : IEntityRepo<Customer>
     {
         using var context = new CarServiceContext();
         return context.Customers.ToList();
+    }
+
+    public async Task<List<Customer>> GetAllAsync()
+    {
+        await using var context = new CarServiceContext();
+        return await context.Customers.ToListAsync();
     }
 
     public Customer? GetById(Guid id)

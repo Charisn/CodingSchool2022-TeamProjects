@@ -33,6 +33,11 @@ public class ServiceTaskRepo : IEntityRepo<ServiceTask>
         return context.ServiceTasks.ToList();
     }
 
+    public Task<List<ServiceTask>> GetAllAsync()
+    {
+        throw new NotImplementedException();
+    }
+
     public ServiceTask? GetById(Guid id)
     {
         using var context = new CarServiceContext();

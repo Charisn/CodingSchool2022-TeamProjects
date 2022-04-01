@@ -1,5 +1,6 @@
 ﻿using CarService.EF.Context;
 using CarService.Models.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,10 +28,10 @@ public class ManagerRepo : IEntityRepo<Manager>
         await context.SaveChangesAsync();
     }
 
-    public List<Manager> GetAll()
+    public async Task<List<Manager>> GetAllAsync()
     {
         using var context = new CarServiceContext();
-        return context.Managers.ToList();
+        return await context.Managers.ToListAsync();
     }
 
     public Manager? GetById(Guid id)
