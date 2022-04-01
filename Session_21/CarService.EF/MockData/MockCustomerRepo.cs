@@ -10,21 +10,27 @@ namespace CarService.EF.MockData;
 
 public class MockCustomerRepo : IEntityRepo<Customer>
 {
-    private List<Customer> _customer = new List<Customer>() { new Customer(), new Customer() };
+    private List<Customer> _customer = new List<Customer>() { new Customer()
+        {
+            Name = "John",
+            Surname = "Eskioglou",
+            Phone = "6982783322",
+            TIN = "123456789"
+        } };
 
-    public Task Create(Customer entity)
+    public async Task CreateAsync(Customer entity)
     {
         _customer.Add(entity);
-        return Task.CompletedTask;
+        return;
     }
 
-    public Task Delete(Guid id)
+    public async Task DeleteAsync(Guid id)
     {
         var foundCustomer = _customer.SingleOrDefault(x => x.Id.Equals(id));
         if (foundCustomer is null)
-            return Task.CompletedTask;
+            return;
         _customer.Remove(foundCustomer);
-        return Task.CompletedTask;
+        return;
     }
 
     public List<Customer> GetAll()
@@ -32,25 +38,25 @@ public class MockCustomerRepo : IEntityRepo<Customer>
         return _customer;
     }
 
-    public Task<List<Customer>> GetAllAsync()
+    public async Task<List<Customer>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        return _customer;
     }
 
-    public Customer? GetById(Guid id)
+    public async Task<Customer?> GetByIdAsync(Guid id)
     {
         return _customer.SingleOrDefault(x => x.Id.Equals(id));
     }
 
-    public Task Update(Guid id, Customer entity)
+    public async Task UpdateAsync(Guid id, Customer entity)
     {
         var foundCustomer = _customer.SingleOrDefault(x => x.Id.Equals(id));
         if (foundCustomer is null)
-            return Task.CompletedTask;
+            return;
         foundCustomer.Surname = entity.Surname;
         foundCustomer.Phone = entity.Phone;
         foundCustomer.Name = entity.Name;
         foundCustomer.TIN = entity.TIN;
-        return Task.CompletedTask;
+        return;
     }
 }

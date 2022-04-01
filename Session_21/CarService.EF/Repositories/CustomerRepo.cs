@@ -11,14 +11,14 @@ namespace CarService.EF.Repositories;
 
 public class CustomerRepo : IEntityRepo<Customer>
 {
-    public async Task Create(Customer entity)
+    public async Task CreateAsync(Customer entity)
     {
         using var context = new CarServiceContext();
         context.Customers.Add(entity);
         await context.SaveChangesAsync();
     }
 
-    public async Task Delete(Guid id)
+    public async Task DeleteAsync(Guid id)
     {
         using var context = new CarServiceContext();
         var foundCustomer = context.Customers.SingleOrDefault(car => car.Id == id);
@@ -40,13 +40,13 @@ public class CustomerRepo : IEntityRepo<Customer>
         return await context.Customers.ToListAsync();
     }
 
-    public Customer? GetById(Guid id)
+    public async Task<Customer?> GetByIdAsync(Guid id)
     {
         using var context = new CarServiceContext();
         return context.Customers.Where(customer => customer.Id == id).SingleOrDefault();
     }
 
-    public async Task Update(Guid id, Customer entity)
+    public async Task UpdateAsync(Guid id, Customer entity)
     {
         using var context = new CarServiceContext();
         var foundCustomer = context.Customers.SingleOrDefault(customer => customer.Id == id);

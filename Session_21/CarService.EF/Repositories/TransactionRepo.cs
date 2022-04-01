@@ -11,14 +11,14 @@ namespace CarService.EF.Repositories;
 
 public class TransactionRepo : IEntityRepo<Transaction>
 {
-    public async Task Create(Transaction entity)
+    public async Task CreateAsync(Transaction entity)
     {
         using var context = new CarServiceContext();
         context.Transactions.Add(entity);
         await context.SaveChangesAsync();
     }
 
-    public async Task Delete(Guid id)
+    public async Task DeleteAsync(Guid id)
     {
         using var context = new CarServiceContext();
         var foundTransaction = context.Transactions.SingleOrDefault(transaction => transaction.Id == id);
@@ -39,13 +39,13 @@ public class TransactionRepo : IEntityRepo<Transaction>
         throw new NotImplementedException();
     }
 
-    public Transaction? GetById(Guid id)
+    public async Task<Transaction?> GetByIdAsync(Guid id)
     {
         using var context = new CarServiceContext();
         return context.Transactions.Where(transaction => transaction.Id == id).SingleOrDefault();
     }
 
-    public async Task Update(Guid id, Transaction entity)
+    public async Task UpdateAsync(Guid id, Transaction entity)
     {
         using var context = new CarServiceContext();
         var foundTransaction = context.Transactions.Include(transaction => transaction.TransactionLines).SingleOrDefault(transaction => transaction.Id == id);
