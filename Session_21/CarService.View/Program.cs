@@ -9,6 +9,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<CarServiceContext>();
 builder.Services.AddScoped<IEntityRepo<Manager>, ManagerRepo>();
 builder.Services.AddScoped<IEntityRepo<Customer>, CustomerRepo>();
+builder.Services.AddScoped<IEntityRepo<ServiceTask>, ServiceTaskRepo>();
 
 var app = builder.Build();
 

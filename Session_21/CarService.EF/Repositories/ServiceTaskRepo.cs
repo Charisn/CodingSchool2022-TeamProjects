@@ -1,5 +1,6 @@
 ﻿using CarService.EF.Context;
 using CarService.Models.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,9 +34,10 @@ public class ServiceTaskRepo : IEntityRepo<ServiceTask>
         return context.ServiceTasks.ToList();
     }
 
-    public Task<List<ServiceTask>> GetAllAsync()
+    public async Task<List<ServiceTask>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        await using var context = new CarServiceContext();
+        return await context.ServiceTasks.ToListAsync();
     }
 
     public ServiceTask? GetById(Guid id)
