@@ -11,14 +11,14 @@ namespace CarService.EF.Repositories;
 
 public class EngineerRepo : IEntityRepo<Engineer>
 {
-    public async Task Create(Engineer entity)
+    public async Task CreateAsync(Engineer entity)
     {
         using var context = new CarServiceContext();
         context.Engineers.Add(entity);
         await context.SaveChangesAsync();
     }
 
-    public async Task Delete(Guid id)
+    public async Task DeleteAsync(Guid id)
     {
         using var context = new CarServiceContext();
         var foundEngineer = context.Engineers.SingleOrDefault(manager => manager.Id == id);
@@ -34,13 +34,13 @@ public class EngineerRepo : IEntityRepo<Engineer>
         return await context.Engineers.ToListAsync();
     }
 
-    public Engineer? GetById(Guid id)
+    public async Task<Engineer?> GetByIdAsync(Guid id)
     {
         using var context = new CarServiceContext();
         return context.Engineers.Where(engineer => engineer.Id == id).SingleOrDefault();
     }
 
-    public async Task Update(Guid id, Engineer entity)
+    public async Task UpdateAsync(Guid id, Engineer entity)
     {
         using var context = new CarServiceContext();
         var foundEngineer = context.Engineers.SingleOrDefault(manager => manager.Id == id);
