@@ -33,9 +33,10 @@ public class CarRepo : IEntityRepo<Car>
         return context.Cars.ToList();
     }
 
-    public Task<List<Car>> GetAllAsync()
+    public async Task<List<Car>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        using var context = new CarServiceContext();
+        return context.Cars.ToList();
     }
 
     public Car? GetById(Guid id)

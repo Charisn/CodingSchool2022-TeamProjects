@@ -33,5 +33,10 @@ namespace CarService.View.Controllers
         {
             return View();
         }
+
+        public IActionResult Cars()
+        {
+            return View();
+        }
     }
 }

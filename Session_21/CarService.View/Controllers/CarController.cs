@@ -12,11 +12,14 @@ namespace CarService.View.Controllers
         {
             _carRepo = carRepo;
         }
-
-
-        public IActionResult Index()
+        public async Task<IActionResult> Create()
         {
             return View();
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            return View(await _carRepo.GetAllAsync());
         }
     }
 }
