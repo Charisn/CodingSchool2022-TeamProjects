@@ -10,6 +10,7 @@ namespace CarService.EF.Repositories;
 
 public class CarRepo : IEntityRepo<Car>
 {
+    private readonly CarServiceContext context;
     public async Task CreateAsync(Car entity)
     {
         using var context = new CarServiceContext();
@@ -27,10 +28,10 @@ public class CarRepo : IEntityRepo<Car>
         await context.SaveChangesAsync();
     }
 
-    public List<Car> GetAll()
+    public async Task AddAsync(Car entity)
     {
-        using var context = new CarServiceContext();
-        return context.Cars.ToList();
+        AddLogic(entity, context);
+        await context.SaveChangesAsync();
     }
 
     public async Task<List<Car>> GetAllAsync()
@@ -55,5 +56,12 @@ public class CarRepo : IEntityRepo<Car>
         foundCar.Model = entity.Model;
         foundCar.RegistrationNumber = entity.RegistrationNumber;
         await context.SaveChangesAsync();
+    }
+    private void AddLogic(Car entity, CarServiceContext context)
+    {
+        if (entity.Id != Guid.Empty)
+            throw new ArgumentException("Given entity should not have Id set", nameof(entity));
+
+        context.Cars.Add(entity);
     }
 }
