@@ -34,6 +34,11 @@ public class TransactionRepo : IEntityRepo<Transaction>
         return context.Transactions.Include(transaction => transaction.TransactionLines).ToList();
     }
 
+    public Task<List<Transaction>> GetAllAsync()
+    {
+        throw new NotImplementedException();
+    }
+
     public Transaction? GetById(Guid id)
     {
         using var context = new CarServiceContext();
