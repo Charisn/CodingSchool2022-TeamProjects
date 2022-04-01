@@ -11,14 +11,14 @@ namespace CarService.EF.Repositories;
 
 public class ManagerRepo : IEntityRepo<Manager>
 {
-    public async Task Create(Manager entity)
+    public async Task CreateAsync(Manager entity)
     {
         using var context = new CarServiceContext();
         context.Managers.Add(entity);
         await context.SaveChangesAsync();
     }
 
-    public async Task Delete(Guid id)
+    public async Task DeleteAsync(Guid id)
     {
         using var context = new CarServiceContext();
         var foundManager = context.Managers.SingleOrDefault(manager => manager.Id == id);
@@ -34,13 +34,13 @@ public class ManagerRepo : IEntityRepo<Manager>
         return await context.Managers.ToListAsync();
     }
 
-    public Manager? GetById(Guid id)
+    public async Task<Manager?> GetByIdAsync(Guid id)
     {
         using var context = new CarServiceContext();
         return context.Managers.Where(manager => manager.Id == id).SingleOrDefault();
     }
 
-    public async Task Update(Guid id, Manager entity)
+    public async Task UpdateAsync(Guid id, Manager entity)
     {
         using var context = new CarServiceContext();
         var foundManager = context.Managers.SingleOrDefault(manager => manager.Id == id);

@@ -20,5 +20,12 @@ namespace CarService.View.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([Bind("Name", "Surname", "Phone", "TIN")] Customer customer)
+        {
+            _customerRepo.CreateAsync(customer);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

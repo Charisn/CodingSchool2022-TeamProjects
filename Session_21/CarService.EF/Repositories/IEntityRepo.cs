@@ -9,8 +9,8 @@ namespace CarService.EF.Repositories;
 public interface IEntityRepo<TEntity>
 {
     Task<List<TEntity>> GetAllAsync();
-    TEntity? GetById(Guid id);
-    Task Create(TEntity entity);
-    Task Update(Guid id, TEntity entity);
-    Task Delete(Guid id);
+    Task<TEntity?> GetByIdAsync(Guid id);
+    Task CreateAsync(TEntity entity);
+    Task UpdateAsync(Guid id, TEntity entity);
+    Task DeleteAsync(Guid id);
 }

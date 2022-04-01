@@ -1,4 +1,5 @@
 using CarService.EF.Context;
+using CarService.EF.MockData;
 using CarService.EF.Repositories;
 using CarService.Models.Entities;
 
@@ -7,10 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<CarServiceContext>();
-builder.Services.AddScoped<IEntityRepo<Manager>, ManagerRepo>();
+builder.Services.AddSingleton<IEntityRepo<Manager>, MockManagerRepo>();
 builder.Services.AddScoped<IEntityRepo<ServiceTask>, ServiceTaskRepo>();
 builder.Services.AddScoped<IEntityRepo<Transaction>, TransactionRepo>();
-builder.Services.AddScoped<IEntityRepo<Customer>, CustomerRepo>();
+builder.Services.AddSingleton<IEntityRepo<Customer>, MockCustomerRepo>();
 builder.Services.AddScoped<IEntityRepo<Car>, CarRepo>();
 builder.Services.AddScoped<IEntityRepo<Engineer>, EngineerRepo>();
 

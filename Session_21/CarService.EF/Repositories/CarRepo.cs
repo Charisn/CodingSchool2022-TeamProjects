@@ -10,14 +10,14 @@ namespace CarService.EF.Repositories;
 
 public class CarRepo : IEntityRepo<Car>
 {
-    public async Task Create(Car entity)
+    public async Task CreateAsync(Car entity)
     {
         using var context = new CarServiceContext();
         context.Cars.Add(entity);
         await context.SaveChangesAsync();
     }
 
-    public async Task Delete(Guid id)
+    public async Task DeleteAsync(Guid id)
     {
         using var context = new CarServiceContext();
         var foundCar = context.Cars.SingleOrDefault(car => car.Id == id);
@@ -39,13 +39,13 @@ public class CarRepo : IEntityRepo<Car>
         return context.Cars.ToList();
     }
 
-    public Car? GetById(Guid id)
+    public async Task<Car? >GetByIdAsync(Guid id)
     {
         using var context = new CarServiceContext();
         return context.Cars.Where(car => car.Id == id).SingleOrDefault();
     }
 
-    public async Task Update(Guid id, Car entity)
+    public async Task UpdateAsync(Guid id, Car entity)
     {
         using var context = new CarServiceContext();
         var foundCar = context.Cars.SingleOrDefault(car => car.Id == id);

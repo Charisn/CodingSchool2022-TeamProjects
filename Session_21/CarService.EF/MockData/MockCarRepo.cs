@@ -11,19 +11,19 @@ namespace CarService.EF.MockData;
 public class MockCarRepo : IEntityRepo<Car>
 {
     private List<Car> _car = new List<Car>() { new Car(), new Car() };
-    public Task Create(Car entity)
+    public async Task CreateAsync(Car entity)
     {
         _car.Add(entity);
-        return Task.CompletedTask;
+        return;
     }
 
-    public Task Delete(Guid id)
+    public async Task DeleteAsync(Guid id)
     {
         var foundCar = _car.SingleOrDefault(x => x.Id.Equals(id));
         if (foundCar is null)
-            return Task.CompletedTask;
+            return;
         _car.Remove(foundCar);
-        return Task.CompletedTask;
+        return;
     }
 
     public List<Car> GetAll()
@@ -36,19 +36,19 @@ public class MockCarRepo : IEntityRepo<Car>
         throw new NotImplementedException();
     }
 
-    public Car? GetById(Guid id)
+    public async Task<Car?> GetByIdAsync(Guid id)
     {
         return _car.SingleOrDefault(x => x.Id.Equals(id));
     }
 
-    public Task Update(Guid id, Car entity)
+    public async Task UpdateAsync(Guid id, Car entity)
     {
         var foundCar = _car.SingleOrDefault(x => x.Id.Equals(id));
         if (foundCar is null)
-            return Task.CompletedTask;
+            return;
         foundCar.Brand = entity.Brand;
         foundCar.Model = entity.Model;
         foundCar.RegistrationNumber = entity.RegistrationNumber;
-        return Task.CompletedTask;
+        return;
     }
 }

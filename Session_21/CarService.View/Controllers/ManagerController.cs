@@ -19,12 +19,6 @@ namespace CarService.View.Controllers
             return View(await _managerRepo.GetAllAsync());
         }
 
-        // GET: ManagerController1/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
         // GET: ManagerController1/Create
         public ActionResult Create()
         {
@@ -34,10 +28,11 @@ namespace CarService.View.Controllers
         // POST: ManagerController1/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> Create([Bind("Name", "Surname", "SalaryPerMonth")]Manager manager)
         {
             try
             {
+                _managerRepo.CreateAsync(manager);
                 return RedirectToAction(nameof(Index));
             }
             catch
