@@ -31,6 +31,11 @@ public class MockCarRepo : IEntityRepo<Car>
         return _car;
     }
 
+    public Task<List<Car>> GetAllAsync()
+    {
+        throw new NotImplementedException();
+    }
+
     public Car? GetById(Guid id)
     {
         return _car.SingleOrDefault(x => x.Id.Equals(id));

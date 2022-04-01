@@ -32,6 +32,11 @@ public class MockCustomerRepo : IEntityRepo<Customer>
         return _customer;
     }
 
+    public Task<List<Customer>> GetAllAsync()
+    {
+        throw new NotImplementedException();
+    }
+
     public Customer? GetById(Guid id)
     {
         return _customer.SingleOrDefault(x => x.Id.Equals(id));
