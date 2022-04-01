@@ -8,8 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<CarServiceContext>();
 builder.Services.AddScoped<IEntityRepo<Manager>, ManagerRepo>();
-builder.Services.AddScoped<IEntityRepo<Customer>, CustomerRepo>();
 builder.Services.AddScoped<IEntityRepo<ServiceTask>, ServiceTaskRepo>();
+builder.Services.AddScoped<IEntityRepo<Transaction>, TransactionRepo>();
+builder.Services.AddScoped<IEntityRepo<Customer>, CustomerRepo>();
 
 var app = builder.Build();
 
