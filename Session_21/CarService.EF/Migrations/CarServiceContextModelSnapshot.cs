@@ -47,7 +47,7 @@ namespace CarService.EF.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Cars");
+                    b.ToTable("Cars", (string)null);
                 });
 
             modelBuilder.Entity("CarService.Models.Entities.Customer", b =>
@@ -82,7 +82,7 @@ namespace CarService.EF.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Customers");
+                    b.ToTable("Customers", (string)null);
                 });
 
             modelBuilder.Entity("CarService.Models.Entities.Engineer", b =>
@@ -114,7 +114,7 @@ namespace CarService.EF.Migrations
 
                     b.HasIndex("ManagerID");
 
-                    b.ToTable("Engineers");
+                    b.ToTable("Engineers", (string)null);
                 });
 
             modelBuilder.Entity("CarService.Models.Entities.Manager", b =>
@@ -141,7 +141,7 @@ namespace CarService.EF.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Managers");
+                    b.ToTable("Managers", (string)null);
                 });
 
             modelBuilder.Entity("CarService.Models.Entities.ServiceTask", b =>
@@ -167,7 +167,7 @@ namespace CarService.EF.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ServiceTasks");
+                    b.ToTable("ServiceTasks", (string)null);
                 });
 
             modelBuilder.Entity("CarService.Models.Entities.Transaction", b =>
@@ -199,7 +199,7 @@ namespace CarService.EF.Migrations
 
                     b.HasIndex("ManagerID");
 
-                    b.ToTable("Transactions");
+                    b.ToTable("Transactions", (string)null);
                 });
 
             modelBuilder.Entity("CarService.Models.Entities.TransactionLine", b =>
@@ -234,7 +234,7 @@ namespace CarService.EF.Migrations
 
                     b.HasIndex("TransactionId");
 
-                    b.ToTable("TransactionLines");
+                    b.ToTable("TransactionLines", (string)null);
                 });
 
             modelBuilder.Entity("CarService.Models.Entities.Engineer", b =>
