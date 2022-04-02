@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarService.Models.Entities;
 
-public class Engineer
+public class Engineer : EntityStatus
 {
     public Guid Id { get; set; }
     public string Name { get; set; }

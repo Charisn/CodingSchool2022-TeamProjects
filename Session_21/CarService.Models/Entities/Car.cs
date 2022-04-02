@@ -7,7 +7,7 @@ using static CarService.Models.Entities.Enumerations;
 
 namespace CarService.Models.Entities;
 
-public class Car
+public class Car : EntityStatus
 {
     public Guid Id { get; set; }
     public BrandEnum Brand { get; set; }
