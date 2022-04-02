@@ -2,6 +2,7 @@
 using CarService.EF.Repositories;
 using CarService.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CarService.View.Controllers
 {
@@ -9,6 +10,7 @@ namespace CarService.View.Controllers
     {
         private readonly IEntityRepo<Engineer> _engineerRepo;
         private readonly CarServiceContext _context;
+        private readonly IEntityRepo<Manager> _managerRepo;
         public EngineerController(IEntityRepo<Engineer> engineerRepo)
         {
             _engineerRepo = engineerRepo;
@@ -17,31 +19,9 @@ namespace CarService.View.Controllers
         // GET: CarController
         public async Task<IActionResult> Index()
         {
+            var managerList = await _managerRepo.GetAllAsync();
+            ViewData["manager"] = managerList;
             return View(await _engineerRepo.GetAllAsync());
-        }
-
-
-        // GET: CarController/Details/5
-        public async Task<IActionResult> Details(Guid id)
-        {
-            if (id == Guid.Empty)
-            {
-                return View();
-            }
-
-            var engineer = await _engineerRepo.GetByIdAsync(id);
-            if (engineer == null)
-            {
-                return NotFound();
-            }
-            var viewModel = new Engineer
-            {
-                Name = engineer.Name,
-                Surname = engineer.Surname,
-                SalaryPerMonth = engineer.SalaryPerMonth
-            };
-
-            return View(viewModel);
         }
 
         // GET: CarController/Create
@@ -55,7 +35,7 @@ namespace CarService.View.Controllers
         // POST: CarController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id", "Name", "Surname", "SalaryPerMonth")] Engineer engineer)
+        public async Task<IActionResult> Create([Bind("Id", "Name", "Surname", "SalaryPerMonth", "ManagerID")] Engineer engineer)
         {
             if (!ModelState.IsValid)
             {
@@ -95,7 +75,7 @@ namespace CarService.View.Controllers
         // POST: CarController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id", "Name", "Surname", "SalaryPerMonth")] Engineer engineer)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id", "Name", "Surname", "SalaryPerMonth", "ManagerID")] Engineer engineer)
         {
             if (id != engineer.Id)
             {

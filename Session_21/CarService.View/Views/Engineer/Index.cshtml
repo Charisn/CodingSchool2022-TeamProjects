@@ -20,6 +20,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.SalaryPerMonth)
+            </th>            
+            <th>
+                @Html.DisplayNameFor(model => model.ManagerID)
             </th>
             <th></th>
         </tr>
@@ -37,7 +40,10 @@
                 @Html.DisplayFor(modelItem => item.SalaryPerMonth)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                @*@Html.DisplayFor(ViewBag.manager.Find(x=>x.Id == item.ManagerID).Name)*@
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>

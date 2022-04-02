@@ -21,30 +21,6 @@ namespace CarService.View.Controllers
             return View(await _carRepo.GetAllAsync());
         }
 
-
-        // GET: CarController/Details/5
-        public async Task<IActionResult> Details(Guid id)
-        {
-            if(id == Guid.Empty)
-            {
-                return View();
-            }
-
-            var car = await _carRepo.GetByIdAsync(id);
-            if (car == null)
-            {
-                return NotFound();
-            }
-            var viewModel = new Car
-            {
-                Brand = car.Brand,
-                Model = car.Model,
-                RegistrationNumber = car.RegistrationNumber
-            };
-
-            return View(viewModel);
-        }
-
         // GET: CarController/Create
         public async Task<IActionResult> Create()
         {
