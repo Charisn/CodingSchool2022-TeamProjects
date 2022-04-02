@@ -104,7 +104,7 @@ namespace CarService.View.Controllers
                 if (currentCar is null)
                     return BadRequest("Could not find this Car");
                 currentCar.RegistrationNumber = car.RegistrationNumber;
-                currentCar.Brand = currentCar.Brand;
+                currentCar.Brand = car.Brand;
                 currentCar.Model = car.Model;
                 await _carRepo.UpdateAsync(id, currentCar);
                 return RedirectToAction(nameof(Index));
