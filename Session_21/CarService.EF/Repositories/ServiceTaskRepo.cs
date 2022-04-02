@@ -11,13 +11,13 @@ namespace CarService.EF.Repositories;
 
 public class ServiceTaskRepo : IEntityRepo<ServiceTask>
 {
+    private readonly CarServiceContext context;
     public async Task CreateAsync(ServiceTask entity)
     {
         using var context = new CarServiceContext();
         context.ServiceTasks.Add(entity);
         await context.SaveChangesAsync();
     }
-
     public async Task DeleteAsync(Guid id)
     {
         using var context = new CarServiceContext();
