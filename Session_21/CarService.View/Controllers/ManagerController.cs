@@ -30,57 +30,42 @@ namespace CarService.View.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind("Name", "Surname", "SalaryPerMonth")]Manager manager)
         {
-            try
-            {
-                _managerRepo.CreateAsync(manager);
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            await _managerRepo.CreateAsync(manager);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: ManagerController1/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(Guid id)
         {
-            return View();
+            return View(await _managerRepo.GetByIdAsync(id));
         }
 
         // POST: ManagerController1/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> Edit(Guid id, [Bind("Name", "Surname", "SalaryPerMonth")] Manager manager)
         {
-            try
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                await _managerRepo.UpdateAsync(id, manager);
             }
-            catch
-            {
-                return View();
-            }
+
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: ManagerController1/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(Guid id)
         {
-            return View();
+            return View(await _managerRepo.GetByIdAsync(id));
         }
 
         // POST: ManagerController1/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> Delete(Guid id, [Bind("Name", "Surname", "SalaryPerMonth")] Manager manager)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            await _managerRepo.DeleteAsync(id);
+            return RedirectToAction(nameof(Index));            
         }
     }
 }

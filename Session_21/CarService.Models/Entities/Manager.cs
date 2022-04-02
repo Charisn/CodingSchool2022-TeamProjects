@@ -18,7 +18,7 @@ public class Manager
 
     public int SalaryPerMonth { get; set; }
 
-    public List<Engineer> Engineers { get; set; }
+    public List<Engineer> Engineers { get; set; } = new List<Engineer>() { };
 
     public Manager()
     {
