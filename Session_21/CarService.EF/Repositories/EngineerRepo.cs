@@ -11,13 +11,13 @@ namespace CarService.EF.Repositories;
 
 public class EngineerRepo : IEntityRepo<Engineer>
 {
+    private readonly CarServiceContext context;
     public async Task CreateAsync(Engineer entity)
     {
         using var context = new CarServiceContext();
         context.Engineers.Add(entity);
         await context.SaveChangesAsync();
     }
-
     public async Task DeleteAsync(Guid id)
     {
         using var context = new CarServiceContext();

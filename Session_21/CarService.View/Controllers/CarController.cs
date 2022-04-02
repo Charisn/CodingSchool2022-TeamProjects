@@ -54,58 +54,95 @@ namespace CarService.View.Controllers
         // POST: CarController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Model")] Car car)
+        public async Task<IActionResult> Create([Bind("Id","Brand", "Model", "RegistrationNumber")] Car car)
         {
-        //    if (ModelState.IsValid)
-        //    {
-        //        var NewCar = new Car(car.Model);
+            if (!ModelState.IsValid)
+            {
+                var NewCar = new Car();
 
-        //        await _carRepo.AddAsync(NewCar);
-        //        return RedirectToAction(nameof(Index));
-        //    }
-            return View(car);
+                await _carRepo.CreateAsync(NewCar);
+                return RedirectToAction(nameof(Index));
+            }
+            _carRepo.CreateAsync(car);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: CarController/Edit/5
-        public ActionResult Edit(Guid id)
+        public async Task<IActionResult> Edit(Guid id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var car = await _carRepo.GetByIdAsync(id);
+            if (car == null)
+            {
+                return NotFound();
+            }
+            var carModel = new Car
+            {
+                Id = car.Id,
+                Brand = car.Brand
+            };
+            return View(carModel);
         }
 
         // POST: CarController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Guid id, IFormCollection collection)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id", "Brand", "Model", "RegistrationNumber")] Car car) 
         {
-            try
+            if (id != car.Id)
             {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                var currentCar = await _carRepo.GetByIdAsync(id);
+                if (currentCar is null)
+                    return BadRequest("Could not find this Car");
+                currentCar.RegistrationNumber = car.RegistrationNumber;
+                currentCar.Brand = currentCar.Brand;
+                currentCar.Model = car.Model;
+                await _carRepo.UpdateAsync(id, currentCar);
                 return RedirectToAction(nameof(Index));
             }
-            catch
-            {
-                return View();
-            }
+            return View(car);
         }
 
         // GET: CarController/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<IActionResult> Delete(Guid id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var car = await _carRepo.GetByIdAsync(id);
+            if (car == null)
+            {
+                return NotFound();
+            }
+
+            var viewModel = new Car
+            {
+                Brand = car.Brand,
+                Id = car.Id,
+                Model = car.Model,
+                RegistrationNumber = car.RegistrationNumber
+            };
+            return View(viewModel);
         }
 
         // POST: CarController/Delete/5
-        [HttpPost]
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(Guid id, IFormCollection collection)
+        public async Task<IActionResult> DeleteConfirmed(Guid id, IFormCollection collection)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            await _carRepo.DeleteAsync(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

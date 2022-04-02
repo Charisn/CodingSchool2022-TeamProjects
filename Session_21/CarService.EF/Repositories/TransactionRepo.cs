@@ -11,6 +11,7 @@ namespace CarService.EF.Repositories;
 
 public class TransactionRepo : IEntityRepo<Transaction>
 {
+    private readonly CarServiceContext context;
     public async Task CreateAsync(Transaction entity)
     {
         using var context = new CarServiceContext();
