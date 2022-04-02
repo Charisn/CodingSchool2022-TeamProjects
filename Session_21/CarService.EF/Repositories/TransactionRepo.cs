@@ -11,7 +11,11 @@ namespace CarService.EF.Repositories;
 
 public class TransactionRepo : IEntityRepo<Transaction>
 {
-    private readonly CarServiceContext context;
+    private readonly CarServiceContext _context;
+    public TransactionRepo()
+    {
+        _context = new CarServiceContext();
+    }
     public async Task CreateAsync(Transaction entity)
     {
         using var context = new CarServiceContext();
@@ -29,15 +33,10 @@ public class TransactionRepo : IEntityRepo<Transaction>
         await context.SaveChangesAsync();
     }
 
-    public List<Transaction> GetAll()
+    public async Task<List<Transaction>> GetAllAsync()
     {
-        using var context = new CarServiceContext();
-        return context.Transactions.Include(transaction => transaction.TransactionLines).ToList();
-    }
-
-    public Task<List<Transaction>> GetAllAsync()
-    {
-        throw new NotImplementedException();
+        await using var context = new CarServiceContext();
+        return await _context.Transactions.ToListAsync();
     }
 
     public async Task<Transaction?> GetByIdAsync(Guid id)

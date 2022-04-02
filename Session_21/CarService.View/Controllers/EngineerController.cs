@@ -11,9 +11,10 @@ namespace CarService.View.Controllers
         private readonly IEntityRepo<Engineer> _engineerRepo;
         private readonly CarServiceContext _context;
         private readonly IEntityRepo<Manager> _managerRepo;
-        public EngineerController(IEntityRepo<Engineer> engineerRepo)
+        public EngineerController(IEntityRepo<Engineer> engineerRepo, IEntityRepo<Manager> managerRepo)
         {
             _engineerRepo = engineerRepo;
+            _managerRepo = managerRepo;
         }
 
         // GET: CarController
