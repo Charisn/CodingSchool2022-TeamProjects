@@ -1,7 +1,8 @@
 ﻿using CarService.EF.Repositories;
 using CarService.Models.Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
+using System.Web.Http;
 
 namespace CarService.View.Controllers
 {
@@ -33,60 +34,47 @@ namespace CarService.View.Controllers
         }
 
         // POST: ServiceTaskController1/Create
-        [HttpPost]
+        [Microsoft.AspNetCore.Mvc.HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create([Bind("Code", "Description", "Hours")] ServiceTask serviceTask)
         {
-            try
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                _serviceTaskRepo.CreateAsync(serviceTask);
             }
-            catch
-            {
-                return View();
-            }
+            
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: ServiceTaskController1/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(Guid id)
         {
-            return View();
+            var serTask = _serviceTaskRepo.GetByIdAsync(id).Result;
+            return View(serTask);
         }
 
         // POST: ServiceTaskController1/Edit/5
-        [HttpPost]
+        [Microsoft.AspNetCore.Mvc.HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> Edit(Guid id, [Bind("Code", "Description", "Hours")] ServiceTask serviceTask)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            await _serviceTaskRepo.UpdateAsync(id, serviceTask);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: ServiceTaskController1/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(Guid id)
         {
-            return View();
+            return View(await _serviceTaskRepo.GetByIdAsync(id));
         }
 
         // POST: ServiceTaskController1/Delete/5
-        [HttpPost]
+        [Microsoft.AspNetCore.Mvc.HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(Guid id, IFormCollection collection)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            _serviceTaskRepo.DeleteAsync(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

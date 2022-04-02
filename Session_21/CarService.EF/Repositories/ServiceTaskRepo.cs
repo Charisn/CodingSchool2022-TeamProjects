@@ -42,7 +42,7 @@ public class ServiceTaskRepo : IEntityRepo<ServiceTask>
 
     public async Task<ServiceTask?> GetByIdAsync(Guid id)
     {
-        using var context = new CarServiceContext();
+        await using var context = new CarServiceContext();
         return context.ServiceTasks.Where(serviceTask => serviceTask.Id == id).SingleOrDefault();
     }
 
