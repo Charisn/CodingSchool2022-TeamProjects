@@ -47,6 +47,8 @@ namespace CarService.View.Controllers
         // GET: CarController/Create
         public async Task<IActionResult> Create()
         {
+            var managers = new ManagerRepo().GetAllAsync().Result;
+            ViewData["managers"] = managers;
             return View();
         }
 

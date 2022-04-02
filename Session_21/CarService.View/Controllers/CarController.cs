@@ -83,7 +83,9 @@ namespace CarService.View.Controllers
             var carModel = new Car
             {
                 Id = car.Id,
-                Brand = car.Brand
+                Brand = car.Brand,
+                Model = car.Model,
+                RegistrationNumber = car.RegistrationNumber
             };
             return View(carModel);
         }
