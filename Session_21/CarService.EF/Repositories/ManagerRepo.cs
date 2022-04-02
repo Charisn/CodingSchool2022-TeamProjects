@@ -18,19 +18,6 @@ public class ManagerRepo : IEntityRepo<Manager>
         context.Managers.Add(entity);
         await context.SaveChangesAsync();
     }
-    public async Task AddAsync(Engineer entity)
-    {
-        AddLogic(entity, context);
-        await context.SaveChangesAsync();
-    }
-    private void AddLogic(Engineer entity, CarServiceContext context)
-    {
-        if (entity.Id != Guid.Empty)
-            throw new ArgumentException("Given entity should not have Id set", nameof(entity));
-
-        context.Engineers.Add(entity);
-    }
-
     public async Task DeleteAsync(Guid id)
     {
         using var context = new CarServiceContext();
