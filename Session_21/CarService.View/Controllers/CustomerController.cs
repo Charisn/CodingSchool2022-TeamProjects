@@ -24,8 +24,32 @@ namespace CarService.View.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([Bind("Name", "Surname", "Phone", "TIN")] Customer customer)
         {
-            _customerRepo.CreateAsync(customer);
+            await _customerRepo.CreateAsync(customer);
             return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            return View(await _customerRepo.GetByIdAsync(id));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(Guid id, [Bind("Name", "Surname", "Phone", "TIN")] Customer customer)
+        {
+            await _customerRepo.DeleteAsync(id);
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Edit(Guid id)
+        {
+            return View(await _customerRepo.GetByIdAsync(id));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(Guid id, [Bind("Name", "Surname", "Phone", "TIN")] Customer customer)
+        {
+            await _customerRepo.UpdateAsync(id, customer);
+            return RedirectToAction(nameof(Index)); 
         }
     }
 }
