@@ -19,6 +19,8 @@ public class ServiceTasksCreateViewModel
     public string Description { get; set; }
 
     public decimal Hours { get; set; }
+
+    public List<ServiceTask> Tasks { get; set; }
 }
 
 public class ServiceTasksUpdateViewModel

@@ -62,7 +62,7 @@ namespace CarService.EF.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Code = table.Column<int>(type: "int", maxLength: 100, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    Hours = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Hours = table.Column<int>(type: "int", nullable: false),
                     Status = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -111,19 +111,19 @@ namespace CarService.EF.Migrations
                         column: x => x.CarID,
                         principalTable: "Cars",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Transactions_Customers_CustomerID",
                         column: x => x.CustomerID,
                         principalTable: "Customers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Transactions_Managers_ManagerID",
                         column: x => x.ManagerID,
                         principalTable: "Managers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -146,16 +146,16 @@ namespace CarService.EF.Migrations
                         column: x => x.EngineerID,
                         principalTable: "Engineers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_TransactionLines_ServiceTasks_ServiceTaskID",
                         column: x => x.ServiceTaskID,
                         principalTable: "ServiceTasks",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_TransactionLines_Transactions_TransactionId",
-                        column: x => x.TransactionId,
+                        name: "FK_TransactionLines_Transactions_Id",
+                        column: x => x.Id,
                         principalTable: "Transactions",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
@@ -175,11 +175,6 @@ namespace CarService.EF.Migrations
                 name: "IX_TransactionLines_ServiceTaskID",
                 table: "TransactionLines",
                 column: "ServiceTaskID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_TransactionLines_TransactionId",
-                table: "TransactionLines",
-                column: "TransactionId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Transactions_CarID",

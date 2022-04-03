@@ -1,6 +1,7 @@
 ﻿using CarService.EF.Context;
 using CarService.EF.Repositories;
 using CarService.Models.Entities;
+using CarService.View.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarService.View.Controllers
@@ -11,14 +12,16 @@ namespace CarService.View.Controllers
         private readonly CarServiceContext _context;
         private readonly IEntityRepo<Manager> _managerRepo;
         private readonly IEntityRepo<Customer> _customerRepo;
+        private readonly IEntityRepo<ServiceTask> _serviceTaskRepo;
         private readonly IEntityRepo<Car> _carRepo;
         private readonly TransactionLine _transactionLine;
-        public TransactionController(IEntityRepo<Customer> customerRepo, IEntityRepo<Manager> managerRepo, IEntityRepo<Car> carRepo, IEntityRepo<Transaction> transactionRepo)
+        public TransactionController(IEntityRepo<Customer> customerRepo, IEntityRepo<Manager> managerRepo, IEntityRepo<Car> carRepo, IEntityRepo<Transaction> transactionRepo, IEntityRepo<ServiceTask> serviceTaskRepo)
         {
             _transactionRepo = transactionRepo;
             _managerRepo = managerRepo;
             _customerRepo = customerRepo;
             _carRepo = carRepo;
+            _serviceTaskRepo = serviceTaskRepo;
         }
 
         // GET: CarController
@@ -30,13 +33,14 @@ namespace CarService.View.Controllers
         // GET: CarController/Create
         public async Task<IActionResult> Create()
         {
-            var cars = new CarRepo().GetAllAsync().Result;
-            var managers = new ManagerRepo().GetAllAsync().Result;
-            var customers = new CustomerRepo().GetAllAsync().Result;
-            ViewData["cars"] = cars;
-            ViewData["managers"] = managers;
-            ViewData["customers"] = customers;
-            return View();
+            var cars = await _carRepo.GetAllAsync();
+            var managers = await _managerRepo.GetAllAsync();
+            var customers = await _customerRepo.GetAllAsync();
+            var transactionCreateView = new TransactionCreateViewModel();
+            transactionCreateView.Cars = cars;
+            transactionCreateView.Managers = managers;
+            transactionCreateView.Customers = customers;
+            return View(transactionCreateView);
         }
 
         // POST: CarController/Create
@@ -137,6 +141,19 @@ namespace CarService.View.Controllers
         {
             await _transactionRepo.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> NewTask()
+        {
+            var serviceTaskView = new ServiceTasksCreateViewModel();
+            serviceTaskView.Tasks = await _serviceTaskRepo.GetAllAsync();
+            return View(serviceTaskView);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> NewTask(Guid id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

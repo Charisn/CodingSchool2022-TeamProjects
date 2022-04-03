@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarService.EF.Migrations
 {
     [DbContext(typeof(CarServiceContext))]
-    [Migration("20220402105213_Initial")]
+    [Migration("20220403194313_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -161,8 +161,8 @@ namespace CarService.EF.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
-                    b.Property<decimal>("Hours")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("Hours")
+                        .HasColumnType("int");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
@@ -207,7 +207,6 @@ namespace CarService.EF.Migrations
             modelBuilder.Entity("CarService.Models.Entities.TransactionLine", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("EngineerID")
@@ -233,8 +232,6 @@ namespace CarService.EF.Migrations
                     b.HasIndex("EngineerID");
 
                     b.HasIndex("ServiceTaskID");
-
-                    b.HasIndex("TransactionId");
 
                     b.ToTable("TransactionLines");
                 });
@@ -283,15 +280,15 @@ namespace CarService.EF.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CarService.Models.Entities.ServiceTask", "ServiceTask")
-                        .WithMany()
-                        .HasForeignKey("ServiceTaskID")
+                    b.HasOne("CarService.Models.Entities.Transaction", null)
+                        .WithMany("TransactionLines")
+                        .HasForeignKey("Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CarService.Models.Entities.Transaction", null)
-                        .WithMany("TransactionLines")
-                        .HasForeignKey("TransactionId")
+                    b.HasOne("CarService.Models.Entities.ServiceTask", "ServiceTask")
+                        .WithMany()
+                        .HasForeignKey("ServiceTaskID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

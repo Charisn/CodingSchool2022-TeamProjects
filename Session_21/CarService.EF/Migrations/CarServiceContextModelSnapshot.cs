@@ -47,7 +47,7 @@ namespace CarService.EF.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Cars", (string)null);
+                    b.ToTable("Cars");
                 });
 
             modelBuilder.Entity("CarService.Models.Entities.Customer", b =>
@@ -82,7 +82,7 @@ namespace CarService.EF.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Customers", (string)null);
+                    b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("CarService.Models.Entities.Engineer", b =>
@@ -114,7 +114,7 @@ namespace CarService.EF.Migrations
 
                     b.HasIndex("ManagerID");
 
-                    b.ToTable("Engineers", (string)null);
+                    b.ToTable("Engineers");
                 });
 
             modelBuilder.Entity("CarService.Models.Entities.Manager", b =>
@@ -141,7 +141,7 @@ namespace CarService.EF.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Managers", (string)null);
+                    b.ToTable("Managers");
                 });
 
             modelBuilder.Entity("CarService.Models.Entities.ServiceTask", b =>
@@ -159,15 +159,15 @@ namespace CarService.EF.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
-                    b.Property<decimal>("Hours")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("Hours")
+                        .HasColumnType("int");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
 
-                    b.ToTable("ServiceTasks", (string)null);
+                    b.ToTable("ServiceTasks");
                 });
 
             modelBuilder.Entity("CarService.Models.Entities.Transaction", b =>
@@ -199,13 +199,12 @@ namespace CarService.EF.Migrations
 
                     b.HasIndex("ManagerID");
 
-                    b.ToTable("Transactions", (string)null);
+                    b.ToTable("Transactions");
                 });
 
             modelBuilder.Entity("CarService.Models.Entities.TransactionLine", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("EngineerID")
@@ -232,9 +231,7 @@ namespace CarService.EF.Migrations
 
                     b.HasIndex("ServiceTaskID");
 
-                    b.HasIndex("TransactionId");
-
-                    b.ToTable("TransactionLines", (string)null);
+                    b.ToTable("TransactionLines");
                 });
 
             modelBuilder.Entity("CarService.Models.Entities.Engineer", b =>
@@ -281,15 +278,15 @@ namespace CarService.EF.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CarService.Models.Entities.ServiceTask", "ServiceTask")
-                        .WithMany()
-                        .HasForeignKey("ServiceTaskID")
+                    b.HasOne("CarService.Models.Entities.Transaction", null)
+                        .WithMany("TransactionLines")
+                        .HasForeignKey("Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CarService.Models.Entities.Transaction", null)
-                        .WithMany("TransactionLines")
-                        .HasForeignKey("TransactionId")
+                    b.HasOne("CarService.Models.Entities.ServiceTask", "ServiceTask")
+                        .WithMany()
+                        .HasForeignKey("ServiceTaskID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

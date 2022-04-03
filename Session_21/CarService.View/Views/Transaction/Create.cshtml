@@ -1,4 +1,4 @@
-﻿@model CarService.Models.Entities.Transaction
+﻿@model CarService.View.Models.TransactionCreateViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -7,35 +7,62 @@
 <h1>Create</h1>
 
 <h4>Transaction</h4>
+<p>
+    <a asp-action="NewTask" class="btn btn-primary">New Service Task</a>
+</p>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
            <div class="form-group", style="margin: 20px;">
-                @Html.DropDownListFor(x=> x.CarID, new SelectList(ViewBag.cars, "Id" , "Model"), ("Choose a Car"))<br>
+                @Html.DropDownListFor(x=> x.CarID, new SelectList(Model.Cars, "Id" , "Model"), ("Choose a Car"))<br>
             </div>
             <div class="form-group", style="margin: 20px;">
-                @Html.DropDownListFor(x=> x.CustomerID, new SelectList(ViewBag.customers, "Id" , "Name"), ("Choose a Customer"))
+                @Html.DropDownListFor(x=> x.CustomerID, new SelectList(Model.Customers, "Id" , "Name"), ("Choose a Customer"))
             </div>
             <div class="form-group", style="margin: 20px;">
-                @Html.DropDownListFor(x=> x.ManagerID, new SelectList(ViewBag.managers, "Id" , "Name"), ("Choose a Manager"))
+                @Html.DropDownListFor(x=> x.ManagerID, new SelectList(Model.Managers, "Id" , "Name"), ("Choose a Manager"))
             </div>
-            <div class="form-group">
-                <label asp-for="TotalPrice" class="control-label"></label>
-                <input asp-for="TotalPrice" class="form-control"/>
-                <span asp-validation-for="TotalPrice" class="text-danger"></span>
-            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Service Tasks
+                        </th>
+                        <th>
+                            Price
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.ServiceTasks)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Hours * 44.5)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
             <div class="form-group">
                 <input type="submit" value="Create" class="button" style="margin-top: 20px;"/>
             </div>
         </form>
+        <a asp-action="Index" class="btn btn-outline-secondary" style="margin-top: 20px;" >Back to List</a>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index" class="btn btn-outline-secondary" style="margin-top: 20px;" >Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
