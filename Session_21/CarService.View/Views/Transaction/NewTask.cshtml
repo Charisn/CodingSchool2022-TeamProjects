@@ -1,0 +1,30 @@
+﻿@model CarService.View.Models.ServiceTasksCreateViewModel
+
+@{
+    ViewData["Title"] = "Service Task";
+}
+
+<h1>NewTask</h1>
+
+<h4>ServiceTask</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="NewTask">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group", style="margin: 20px;">
+                @Html.DropDownListFor(x => x.Description, new SelectList(Model.Tasks, "Id" , "Description"), ("Choose a Task"))<br>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+        <a asp-action="Index" class="btn btn-secondary" style="margin-top: 20px;">Back to List</a>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
