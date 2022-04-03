@@ -21,10 +21,10 @@ namespace CarService.View.Controllers
         // GET: CarController
         public async Task<IActionResult> Index()
         {
-            var managerList = await _managerRepo.GetAllAsync();
-            var managerView = new EngineerViewModel();
-            managerView.ManagerList = managerList;
-            return View(await _engineerRepo.GetAllAsync());
+            var engineerView = new EngineerViewModel();
+            engineerView.Engineers = await _engineerRepo.GetAllAsync();
+            engineerView.ManagerList = await _managerRepo.GetAllAsync();
+            return View(engineerView);
         }
 
         // GET: CarController/Create
@@ -65,13 +65,14 @@ namespace CarService.View.Controllers
             {
                 return NotFound();
             }
-            var engineerModel = new Engineer
+            var engineerModel = new EngineerViewModel
             {
                 Id = engineer.Id,
                 Name = engineer.Name,
                 Surname = engineer.Surname,
                 SalaryPerMonth = engineer.SalaryPerMonth,
-                ManagerID = engineer.ManagerID
+                ManagerID = engineer.ManagerID,
+                ManagerList = await _managerRepo.GetAllAsync()
             };
             return View(engineerModel);
         }

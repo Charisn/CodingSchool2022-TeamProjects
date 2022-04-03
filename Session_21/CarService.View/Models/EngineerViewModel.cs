@@ -10,6 +10,7 @@ public class EngineerViewModel
     public string Surname { get; set; }
 
     public List<Manager> ManagerList { get; set; }
+    public List<Engineer> Engineers { get; set; }
 
     public Guid ManagerID { get; set; }
     public int SalaryPerMonth { get; set; }

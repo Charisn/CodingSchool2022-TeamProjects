@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CarService.View.Models.EngineerViewModel>
+﻿@model CarService.View.Models.EngineerViewModel;
 
 @{
     ViewData["Title"] = "Engineer";
@@ -7,7 +7,7 @@
 <h1 class="center margin-bottom-h1">Engineer</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-primary">Create New</a>
+    <a asp-action="Create" class="button">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -19,16 +19,16 @@
                 @Html.DisplayNameFor(model => model.Surname)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SalaryPerMonth)
+                Salary Per Month
             </th>            
             <th>
-                @Html.DisplayNameFor(model => model.ManagerID)
+                Manager Name
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.Engineers) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
@@ -40,7 +40,7 @@
                 @Html.DisplayFor(modelItem => item.SalaryPerMonth)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ManagerList.Find(x=>x.Id == item.ManagerID))
+                @Html.DisplayFor(modelItem => Model.ManagerList.Find(x=>x.Id == item.ManagerID).Name)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
