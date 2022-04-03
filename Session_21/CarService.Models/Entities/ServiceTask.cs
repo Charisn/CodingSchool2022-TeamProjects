@@ -14,7 +14,7 @@ public class ServiceTask : EntityStatus
 
     public string Description { get; set; }
 
-    public decimal Hours { get; set; }
+    public int Hours { get; set; }
     public ServiceTask()
     {
         Id = Guid.NewGuid();

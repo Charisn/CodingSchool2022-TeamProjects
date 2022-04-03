@@ -1,5 +1,4 @@
-﻿@using CarService.Models.Entities
-@model IEnumerable<CarService.Models.Entities.Engineer>
+﻿@model IEnumerable<CarService.View.Models.EngineerViewModel>
 
 @{
     ViewData["Title"] = "Engineer";
@@ -41,10 +40,7 @@
                 @Html.DisplayFor(modelItem => item.SalaryPerMonth)
             </td>
             <td>
-                @{var managers = ViewData["manager"] as List<Manager>;
-                  var managerName = managers.Find(x => x.Id == item.ManagerID).Name;
-                    }
-                @Html.DisplayFor(modelItem => managerName)
+                @Html.DisplayFor(modelItem => item.ManagerList.Find(x=>x.Id == item.ManagerID))
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>

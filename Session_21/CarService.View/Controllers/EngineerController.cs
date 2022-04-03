@@ -1,6 +1,7 @@
 ﻿using CarService.EF.Context;
 using CarService.EF.Repositories;
 using CarService.Models.Entities;
+using CarService.View.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -21,16 +22,18 @@ namespace CarService.View.Controllers
         public async Task<IActionResult> Index()
         {
             var managerList = await _managerRepo.GetAllAsync();
-            ViewData["manager"] = managerList;
+            var managerView = new EngineerViewModel();
+            managerView.ManagerList = managerList;
             return View(await _engineerRepo.GetAllAsync());
         }
 
         // GET: CarController/Create
         public async Task<IActionResult> Create()
         {
-            var managers = new ManagerRepo().GetAllAsync().Result;
-            ViewData["managers"] = managers;
-            return View();
+            var managerList = await _managerRepo.GetAllAsync();
+            var managerView = new EngineerCreateViewModel();
+            managerView.ManagerList = managerList;
+            return View(managerView);
         }
 
         // POST: CarController/Create
