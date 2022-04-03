@@ -44,13 +44,6 @@ namespace CarService.View.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id", "Manager ", "Car", "Customer", "TransactionLines", "TotalPrice","CarID", "ManagerID", "CustomerID")] Transaction transaction)
         {
-                var manager = new Manager();
-                var customer = new Customer();
-                transaction.ManagerID = manager.Id;
-                transaction.Manager = manager;
-                transaction.CustomerID = customer.Id;           
-                transaction.Customer= customer;
-
             if (!ModelState.IsValid) // Edw mpainei giati exw akoma null transaction lines, den ta exoume implemented.
             {
                 var NewTransaction = new Transaction();
