@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace CarService.Models.Entities;
 
+public class Enumerations
+{
     public enum BrandEnum
     {
         Audi,
@@ -25,3 +27,4 @@ namespace CarService.Models.Entities;
         Tesla,
         Volkswagen
     }
+}
