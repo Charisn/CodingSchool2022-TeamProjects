@@ -2,7 +2,7 @@
 
 namespace CarService.View.Models;
 
-public class CarListViewModel
+public class CarViewModel
 {
     public Guid Id { get; set; }
     public BrandEnum Brand { get; set; }
@@ -11,7 +11,6 @@ public class CarListViewModel
 }
 public class CarCreateViewModel
 {
-    public Guid Id { get; set; }
     public BrandEnum Brand { get; set; }
     public string Model { get; set; }
     public int RegistrationNumber { get; set; }
