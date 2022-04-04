@@ -102,6 +102,7 @@ namespace CarService.EF.Migrations
                     ManagerID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CustomerID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     TotalPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    EngineerId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     Status = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -119,6 +120,11 @@ namespace CarService.EF.Migrations
                         principalTable: "Customers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Transactions_Engineers_EngineerId",
+                        column: x => x.EngineerId,
+                        principalTable: "Engineers",
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Transactions_Managers_ManagerID",
                         column: x => x.ManagerID,
@@ -191,6 +197,11 @@ namespace CarService.EF.Migrations
                 name: "IX_Transactions_CustomerID",
                 table: "Transactions",
                 column: "CustomerID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Transactions_EngineerId",
+                table: "Transactions",
+                column: "EngineerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Transactions_ManagerID",
