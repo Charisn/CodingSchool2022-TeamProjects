@@ -12,43 +12,42 @@ namespace CarService.EF.Repositories;
 
 public class EngineerRepo : IEntityRepo<Engineer>
 {
-    private readonly CarServiceContext context;
+    private readonly CarServiceContext _context;
+    public EngineerRepo(CarServiceContext context)
+    {
+        _context = context;
+    }
     public async Task CreateAsync(Engineer entity)
     {
-        using var context = new CarServiceContext();
-        context.Engineers.Add(entity);
-        await context.SaveChangesAsync();
+        await _context.Engineers.AddAsync(entity);
+        await _context.SaveChangesAsync();
     }
     public async Task DeleteAsync(Guid id)
     {
-        using var context = new CarServiceContext();
-        var foundEngineer = context.Engineers.SingleOrDefault(manager => manager.Id == id);
+        var foundEngineer = await _context.Engineers.SingleOrDefaultAsync(manager => manager.Id == id);
         if (foundEngineer is null)
-            return;
-        context.Engineers.Remove(foundEngineer);
-        await context.SaveChangesAsync();
+            throw new KeyNotFoundException($"Given id '{id}' was not found in database");
+        _context.Engineers.Remove(foundEngineer);
+        await _context.SaveChangesAsync();
     }
     public async Task<List<Engineer>> GetAllAsync()
     {
-        using var context = new CarServiceContext();
-        return await context.Engineers.ToListAsync();
+        return await _context.Engineers.ToListAsync();
     }
 
     public async Task<Engineer?> GetByIdAsync(Guid id)
     {
-        using var context = new CarServiceContext();
-        return context.Engineers.Where(engineer => engineer.Id == id).SingleOrDefault();
+        return await _context.Engineers.Where(engineer => engineer.Id == id).SingleOrDefaultAsync();
     }
 
     public async Task UpdateAsync(Guid id, Engineer entity)
     {
-        using var context = new CarServiceContext();
-        var foundEngineer = context.Engineers.SingleOrDefault(manager => manager.Id == id);
+        var foundEngineer = await _context.Engineers.SingleOrDefaultAsync(manager => manager.Id == id);
         if (foundEngineer is null)
-            return;
+            throw new KeyNotFoundException($"Given id '{id}' was not found in database");
         foundEngineer.Name = entity.Name;
         foundEngineer.Surname = entity.Surname;
         foundEngineer.SalaryPerMonth = entity.SalaryPerMonth;
-        await context.SaveChangesAsync();
+        await _context.SaveChangesAsync();
     }
 }

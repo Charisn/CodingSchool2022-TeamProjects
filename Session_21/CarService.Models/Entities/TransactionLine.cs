@@ -6,19 +6,15 @@ using System.Threading.Tasks;
 
 namespace CarService.Models.Entities;
 
-public class TransactionLine
+public class TransactionLine : BaseEntity
 {
-    public Guid Id { get; set; }
     public Guid TransactionId { get; set; }
     public Guid ServiceTaskID { get; set; }
     public Guid EngineerID { get; set; }
     public int Hours { get; set; }
     public decimal PricePerHour { get; set; } = 44.5m;
     public decimal Price { get; set; }
+    public Transaction Transaction { get; set; }
     public ServiceTask ServiceTask { get; set; }
     public Engineer Engineer { get; set; }
-    public TransactionLine()
-    {
-        Id = Guid.NewGuid();
-    }
 }

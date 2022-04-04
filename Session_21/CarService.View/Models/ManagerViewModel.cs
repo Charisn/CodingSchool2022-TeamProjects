@@ -9,6 +9,7 @@ public class ManagerViewModel
     public string Name { get; set; }
     public string Surname { get; set; }
     public List<Engineer> Engineers { get; set; }
+    public List<Manager> Managers { get; set; }
     public int SalaryPerMonth { get; set; }
 }
 public class ManagerCreateViewModel

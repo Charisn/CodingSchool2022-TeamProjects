@@ -3,6 +3,7 @@ using CarService.EF.Repositories;
 using CarService.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 using CarService.EF.Context;
+using CarService.View.Models;
 
 namespace CarService.View.Controllers
 {
@@ -30,23 +31,25 @@ namespace CarService.View.Controllers
         // POST: CarController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id","Brand", "Model", "RegistrationNumber")] Car car)
+        public async Task<IActionResult> Create([Bind("Brand", "Model", "RegistrationNumber")] CarCreateViewModel car)
         {
             if (!ModelState.IsValid)
             {
-                var NewCar = new Car();
-
-                await _carRepo.CreateAsync(NewCar);
-                return RedirectToAction(nameof(Index));
+                return View(car);
             }
-            _carRepo.CreateAsync(car);
+
+            var newCar = new Car();
+            newCar.Brand = car.Brand;
+            newCar.Model = car.Model;
+            newCar.RegistrationNumber = car.RegistrationNumber;
+            await _carRepo.CreateAsync(newCar);
             return RedirectToAction(nameof(Index));
         }
 
         // GET: CarController/Edit/5
         public async Task<IActionResult> Edit(Guid id)
         {
-            if (id == null)
+            if (id == Guid.Empty)
             {
                 return NotFound();
             }
@@ -69,7 +72,7 @@ namespace CarService.View.Controllers
         // POST: CarController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id", "Brand", "Model", "RegistrationNumber")] Car car) 
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id", "Brand", "Model", "RegistrationNumber")] CarViewModel car) 
         {
             if (id != car.Id)
             {
@@ -93,7 +96,7 @@ namespace CarService.View.Controllers
         // GET: CarController/Delete/5
         public async Task<IActionResult> Delete(Guid id)
         {
-            if (id == null)
+            if (id == Guid.Empty)
             {
                 return NotFound();
             }

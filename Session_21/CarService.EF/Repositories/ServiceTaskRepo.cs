@@ -11,49 +11,43 @@ namespace CarService.EF.Repositories;
 
 public class ServiceTaskRepo : IEntityRepo<ServiceTask>
 {
-    private readonly CarServiceContext context;
+    private readonly CarServiceContext _context;
+
+    public ServiceTaskRepo(CarServiceContext context)
+    {
+        _context = context;
+    }
     public async Task CreateAsync(ServiceTask entity)
     {
-        using var context = new CarServiceContext();
-        context.ServiceTasks.Add(entity);
-        await context.SaveChangesAsync();
+        await _context.ServiceTasks.AddAsync(entity);
+        await _context.SaveChangesAsync();
     }
     public async Task DeleteAsync(Guid id)
     {
-        using var context = new CarServiceContext();
-        var foundServiceTask = context.ServiceTasks.SingleOrDefault(serviceTask => serviceTask.Id == id);
+        var foundServiceTask = await _context.ServiceTasks.SingleOrDefaultAsync(serviceTask => serviceTask.Id == id);
         if (foundServiceTask is null)
-            return;
-        context.ServiceTasks.Remove(foundServiceTask);
-        await context.SaveChangesAsync();
-    }
-
-    public List<ServiceTask> GetAll()
-    {
-        using var context = new CarServiceContext();
-        return context.ServiceTasks.ToList();
+            throw new KeyNotFoundException($"Given id '{id}' was not found in database");
+        _context.ServiceTasks.Remove(foundServiceTask);
+        await _context.SaveChangesAsync();
     }
 
     public async Task<List<ServiceTask>> GetAllAsync()
     {
-        await using var context = new CarServiceContext();
-        return await context.ServiceTasks.ToListAsync();
+        return await _context.ServiceTasks.ToListAsync();
     }
 
     public async Task<ServiceTask?> GetByIdAsync(Guid id)
     {
-        await using var context = new CarServiceContext();
-        return context.ServiceTasks.Where(serviceTask => serviceTask.Id == id).SingleOrDefault();
+        return await _context.ServiceTasks.Where(serviceTask => serviceTask.Id == id).SingleOrDefaultAsync();
     }
 
     public async Task UpdateAsync(Guid id, ServiceTask entity)
     {
-        using var context = new CarServiceContext();
-        var foundServiceTask = context.ServiceTasks.SingleOrDefault(serviceTask => serviceTask.Id == id);
+        var foundServiceTask = await _context.ServiceTasks.SingleOrDefaultAsync(serviceTask => serviceTask.Id == id);
         if (foundServiceTask is null)
-            return;
+            throw new KeyNotFoundException($"Given id '{id}' was not found in database");
         foundServiceTask.Code = entity.Code;
         foundServiceTask.Hours = entity.Hours;
-        await context.SaveChangesAsync();
+        await _context.SaveChangesAsync();
     }
 }

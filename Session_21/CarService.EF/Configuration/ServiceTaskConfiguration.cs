@@ -15,7 +15,6 @@ internal class ServiceTaskConfiguration : IEntityTypeConfiguration<ServiceTask>
     {
 
         builder.HasKey(servicetask => servicetask.Id);
-
         builder.Property(serviceTask => serviceTask.Code).HasMaxLength(100);
         builder.Property(serviceTask => serviceTask.Description).HasMaxLength(200);
     }

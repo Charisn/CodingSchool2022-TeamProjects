@@ -16,8 +16,5 @@ internal class ManagerConfiguration : IEntityTypeConfiguration<Manager>
         builder.HasKey(customer => customer.Id);
         builder.Property(customer => customer.Name).HasMaxLength(50);
         builder.Property(customer => customer.Surname).HasMaxLength(50);
-        builder.Property(customer => customer.FullName).HasMaxLength(101);
-
-        //builder.HasOne(manager => manager.Engineers).WithMany();
     }
 }

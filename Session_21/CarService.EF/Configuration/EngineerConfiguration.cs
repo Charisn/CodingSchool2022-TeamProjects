@@ -15,10 +15,7 @@ internal class EngineerConfiguration : IEntityTypeConfiguration<Engineer>
     {
 
         builder.HasKey(engineer => engineer.Id);
-        //builder.Property(engineer => engineer.Id);
-
         builder.Property(engineer => engineer.Name).HasMaxLength(50);
         builder.Property(engineer => engineer.Surname).HasMaxLength(50);
-        builder.Property(customer => customer.FullName).HasMaxLength(101);        
     }
 }
