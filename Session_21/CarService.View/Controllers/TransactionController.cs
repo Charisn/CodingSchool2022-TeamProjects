@@ -227,12 +227,7 @@ namespace CarService.View.Controllers
                 };
                 line.ServiceTaskID = service.Id;
                 line.ServiceTask = task;
-                line.Hours = service.Hours;
             }
-
-            if(transactionView.TransactionLines.Sum(x => x.Hours) > transactionView.Engineers.Count() * 8)
-                return View("Create", transactionView);
-
             return View("NewTask", transactionView);
         }
     }
