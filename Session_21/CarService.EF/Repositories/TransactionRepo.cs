@@ -1,11 +1,6 @@
 ﻿using CarService.EF.Context;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CarService.Models.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarService.EF.Repositories;
 
@@ -33,7 +28,7 @@ public class TransactionRepo : IEntityRepo<Transaction>
 
     public async Task<List<Transaction>> GetAllAsync()
     {
-        return await _context.Transactions.Include(x => x.Car).Include(x => x.Manager).Include(x => x.Customer).Include(x => x.TransactionLines).ToListAsync();
+        return await _context.Transactions.ToListAsync();
     }
 
     public async Task<Transaction?> GetByIdAsync(Guid id)

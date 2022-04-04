@@ -1,11 +1,6 @@
 ﻿using CarService.EF.Context;
 using CarService.Models.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CarService.EF.Repositories;
 
@@ -33,11 +28,11 @@ public class CarRepo : IEntityRepo<Car>
         await context.SaveChangesAsync();
     }
     public async Task<List<Car>> GetAllAsync()
-    {        
+    {
         return await _context.Cars.ToListAsync();
     }
 
-    public async Task<Car? >GetByIdAsync(Guid id)
+    public async Task<Car?> GetByIdAsync(Guid id)
     {
         return await _context.Cars.Where(car => car.Id == id).SingleOrDefaultAsync();
     }
