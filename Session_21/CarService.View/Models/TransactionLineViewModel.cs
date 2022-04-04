@@ -5,11 +5,11 @@ namespace CarService.View.Models;
 public class TransactionLineViewModel
 {
     public Guid ServiceTaskID { get; set; }
-    public ServiceTask ServiceTask { get; set; }
+    public ServiceTasksViewModel ServiceTask { get; set; }
     public Guid EngineerID { get; set; }
     public int Hours { get; set; }
     public decimal PricePerHour { get; set; } = 44.5m;
-    public decimal Price { get; set; }
+    public decimal Price { get => Hours * PricePerHour;}
 }
 public class TransactionLineCreateViewModel
 {

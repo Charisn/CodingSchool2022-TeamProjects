@@ -16,7 +16,7 @@ public class Transaction
     public decimal TotalPrice { get; set; }
     public Manager Manager { get; set; }
     public Car Car { get; set; }
-    public Customer Customer { get; set; } 
+    public Customer Customer { get; set; }
     public List<TransactionLine> TransactionLines { get; set; }
     public Transaction()
     {

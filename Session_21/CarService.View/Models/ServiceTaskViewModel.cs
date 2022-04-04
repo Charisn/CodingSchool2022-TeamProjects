@@ -10,7 +10,7 @@ public class ServiceTasksViewModel
 
     public string Description { get; set; }
 
-    public decimal Hours { get; set; }
+    public int Hours { get; set; }
 }
 public class ServiceTasksCreateViewModel
 {
@@ -18,7 +18,7 @@ public class ServiceTasksCreateViewModel
 
     public string Description { get; set; }
 
-    public decimal Hours { get; set; }
+    public int Hours { get; set; }
 
     public List<ServiceTask> Tasks { get; set; }
 }
@@ -32,7 +32,7 @@ public class ServiceTasksUpdateViewModel
 
     public string Description { get; set; }
 
-    public decimal Hours { get; set; }
+    public int Hours { get; set; }
 }
 
 public class ServiceTasksDeleteViewModel
@@ -44,5 +44,5 @@ public class ServiceTasksDeleteViewModel
 
     public string Description { get; set; }
 
-    public decimal Hours { get; set; }
+    public int Hours { get; set; }
 }

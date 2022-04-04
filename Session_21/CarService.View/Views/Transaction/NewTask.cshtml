@@ -15,8 +15,17 @@
             <input type="hidden" asp-for="CarID" value="@Model.CarID"/>
             <input type="hidden" asp-for="CustomerID" value="@Model.CustomerID"/>
             <input type="hidden" asp-for="ManagerID" value="@Model.ManagerID"/>
+            @for(var i=0;i < Model.TransactionLines.Count; i++)
+            {
+                <input type="hidden" asp-for="@Model.TransactionLines[i].ServiceTaskID" value="@Model.TransactionLines[i].ServiceTaskID"/>
+                <input type="hidden" asp-for="@Model.TransactionLines[i].EngineerID" value="@Model.TransactionLines[i].EngineerID"/>
+            }
+            
             <div class="form-group", style="margin: 20px;">
                 @Html.DropDownListFor(x => x.SelectedTaskID, new SelectList(Model.ServiceTasks, "Id" , "Description"), ("Choose a Task"))<br>
+            </div>
+            <div class="form-group", style="margin: 20px;">
+                @Html.DropDownListFor(x => x.EngineerID, new SelectList(Model.Engineers, "Id" , "Surname"), ("Choose an Engineer"))<br>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

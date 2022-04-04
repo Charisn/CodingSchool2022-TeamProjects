@@ -8,7 +8,7 @@
 
 <h4>Transaction</h4>
 <p>
-    <a href="#"  onclick="NewTask()" class="btn btn-primary">New Service Task</a>
+    <a href="#"  onclick="NewTask2()" class="btn btn-primary">New Service Task</a>
 </p>
 <hr />
 <div class="row">
@@ -37,15 +37,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model.TransactionLines)
+                    @for(var i=0;i < Model.TransactionLines.Count;i++)
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.ServiceTask.Description)
+                                <input name="TransactionLines[@i].ServiceTask.Description" value="@Model.TransactionLines[i].ServiceTask.Description"/>
                             </td>
                             <td>
-                                @{double price = item.ServiceTask.Hours * 44.5;}
-                                @Html.DisplayFor(modelItem => price)
+                                <input name="TransactionLines[@i].Price" value="@Model.TransactionLines[i].Price"/>
+                            </td>
+                            <td>
+                                <input name="TransactionLines[@i].ServiceTaskID" value="@Model.TransactionLines[i].ServiceTaskID" hidden/>
+                            </td>
+                            <td>
+                                <input name="TransactionLines[@i].EngineerID" value="@Model.TransactionLines[i].EngineerID" hidden/>
                             </td>
                             <td>
                                @* <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

@@ -3,13 +3,9 @@
 
 // Write your JavaScript code.
 
-function NewServiceTaskValidation() {
-    let formInputs = document.querySelectorAll("select");
-    if (formInputs[0].selectedIndex == 0 || formInputs[1].selectedIndex == 0 || formInputs[2].selectedIndex == 0) {
-        prompt(`${formInputs[0].selectedIndex}\n ${formInputs[1].selectedIndex}\n${formInputs[2].selectedIndex}`);
-        return false;
-    }
-    return true;
+function NewTask2() {
+    document.forms["Transaction"].action = "/Transaction/AddTask";
+    document.forms["Transaction"].submit();
 }
 
 

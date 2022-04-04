@@ -10,18 +10,20 @@ namespace CarService.View.Controllers
     {
         private readonly IEntityRepo<Transaction> _transactionRepo;
         private readonly CarServiceContext _context;
+        private readonly IEntityRepo<Engineer> _engineerRepo;
         private readonly IEntityRepo<Manager> _managerRepo;
         private readonly IEntityRepo<Customer> _customerRepo;
         private readonly IEntityRepo<ServiceTask> _serviceTaskRepo;
         private readonly IEntityRepo<Car> _carRepo;
         private readonly TransactionLine _transactionLine;
-        public TransactionController(IEntityRepo<Customer> customerRepo, IEntityRepo<Manager> managerRepo, IEntityRepo<Car> carRepo, IEntityRepo<Transaction> transactionRepo, IEntityRepo<ServiceTask> serviceTaskRepo)
+        public TransactionController(IEntityRepo<Customer> customerRepo, IEntityRepo<Manager> managerRepo, IEntityRepo<Car> carRepo, IEntityRepo<Transaction> transactionRepo, IEntityRepo<ServiceTask> serviceTaskRepo, IEntityRepo<Engineer> engineerRepo)
         {
             _transactionRepo = transactionRepo;
             _managerRepo = managerRepo;
             _customerRepo = customerRepo;
             _carRepo = carRepo;
             _serviceTaskRepo = serviceTaskRepo;
+            _engineerRepo = engineerRepo;
         }
 
         // GET: CarController
@@ -46,9 +48,38 @@ namespace CarService.View.Controllers
         // POST: CarController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id", "Manager ", "Car", "Customer", "TransactionLines", "TotalPrice","CarID", "ManagerID", "CustomerID")] TransactionCreateViewModel transaction)
+        public async Task<IActionResult> Create([Bind("TransactionLines","CarID", "ManagerID", "CustomerID")] TransactionViewModel transactionView)
         {
-            //_transactionRepo.CreateAsync(transaction);
+            if (!ModelState.IsValid)
+            {
+                return View(transactionView);
+            }
+            var car = await _carRepo.GetByIdAsync(transactionView.CarID);
+            var manager = await _managerRepo.GetByIdAsync(transactionView.ManagerID);
+            var customer = await _customerRepo.GetByIdAsync(transactionView.CustomerID);
+            var transaction = new Transaction()
+            {
+                CarID = car.Id,
+                ManagerID = manager.Id,
+                CustomerID = customer.Id
+            };
+
+            transaction.TransactionLines = new List<TransactionLine>() { };
+
+            
+            foreach (var line in transactionView.TransactionLines)
+            {
+                var transLine = new TransactionLine()
+                {
+                    Hours = line.ServiceTask.Hours,
+                    ServiceTaskID = line.ServiceTaskID,
+                    Price = line.ServiceTask.Hours * line.PricePerHour,
+                    TransactionId = transaction.Id
+                };
+                transaction.TransactionLines.Add(transLine);
+            }
+
+            await _transactionRepo.CreateAsync(transaction);
             return RedirectToAction(nameof(Index));
         }
 
@@ -137,26 +168,64 @@ namespace CarService.View.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> NewTask([Bind("CarID", "ManagerID", "CustomerID", "SelectedTaskID")] TransactionCreateViewModel transactionView)
+        public async Task<IActionResult> NewTask([Bind("CarID", "ManagerID", "CustomerID", "SelectedTaskID", "EngineerID", "TransactionLines")] TransactionCreateViewModel transactionView)
         {
             transactionView.Cars = await _carRepo.GetAllAsync();
             transactionView.Managers = await _managerRepo.GetAllAsync();
             transactionView.Customers = await _customerRepo.GetAllAsync();
-            var transViewLine = new TransactionLineViewModel();
             var selectedServiceTask = await _serviceTaskRepo.GetByIdAsync(transactionView.SelectedTaskID);
-            transViewLine.ServiceTask = selectedServiceTask;
-            transactionView.TransactionLines.Add(transViewLine);
+            foreach (var line in transactionView.TransactionLines)
+            {
+                var service = await _serviceTaskRepo.GetByIdAsync(line.ServiceTaskID);
+                var task = new ServiceTasksViewModel()
+                {
+                    Code = service.Code,
+                    Hours = service.Hours,
+                    Description = service.Description,
+                };
+                line.ServiceTaskID = service.Id;
+                line.ServiceTask = task;
+                line.Hours = service.Hours;
+            }
+
+            var newTransLine = new TransactionLineViewModel()
+            {
+                ServiceTaskID = selectedServiceTask.Id,
+                ServiceTask = new ServiceTasksViewModel()
+                {
+                    Code = selectedServiceTask.Code,
+                    Hours = selectedServiceTask.Hours,
+                    Description = selectedServiceTask.Description
+                },
+                Hours = selectedServiceTask.Hours,
+                EngineerID = transactionView.EngineerID
+            };
+            
+            transactionView.TransactionLines.Add(newTransLine);
             return View("Create", transactionView);
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddTask([Bind("CarID", "ManagerID", "CustomerID")] TransactionCreateViewModel transactionView)
+        public async Task<IActionResult> AddTask([Bind("CarID", "ManagerID", "CustomerID", "TransactionLines")] TransactionCreateViewModel transactionView)
         {
             //var selectedTask = await _serviceTaskRepo.GetByIdAsync(id);
             transactionView.Cars = await _carRepo.GetAllAsync();
             transactionView.Managers = await _managerRepo.GetAllAsync();
             transactionView.Customers = await _customerRepo.GetAllAsync();
+            transactionView.Engineers = await _engineerRepo.GetAllAsync();
             transactionView.ServiceTasks = await _serviceTaskRepo.GetAllAsync();
+            foreach(var line in transactionView.TransactionLines)
+            {
+                var service = await _serviceTaskRepo.GetByIdAsync(line.ServiceTaskID);
+                var task = new ServiceTasksViewModel()
+                {
+                    Code = service.Code,
+                    Hours = service.Hours,
+                    Description = service.Description,
+                };
+                line.ServiceTaskID = service.Id;
+                line.ServiceTask = task;
+            }
             return View("NewTask", transactionView);
         }
     }
