@@ -15,8 +15,8 @@ namespace CarService.View.Controllers
         private readonly IEntityRepo<Customer> _customerRepo;
         private readonly IEntityRepo<ServiceTask> _serviceTaskRepo;
         private readonly IEntityRepo<Car> _carRepo;
-        private readonly IEntityRepo<TransactionLine> _transactionLineRepo;
-        public TransactionController(IEntityRepo<Customer> customerRepo, IEntityRepo<Manager> managerRepo, IEntityRepo<Car> carRepo, IEntityRepo<Transaction> transactionRepo, IEntityRepo<ServiceTask> serviceTaskRepo, IEntityRepo<Engineer> engineerRepo, IEntityRepo<TransactionLine> transactionLineRepo)
+        private readonly TransactionLine _transactionLine;
+        public TransactionController(IEntityRepo<Customer> customerRepo, IEntityRepo<Manager> managerRepo, IEntityRepo<Car> carRepo, IEntityRepo<Transaction> transactionRepo, IEntityRepo<ServiceTask> serviceTaskRepo, IEntityRepo<Engineer> engineerRepo)
         {
             _transactionRepo = transactionRepo;
             _managerRepo = managerRepo;
@@ -24,14 +24,12 @@ namespace CarService.View.Controllers
             _carRepo = carRepo;
             _serviceTaskRepo = serviceTaskRepo;
             _engineerRepo = engineerRepo;
-            _transactionLineRepo = transactionLineRepo;
         }
 
         // GET: CarController
         public async Task<IActionResult> Index()
         {
-            var transactions = await _transactionRepo.GetAllAsync();
-            return View(transactions);
+            return View(await _transactionRepo.GetAllAsync());
         }
 
         // GET: CarController/Create
@@ -50,7 +48,7 @@ namespace CarService.View.Controllers
         // POST: CarController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TransactionLines", "CarID", "ManagerID", "CustomerID")] TransactionViewModel transactionView)
+        public async Task<IActionResult> Create([Bind("TransactionLines","CarID", "ManagerID", "CustomerID")] TransactionViewModel transactionView)
         {
             if (!ModelState.IsValid)
             {
@@ -61,31 +59,29 @@ namespace CarService.View.Controllers
             var customer = await _customerRepo.GetByIdAsync(transactionView.CustomerID);
             var transaction = new Transaction()
             {
-                Car = car,
-                Manager = manager,
-                Customer = customer,
-                TransactionLines = new List<TransactionLine>() { }
+                CarID = car.Id,
+                ManagerID = manager.Id,
+                CustomerID = customer.Id
             };
 
-            var totalPrice = 0m;
+            transaction.TransactionLines = new List<TransactionLine>() { };
+
+            decimal totalPrice = 0m;
             foreach (var line in transactionView.TransactionLines)
             {
-                var engineer = await _engineerRepo.GetByIdAsync(line.EngineerID);
-                var serviceTask = await _serviceTaskRepo.GetByIdAsync(line.ServiceTaskID);
                 var transLine = new TransactionLine()
                 {
-                    Engineer = engineer,
-                    ServiceTask = serviceTask,
-                    Transaction = transaction,
-                    Hours = serviceTask.Hours,
-                    Price = serviceTask.Hours * 44.5m
+                    Hours = line.ServiceTask.Hours,
+                    ServiceTaskID = line.ServiceTaskID,
+                    Price = line.ServiceTask.Hours * line.PricePerHour,
+                    TransactionId = transaction.Id,
+                    EngineerID = line.EngineerID
                 };
                 totalPrice += transLine.Price;
                 transaction.TransactionLines.Add(transLine);
             }
             transaction.TotalPrice = totalPrice;
             await _transactionRepo.CreateAsync(transaction);
-            
             return RedirectToAction(nameof(Index));
         }
 
