@@ -8,7 +8,7 @@
 
 <h4>Transaction</h4>
 <p>
-    <a href="#"  onclick="NewTask2()" class="btn btn-primary">New Service Task</a>
+    <a href="#"  onclick="NewTask()" class="btn btn-primary">New Service Task</a>
 </p>
 <hr />
 <div class="row">
@@ -44,7 +44,7 @@
                                 <input name="TransactionLines[@i].ServiceTask.Description" value="@Model.TransactionLines[i].ServiceTask.Description"/>
                             </td>
                             <td>
-                                <input name="TransactionLines[@i].Price" value="@Model.TransactionLines[i].Price"/>
+                                <input name="TransactionLines[@i].Price" value="@Model.TransactionLines[i].Price" class="price"/>
                             </td>
                             <td>
                                 <input name="TransactionLines[@i].ServiceTaskID" value="@Model.TransactionLines[i].ServiceTaskID" hidden/>
