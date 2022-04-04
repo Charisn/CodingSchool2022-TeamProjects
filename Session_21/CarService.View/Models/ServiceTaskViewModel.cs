@@ -4,7 +4,7 @@ namespace CarService.View.Models;
 
 public class ServiceTasksViewModel
 {
-    public Guid Id { get; set; }
+    public Guid TrasactionId { get; set; }
 
     public int Code { get; set; }
 

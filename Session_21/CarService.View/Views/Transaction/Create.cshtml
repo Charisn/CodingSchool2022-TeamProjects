@@ -8,12 +8,12 @@
 
 <h4>Transaction</h4>
 <p>
-    <a asp-action="NewTask" class="btn btn-primary">New Service Task</a>
+    <a href="#"  onclick="NewTask()" class="btn btn-primary">New Service Task</a>
 </p>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" name="Transaction">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
            <div class="form-group", style="margin: 20px;">
                 @Html.DropDownListFor(x=> x.CarID, new SelectList(Model.Cars, "Id" , "Model"), ("Choose a Car"))<br>
@@ -37,19 +37,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model.ServiceTasks)
+                    @foreach (var item in Model.TransactionLines)
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Description)
+                                @Html.DisplayFor(modelItem => item.ServiceTask.Description)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Hours * 44.5)
+                                @{double price = item.ServiceTask.Hours * 44.5;}
+                                @Html.DisplayFor(modelItem => price)
                             </td>
                             <td>
-                                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                               @* <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
                             </td>
                         </tr>
                     }

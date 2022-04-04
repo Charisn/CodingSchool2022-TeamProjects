@@ -22,6 +22,7 @@ public class TransactionCreateViewModel
     public List<Customer> Customers { get; set; }
     public List<Manager> Managers { get; set; }
     public List<ServiceTask> ServiceTasks { get; set; } = new List<ServiceTask>();
+    public Guid SelectedTaskID { get; set; }
     public decimal TotalPrice { get; set; }
     public List<TransactionLineViewModel> TransactionLines { get; set; } = new List<TransactionLineViewModel>();
 }

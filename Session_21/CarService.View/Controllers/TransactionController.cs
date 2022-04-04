@@ -46,16 +46,9 @@ namespace CarService.View.Controllers
         // POST: CarController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id", "Manager ", "Car", "Customer", "TransactionLines", "TotalPrice","CarID", "ManagerID", "CustomerID")] Transaction transaction)
+        public async Task<IActionResult> Create([Bind("Id", "Manager ", "Car", "Customer", "TransactionLines", "TotalPrice","CarID", "ManagerID", "CustomerID")] TransactionCreateViewModel transaction)
         {
-            if (!ModelState.IsValid) // Edw mpainei giati exw akoma null transaction lines, den ta exoume implemented.
-            {
-                var NewTransaction = new Transaction();
-
-                await _transactionRepo.CreateAsync(NewTransaction);
-                return RedirectToAction(nameof(Index));
-            }
-            _transactionRepo.CreateAsync(transaction);
+            //_transactionRepo.CreateAsync(transaction);
             return RedirectToAction(nameof(Index));
         }
 
@@ -143,17 +136,28 @@ namespace CarService.View.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> NewTask()
+        [HttpPost]
+        public async Task<IActionResult> NewTask([Bind("CarID", "ManagerID", "CustomerID", "SelectedTaskID")] TransactionCreateViewModel transactionView)
         {
-            var serviceTaskView = new ServiceTasksCreateViewModel();
-            serviceTaskView.Tasks = await _serviceTaskRepo.GetAllAsync();
-            return View(serviceTaskView);
+            transactionView.Cars = await _carRepo.GetAllAsync();
+            transactionView.Managers = await _managerRepo.GetAllAsync();
+            transactionView.Customers = await _customerRepo.GetAllAsync();
+            var transViewLine = new TransactionLineViewModel();
+            var selectedServiceTask = await _serviceTaskRepo.GetByIdAsync(transactionView.SelectedTaskID);
+            transViewLine.ServiceTask = selectedServiceTask;
+            transactionView.TransactionLines.Add(transViewLine);
+            return View("Create", transactionView);
         }
 
         [HttpPost]
-        public async Task<IActionResult> NewTask(Guid id)
+        public async Task<IActionResult> AddTask([Bind("CarID", "ManagerID", "CustomerID")] TransactionCreateViewModel transactionView)
         {
-            throw new NotImplementedException();
+            //var selectedTask = await _serviceTaskRepo.GetByIdAsync(id);
+            transactionView.Cars = await _carRepo.GetAllAsync();
+            transactionView.Managers = await _managerRepo.GetAllAsync();
+            transactionView.Customers = await _customerRepo.GetAllAsync();
+            transactionView.ServiceTasks = await _serviceTaskRepo.GetAllAsync();
+            return View("NewTask", transactionView);
         }
     }
 }
