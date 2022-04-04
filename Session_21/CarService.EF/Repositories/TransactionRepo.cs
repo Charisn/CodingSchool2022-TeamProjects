@@ -28,7 +28,7 @@ public class TransactionRepo : IEntityRepo<Transaction>
 
     public async Task<List<Transaction>> GetAllAsync()
     {
-        return await _context.Transactions.ToListAsync();
+        return await _context.Transactions.Include(x => x.Car).Include(x => x.Manager).Include(x => x.Customer).Include(x => x.TransactionLines).ToListAsync();
     }
 
     public async Task<Transaction?> GetByIdAsync(Guid id)
