@@ -230,7 +230,8 @@ namespace CarService.View.Controllers
                 line.Hours = service.Hours;
             }
 
-            if (transactionView.TransactionLines.Sum(x => x.Hours) > transactionView.Engineers.Count() * 8)
+            if (transactionView.TransactionLines.Sum(x => x.Hours) > transactionView.Engineers.Count() * 8
+                || transactionView.Engineers.Count() <= transactionView.TransactionLines.Count())
                 return View("Create", transactionView);
 
             return View("NewTask", transactionView);
