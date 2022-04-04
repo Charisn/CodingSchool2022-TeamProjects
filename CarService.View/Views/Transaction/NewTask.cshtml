@@ -1,0 +1,42 @@
+﻿@model CarService.View.Models.TransactionCreateViewModel
+
+@{
+    ViewData["Title"] = "Service Task";
+}
+
+<h1>NewTask</h1>
+
+<h4>ServiceTask</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="NewTask">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CarID" value="@Model.CarID"/>
+            <input type="hidden" asp-for="CustomerID" value="@Model.CustomerID"/>
+            <input type="hidden" asp-for="ManagerID" value="@Model.ManagerID"/>
+            @for(var i=0;i < Model.TransactionLines.Count; i++)
+            {
+                <input type="hidden" asp-for="@Model.TransactionLines[i].ServiceTaskID" value="@Model.TransactionLines[i].ServiceTaskID"/>
+                <input type="hidden" asp-for="@Model.TransactionLines[i].EngineerID" value="@Model.TransactionLines[i].EngineerID"/>
+            }
+            
+            <div class="form-group", style="margin: 20px;">
+                @Html.DropDownListFor(x => x.SelectedTaskID, new SelectList(Model.ServiceTasks, "Id" , "Description"), ("Choose a Task"))<br>
+            </div>
+            <div class="form-group", style="margin: 20px;">
+                @Html.DropDownListFor(x => x.EngineerID, new SelectList(Model.Engineers, "Id" , "Surname"), ("Choose an Engineer"))<br>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+        <a asp-action="Index" class="btn btn-secondary" style="margin-top: 20px;">Back to List</a>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
