@@ -14,8 +14,6 @@ internal class CarConfiguration : IEntityTypeConfiguration<Car>
     public void Configure(EntityTypeBuilder<Car> builder)
     {
         builder.HasKey(car => car.Id);
-        builder.Property(car => car.Id).HasMaxLength(50);
-
         builder.Property(car => car.Brand).HasMaxLength(50);
         builder.Property(car => car.Model).HasMaxLength(15);
         builder.Property(car => car.RegistrationNumber).HasMaxLength(50);

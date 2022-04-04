@@ -12,49 +12,44 @@ namespace CarService.EF.Repositories;
 public class TransactionRepo : IEntityRepo<Transaction>
 {
     private readonly CarServiceContext _context;
-    public TransactionRepo()
+    public TransactionRepo(CarServiceContext context)
     {
-        _context = new CarServiceContext();
+        _context = context;
     }
     public async Task CreateAsync(Transaction entity)
     {
-        using var context = new CarServiceContext();
-        context.Transactions.Add(entity);
-        await context.SaveChangesAsync();
+        await _context.Transactions.AddAsync(entity);
+        await _context.SaveChangesAsync();
     }
 
     public async Task DeleteAsync(Guid id)
     {
-        using var context = new CarServiceContext();
-        var foundTransaction = context.Transactions.SingleOrDefault(transaction => transaction.Id == id);
+        var foundTransaction = await _context.Transactions.SingleOrDefaultAsync(transaction => transaction.Id == id);
         if (foundTransaction is null)
-            return;
-        context.Transactions.Remove(foundTransaction);
-        await context.SaveChangesAsync();
+            throw new KeyNotFoundException($"Given id '{id}' was not found in database");
+        _context.Transactions.Remove(foundTransaction);
+        await _context.SaveChangesAsync();
     }
 
     public async Task<List<Transaction>> GetAllAsync()
     {
-        await using var context = new CarServiceContext();
         return await _context.Transactions.ToListAsync();
     }
 
     public async Task<Transaction?> GetByIdAsync(Guid id)
     {
-        using var context = new CarServiceContext();
-        return context.Transactions.Where(transaction => transaction.Id == id).SingleOrDefault();
+        return await _context.Transactions.Where(transaction => transaction.Id == id).SingleOrDefaultAsync();
     }
 
     public async Task UpdateAsync(Guid id, Transaction entity)
     {
-        using var context = new CarServiceContext();
-        var foundTransaction = context.Transactions.Include(transaction => transaction.TransactionLines).SingleOrDefault(transaction => transaction.Id == id);
+        var foundTransaction = await _context.Transactions.Include(transaction => transaction.TransactionLines).SingleOrDefaultAsync(transaction => transaction.Id == id);
         if (foundTransaction is null)
-            return;
+            throw new KeyNotFoundException($"Given id '{id}' was not found in database");
         foundTransaction.CarID = entity.CarID;
         foundTransaction.ManagerID = entity.ManagerID;
         foundTransaction.CustomerID = entity.CustomerID;
         foundTransaction.TransactionLines = entity.TransactionLines;
-        await context.SaveChangesAsync();
+        await _context.SaveChangesAsync();
     }
 }

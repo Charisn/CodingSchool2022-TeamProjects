@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace CarService.Models.Entities
 {
-    public class EntityStatus
+    public class BaseEntity
     {
         public bool Status { get; set; } = true;
+
+        public Guid Id { get; set; }= Guid.NewGuid();
     }
 }

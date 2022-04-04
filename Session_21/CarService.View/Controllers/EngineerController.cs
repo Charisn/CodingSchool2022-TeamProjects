@@ -30,57 +30,58 @@ namespace CarService.View.Controllers
         // GET: CarController/Create
         public async Task<IActionResult> Create()
         {
-            var managerList = await _managerRepo.GetAllAsync();
-            var managerView = new EngineerCreateViewModel();
-            managerView.ManagerList = managerList;
-            return View(managerView);
+            var engineerView = new EngineerCreateViewModel();
+            engineerView.ManagerList = await _managerRepo.GetAllAsync();
+            return View(engineerView);
         }
 
         // POST: CarController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id", "Name", "Surname", "SalaryPerMonth", "ManagerID")] Engineer engineer)
+        public async Task<IActionResult> Create([Bind("Name", "Surname", "SalaryPerMonth", "ManagerID")] EngineerCreateViewModel engineer)
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid && engineer.ManagerList is not null)
             {
-                var NewEngineer = new Engineer();
-
-                await _engineerRepo.CreateAsync(NewEngineer);
-                return RedirectToAction(nameof(Index));
+                return View(engineer);
             }
-            _engineerRepo.CreateAsync(engineer);
+
+            var newEngineer = new Engineer();
+            newEngineer.Name = engineer.Name;
+            newEngineer.Surname = engineer.Surname;
+            newEngineer.SalaryPerMonth = engineer.SalaryPerMonth;
+            newEngineer.ManagerID = engineer.ManagerID;
+            await _engineerRepo.CreateAsync(newEngineer);
             return RedirectToAction(nameof(Index));
         }
 
         // GET: CarController/Edit/5
         public async Task<IActionResult> Edit(Guid id)
         {
-            if (id == null)
+            if (id == Guid.Empty)
             {
                 return NotFound();
             }
 
-            var engineer = await _engineerRepo.GetByIdAsync(id);
-            if (engineer == null)
+            var customer = await _engineerRepo.GetByIdAsync(id);
+            if (customer == null)
             {
                 return NotFound();
             }
-            var engineerModel = new EngineerViewModel
+            var customerModel = new Engineer
             {
-                Id = engineer.Id,
-                Name = engineer.Name,
-                Surname = engineer.Surname,
-                SalaryPerMonth = engineer.SalaryPerMonth,
-                ManagerID = engineer.ManagerID,
-                ManagerList = await _managerRepo.GetAllAsync()
+                Id = customer.Id,
+                Name = customer.Name,
+                Surname = customer.Surname,
+                SalaryPerMonth = customer.SalaryPerMonth,
+                ManagerID = customer.ManagerID
             };
-            return View(engineerModel);
+            return View(customerModel);
         }
 
         // POST: CarController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id", "Name", "Surname", "SalaryPerMonth", "ManagerID")] Engineer engineer)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id", "Name", "Surname", "SalaryPerMonth", "ManagerID")] EngineerViewModel engineer)
         {
             if (id != engineer.Id)
             {
@@ -91,10 +92,11 @@ namespace CarService.View.Controllers
             {
                 var currentEngineer = await _engineerRepo.GetByIdAsync(id);
                 if (currentEngineer is null)
-                    return BadRequest("Could not find this Car");
+                    return BadRequest("Could not find this Engineer");
                 currentEngineer.Name = engineer.Name;
                 currentEngineer.Surname = engineer.Surname;
                 currentEngineer.SalaryPerMonth = engineer.SalaryPerMonth;
+                //currentEngineer.ManagerID = engineer.ManagerID;
                 await _engineerRepo.UpdateAsync(id, currentEngineer);
                 return RedirectToAction(nameof(Index));
             }
@@ -104,13 +106,14 @@ namespace CarService.View.Controllers
         // GET: CarController/Delete/5
         public async Task<IActionResult> Delete(Guid id)
         {
-            if (id == null)
+            if (id == Guid.Empty)
             {
                 return NotFound();
             }
 
             var engineer = await _engineerRepo.GetByIdAsync(id);
-            if (engineer == null)
+            var manager = await _managerRepo.GetByIdAsync(engineer.ManagerID);
+            if (engineer == null)                           
             {
                 return NotFound();
             }
@@ -120,7 +123,8 @@ namespace CarService.View.Controllers
                 Id = engineer.Id,
                 Name = engineer.Name,
                 SalaryPerMonth = engineer.SalaryPerMonth,
-                Surname = engineer.Surname
+                Surname = engineer.Surname,
+                //Engineer = manager.Engineers.Find(engineer => engineer.Id == id) AUTO TO BAZW EDW SE PERIPTWSH POY H BASH META TO DELETE KRATAEI TO ENTRY MANAGERS.ENGINEER
             };
             return View(viewModel);
         }

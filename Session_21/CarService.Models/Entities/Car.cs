@@ -6,17 +6,12 @@ using System.Threading.Tasks;
 
 namespace CarService.Models.Entities;
 
-public class Car : EntityStatus
+public class Car : BaseEntity
 {
-    public Guid Id { get; set; }
     public BrandEnum Brand { get; set; }
 
     public string Model { get; set; }
 
-    public int RegistrationNumber { get; set; }
-
-    public Car()
-    {
-        Id = Guid.NewGuid();
-    }
+    public string RegistrationNumber { get; set; }
+    public List<Transaction> Transcations { get; set; }
 }

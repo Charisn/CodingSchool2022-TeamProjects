@@ -34,10 +34,6 @@ public class CarServiceContext : DbContext
         modelBuilder.ApplyConfiguration(new TransactionConfiguration());
         modelBuilder.ApplyConfiguration(new TransactionLineConfiguration());
         modelBuilder.ApplyConfiguration(new EngineerConfiguration());
-
-        modelBuilder.Entity<Manager>().Ignore(manager => manager.FullName);
-        modelBuilder.Entity<Engineer>().Ignore(engineer => engineer.FullName);
-        modelBuilder.Entity<Customer>().Ignore(customer => customer.FullName);
     }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

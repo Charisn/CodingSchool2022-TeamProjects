@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CarService.Models.Entities.Manager>
+﻿@model CarService.View.Models.ManagerViewModel;
 
 @{
     ViewData["Title"] = "Managers";
@@ -25,7 +25,7 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.Managers) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)

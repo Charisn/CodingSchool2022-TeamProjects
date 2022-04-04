@@ -15,11 +15,7 @@ internal class CustomerConfiguration : IEntityTypeConfiguration<Customer>
     {
 
         builder.HasKey(customer => customer.Id);
-        builder.Property(customer => customer.Id).HasMaxLength(50);
-
         builder.Property(customer => customer.Name).HasMaxLength(50);
-        builder.Property(customer => customer.Surname).HasMaxLength(50);
-        builder.Property(customer => customer.FullName).HasMaxLength(101);
         builder.Property(customer => customer.Phone).HasMaxLength(15);
         builder.Property(customer => customer.TIN).HasMaxLength(30);
     }
