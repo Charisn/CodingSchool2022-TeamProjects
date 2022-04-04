@@ -66,7 +66,7 @@ namespace CarService.View.Controllers
 
             transaction.TransactionLines = new List<TransactionLine>() { };
 
-            
+            decimal totalPrice = 0m;
             foreach (var line in transactionView.TransactionLines)
             {
                 var transLine = new TransactionLine()
@@ -74,11 +74,13 @@ namespace CarService.View.Controllers
                     Hours = line.ServiceTask.Hours,
                     ServiceTaskID = line.ServiceTaskID,
                     Price = line.ServiceTask.Hours * line.PricePerHour,
-                    TransactionId = transaction.Id
+                    TransactionId = transaction.Id,
+                    EngineerID = line.EngineerID
                 };
+                totalPrice += transLine.Price;
                 transaction.TransactionLines.Add(transLine);
             }
-
+            transaction.TotalPrice = totalPrice;
             await _transactionRepo.CreateAsync(transaction);
             return RedirectToAction(nameof(Index));
         }
