@@ -30,7 +30,8 @@ namespace CarService.View.Controllers
         // GET: CarController
         public async Task<IActionResult> Index()
         {
-            return View(await _transactionRepo.GetAllAsync());
+            var transactions = await _transactionRepo.GetAllAsync();
+            return View(transactions);
         }
 
         // GET: CarController/Create
