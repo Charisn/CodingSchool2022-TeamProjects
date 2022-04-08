@@ -8,8 +8,8 @@ internal class TransactionLineConfiguration : IEntityTypeConfiguration<Transacti
 {
     public void Configure(EntityTypeBuilder<TransactionLine> builder)
     {
-        builder.HasKey(transactionLine => transactionLine.Id);
+        builder.HasKey(transactionLine => transactionLine.ID);
 
-        builder.HasOne(transactionLine => transactionLine.Transaction).WithMany(manager => manager.TransactionLines).OnDelete(DeleteBehavior.NoAction);
+        builder.HasOne(transactionLine => transactionLine.Transaction).WithMany(transaction => transaction.TransactionLines).HasForeignKey(transline => transline.TransactionID).OnDelete(DeleteBehavior.NoAction);
     }
 }

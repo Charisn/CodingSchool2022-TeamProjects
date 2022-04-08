@@ -8,7 +8,7 @@ namespace CarService.Models.Entities;
 
 public class TransactionLine : BaseEntity
 {
-    public Guid TransactionId { get; set; }
+    public Guid TransactionID { get; set; }
     public Guid ServiceTaskID { get; set; }
     public Guid EngineerID { get; set; }
     public int Hours { get; set; }

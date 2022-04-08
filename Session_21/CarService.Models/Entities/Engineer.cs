@@ -9,5 +9,6 @@ namespace CarService.Models.Entities;
 public class Engineer : Person
 {
     public Guid ManagerID { get; set; }
-    public int SalaryPerMonth { get; set; }
+    public string SalaryPerMonth { get; set; }
+    public Manager Manager { get; set; }
 }

@@ -13,7 +13,7 @@ namespace CarService.EF.Migrations
                 name: "Cars",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Brand = table.Column<int>(type: "int", maxLength: 50, nullable: false),
                     Model = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),
                     RegistrationNumber = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
@@ -21,74 +21,74 @@ namespace CarService.EF.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Cars", x => x.Id);
+                    table.PrimaryKey("PK_Cars", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Customers",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Phone = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),
                     TIN = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     Status = table.Column<bool>(type: "bit", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Surname = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Surname = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Customers", x => x.Id);
+                    table.PrimaryKey("PK_Customers", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Managers",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    SalaryPerMonth = table.Column<int>(type: "int", nullable: false),
+                    ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    SalaryPerMonth = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
                     Status = table.Column<bool>(type: "bit", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Surname = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Managers", x => x.Id);
+                    table.PrimaryKey("PK_Managers", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
                 name: "ServiceTasks",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Code = table.Column<int>(type: "int", maxLength: 100, nullable: false),
+                    ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Code = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    Hours = table.Column<int>(type: "int", nullable: false),
+                    Hours = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
                     Status = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ServiceTasks", x => x.Id);
+                    table.PrimaryKey("PK_ServiceTasks", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Engineers",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ManagerID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    SalaryPerMonth = table.Column<int>(type: "int", nullable: false),
+                    SalaryPerMonth = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
                     Status = table.Column<bool>(type: "bit", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Surname = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Engineers", x => x.Id);
+                    table.PrimaryKey("PK_Engineers", x => x.ID);
                     table.ForeignKey(
                         name: "FK_Engineers_Managers_ManagerID",
                         column: x => x.ManagerID,
                         principalTable: "Managers",
-                        principalColumn: "Id",
+                        principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -96,40 +96,34 @@ namespace CarService.EF.Migrations
                 name: "Transactions",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CarID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ManagerID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CustomerID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    TotalPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    EngineerId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    TotalPrice = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
                     Status = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Transactions", x => x.Id);
+                    table.PrimaryKey("PK_Transactions", x => x.ID);
                     table.ForeignKey(
                         name: "FK_Transactions_Cars_CarID",
                         column: x => x.CarID,
                         principalTable: "Cars",
-                        principalColumn: "Id",
+                        principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Transactions_Customers_CustomerID",
                         column: x => x.CustomerID,
                         principalTable: "Customers",
-                        principalColumn: "Id",
+                        principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Transactions_Engineers_EngineerId",
-                        column: x => x.EngineerId,
-                        principalTable: "Engineers",
-                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Transactions_Managers_ManagerID",
                         column: x => x.ManagerID,
                         principalTable: "Managers",
-                        principalColumn: "Id",
+                        principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -137,35 +131,35 @@ namespace CarService.EF.Migrations
                 name: "TransactionLines",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    TransactionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TransactionID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ServiceTaskID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     EngineerID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Hours = table.Column<int>(type: "int", nullable: false),
-                    PricePerHour = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Hours = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
+                    PricePerHour = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
                     Status = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TransactionLines", x => x.Id);
+                    table.PrimaryKey("PK_TransactionLines", x => x.ID);
                     table.ForeignKey(
                         name: "FK_TransactionLines_Engineers_EngineerID",
                         column: x => x.EngineerID,
                         principalTable: "Engineers",
-                        principalColumn: "Id",
+                        principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_TransactionLines_ServiceTasks_ServiceTaskID",
                         column: x => x.ServiceTaskID,
                         principalTable: "ServiceTasks",
-                        principalColumn: "Id",
+                        principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_TransactionLines_Transactions_TransactionId",
-                        column: x => x.TransactionId,
+                        name: "FK_TransactionLines_Transactions_TransactionID",
+                        column: x => x.TransactionID,
                         principalTable: "Transactions",
-                        principalColumn: "Id");
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateIndex(
@@ -184,9 +178,9 @@ namespace CarService.EF.Migrations
                 column: "ServiceTaskID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TransactionLines_TransactionId",
+                name: "IX_TransactionLines_TransactionID",
                 table: "TransactionLines",
-                column: "TransactionId");
+                column: "TransactionID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Transactions_CarID",
@@ -197,11 +191,6 @@ namespace CarService.EF.Migrations
                 name: "IX_Transactions_CustomerID",
                 table: "Transactions",
                 column: "CustomerID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Transactions_EngineerId",
-                table: "Transactions",
-                column: "EngineerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Transactions_ManagerID",
@@ -215,6 +204,9 @@ namespace CarService.EF.Migrations
                 name: "TransactionLines");
 
             migrationBuilder.DropTable(
+                name: "Engineers");
+
+            migrationBuilder.DropTable(
                 name: "ServiceTasks");
 
             migrationBuilder.DropTable(
@@ -225,9 +217,6 @@ namespace CarService.EF.Migrations
 
             migrationBuilder.DropTable(
                 name: "Customers");
-
-            migrationBuilder.DropTable(
-                name: "Engineers");
 
             migrationBuilder.DropTable(
                 name: "Managers");

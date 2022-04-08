@@ -61,7 +61,7 @@ namespace CarService.View.Controllers
             }
             var carModel = new Car
             {
-                Id = car.Id,
+                ID = car.ID,
                 Brand = car.Brand,
                 Model = car.Model,
                 RegistrationNumber = car.RegistrationNumber
@@ -110,7 +110,7 @@ namespace CarService.View.Controllers
             var viewModel = new Car
             {
                 Brand = car.Brand,
-                Id = car.Id,
+                ID = car.ID,
                 Model = car.Model,
                 RegistrationNumber = car.RegistrationNumber
             };

@@ -66,7 +66,7 @@ namespace CarService.View.Controllers
             }
             var managerModel = new Manager
             {
-                Id = manager.Id,
+                ID = manager.ID,
                 Name = manager.Name,
                 Surname = manager.Surname,
                 SalaryPerMonth = manager.SalaryPerMonth
@@ -115,7 +115,7 @@ namespace CarService.View.Controllers
             var viewModel = new Manager
             {
                 Name = manager.Name,
-                Id = manager.Id,
+                ID = manager.ID,
                 Surname = manager.Surname,
                 SalaryPerMonth = manager.SalaryPerMonth
             };

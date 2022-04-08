@@ -69,7 +69,7 @@ namespace CarService.View.Controllers
             }
             var customerModel = new Engineer
             {
-                Id = customer.Id,
+                ID = customer.ID,
                 Name = customer.Name,
                 Surname = customer.Surname,
                 SalaryPerMonth = customer.SalaryPerMonth,
@@ -120,7 +120,7 @@ namespace CarService.View.Controllers
 
             var viewModel = new Engineer
             {
-                Id = engineer.Id,
+                ID = engineer.ID,
                 Name = engineer.Name,
                 SalaryPerMonth = engineer.SalaryPerMonth,
                 Surname = engineer.Surname,

@@ -4,7 +4,6 @@ using CarService.EF.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -12,10 +11,9 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarService.EF.Migrations
 {
     [DbContext(typeof(CarServiceContext))]
-    [Migration("20220404175757_Initial")]
-    partial class Initial
+    partial class CarServiceContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,7 +24,7 @@ namespace CarService.EF.Migrations
 
             modelBuilder.Entity("CarService.Models.Entities.Car", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -47,14 +45,14 @@ namespace CarService.EF.Migrations
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.ToTable("Cars");
                 });
 
             modelBuilder.Entity("CarService.Models.Entities.Customer", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -73,21 +71,22 @@ namespace CarService.EF.Migrations
 
                     b.Property<string>("Surname")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("TIN")
                         .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("CarService.Models.Entities.Engineer", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -99,8 +98,8 @@ namespace CarService.EF.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("SalaryPerMonth")
-                        .HasColumnType("int");
+                    b.Property<decimal>("SalaryPerMonth")
+                        .HasColumnType("decimal(10,2)");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
@@ -110,7 +109,7 @@ namespace CarService.EF.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.HasIndex("ManagerID");
 
@@ -119,7 +118,7 @@ namespace CarService.EF.Migrations
 
             modelBuilder.Entity("CarService.Models.Entities.Manager", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -128,8 +127,8 @@ namespace CarService.EF.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("SalaryPerMonth")
-                        .HasColumnType("int");
+                    b.Property<decimal>("SalaryPerMonth")
+                        .HasColumnType("decimal(10,2)");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
@@ -139,40 +138,41 @@ namespace CarService.EF.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.ToTable("Managers");
                 });
 
             modelBuilder.Entity("CarService.Models.Entities.ServiceTask", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("Code")
+                    b.Property<string>("Code")
+                        .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
-                    b.Property<int>("Hours")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Hours")
+                        .HasColumnType("decimal(10,2)");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.ToTable("ServiceTasks");
                 });
 
             modelBuilder.Entity("CarService.Models.Entities.Transaction", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -185,9 +185,6 @@ namespace CarService.EF.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("EngineerId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("ManagerID")
                         .HasColumnType("uniqueidentifier");
 
@@ -195,15 +192,13 @@ namespace CarService.EF.Migrations
                         .HasColumnType("bit");
 
                     b.Property<decimal>("TotalPrice")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(10,2)");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.HasIndex("CarID");
 
                     b.HasIndex("CustomerID");
-
-                    b.HasIndex("EngineerId");
 
                     b.HasIndex("ManagerID");
 
@@ -212,21 +207,21 @@ namespace CarService.EF.Migrations
 
             modelBuilder.Entity("CarService.Models.Entities.TransactionLine", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("EngineerID")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("Hours")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Hours")
+                        .HasColumnType("decimal(10,2)");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(10,2)");
 
                     b.Property<decimal>("PricePerHour")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(10,2)");
 
                     b.Property<Guid>("ServiceTaskID")
                         .HasColumnType("uniqueidentifier");
@@ -234,27 +229,29 @@ namespace CarService.EF.Migrations
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
-                    b.Property<Guid>("TransactionId")
+                    b.Property<Guid>("TransactionID")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.HasIndex("EngineerID");
 
                     b.HasIndex("ServiceTaskID");
 
-                    b.HasIndex("TransactionId");
+                    b.HasIndex("TransactionID");
 
                     b.ToTable("TransactionLines");
                 });
 
             modelBuilder.Entity("CarService.Models.Entities.Engineer", b =>
                 {
-                    b.HasOne("CarService.Models.Entities.Manager", null)
+                    b.HasOne("CarService.Models.Entities.Manager", "Manager")
                         .WithMany("Engineers")
                         .HasForeignKey("ManagerID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Manager");
                 });
 
             modelBuilder.Entity("CarService.Models.Entities.Transaction", b =>
@@ -270,10 +267,6 @@ namespace CarService.EF.Migrations
                         .HasForeignKey("CustomerID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("CarService.Models.Entities.Engineer", null)
-                        .WithMany("Transactions")
-                        .HasForeignKey("EngineerId");
 
                     b.HasOne("CarService.Models.Entities.Manager", "Manager")
                         .WithMany("Transactions")
@@ -304,7 +297,7 @@ namespace CarService.EF.Migrations
 
                     b.HasOne("CarService.Models.Entities.Transaction", "Transaction")
                         .WithMany("TransactionLines")
-                        .HasForeignKey("TransactionId")
+                        .HasForeignKey("TransactionID")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
@@ -321,11 +314,6 @@ namespace CarService.EF.Migrations
                 });
 
             modelBuilder.Entity("CarService.Models.Entities.Customer", b =>
-                {
-                    b.Navigation("Transactions");
-                });
-
-            modelBuilder.Entity("CarService.Models.Entities.Engineer", b =>
                 {
                     b.Navigation("Transactions");
                 });

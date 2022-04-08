@@ -59,9 +59,9 @@ namespace CarService.View.Controllers
             var customer = await _customerRepo.GetByIdAsync(transactionView.CustomerID);
             var transaction = new Transaction()
             {
-                CarID = car.Id,
-                ManagerID = manager.Id,
-                CustomerID = customer.Id
+                CarID = car.ID,
+                ManagerID = manager.ID,
+                CustomerID = customer.ID
             };
 
             transaction.TransactionLines = new List<TransactionLine>() { };
@@ -74,7 +74,7 @@ namespace CarService.View.Controllers
                     Hours = line.ServiceTask.Hours,
                     ServiceTaskID = line.ServiceTaskID,
                     Price = line.ServiceTask.Hours * line.PricePerHour,
-                    TransactionId = transaction.Id,
+                    TransactionID = transaction.ID,
                     EngineerID = line.EngineerID
                 };
                 totalPrice += transLine.Price;
@@ -100,7 +100,7 @@ namespace CarService.View.Controllers
             }
             var transactionModel = new Transaction
             {
-                Id = transaction.Id,
+                ID = transaction.ID,
                 Manager = transaction.Manager,
                 Customer = transaction.Customer,
                 Car = transaction.Car,
@@ -114,7 +114,7 @@ namespace CarService.View.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, [Bind("Id", "Manager", "Car", "Customer", "TransactionLine", "TotalPrice", "Date")] Transaction transaction)
         {
-            if (id != transaction.Id)
+            if (id != transaction.ID)
             {
                 return NotFound();
             }
@@ -151,7 +151,7 @@ namespace CarService.View.Controllers
 
             var viewModel = new Transaction
             {
-                Id = transaction.Id,
+                ID = transaction.ID,
                 Manager = transaction.Manager,
                 Customer = transaction.Customer,
                 Car = transaction.Car,
@@ -185,14 +185,14 @@ namespace CarService.View.Controllers
                     Hours = service.Hours,
                     Description = service.Description,
                 };
-                line.ServiceTaskID = service.Id;
+                line.ServiceTaskID = service.ID;
                 line.ServiceTask = task;
                 line.Hours = service.Hours;
             }
 
             var newTransLine = new TransactionLineViewModel()
             {
-                ServiceTaskID = selectedServiceTask.Id,
+                ServiceTaskID = selectedServiceTask.ID,
                 ServiceTask = new ServiceTasksViewModel()
                 {
                     Code = selectedServiceTask.Code,
@@ -225,7 +225,7 @@ namespace CarService.View.Controllers
                     Hours = service.Hours,
                     Description = service.Description,
                 };
-                line.ServiceTaskID = service.Id;
+                line.ServiceTaskID = service.ID;
                 line.ServiceTask = task;
                 line.Hours = service.Hours;
             }

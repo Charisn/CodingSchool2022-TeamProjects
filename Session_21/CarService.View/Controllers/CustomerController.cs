@@ -63,7 +63,7 @@ namespace CarService.View.Controllers
             }
             var customerModel = new Customer
             {
-                Id = customer.Id,
+                ID = customer.ID,
                 Name = customer.Name,
                 Surname = customer.Surname,
                 TIN = customer.TIN
@@ -112,7 +112,7 @@ namespace CarService.View.Controllers
             var viewModel = new Customer
             {
                 Name = customer.Name,
-                Id = customer.Id,
+                ID = customer.ID,
                 Surname = customer.Surname,
                 TIN = customer.TIN
             };
