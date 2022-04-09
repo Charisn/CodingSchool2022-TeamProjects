@@ -14,6 +14,6 @@ internal class EngineerConfiguration : IEntityTypeConfiguration<Engineer>
         builder.Property(engineer => engineer.Surname).HasMaxLength(50);
         builder.Property(engineer => engineer.SalaryPerMonth).HasColumnType("decimal(10,2)");
 
-        builder.HasOne(engineer => engineer.Manager).WithMany(transline => transline.Engineers).HasForeignKey(engineer => engineer.ManagerID);
+        builder.HasOne(engineer => engineer.Manager).WithMany(transline => transline.Engineers).HasForeignKey(engineer => engineer.ManagerID).OnDelete(DeleteBehavior.Restrict);
     }
 }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarService.EF.Migrations
 {
     [DbContext(typeof(CarServiceContext))]
-    [Migration("20220405102936_Initial")]
-    partial class Initial
+    [Migration("20220406110442_Restrict_FKs")]
+    partial class Restrict_FKs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -250,7 +250,7 @@ namespace CarService.EF.Migrations
                     b.HasOne("CarService.Models.Entities.Manager", "Manager")
                         .WithMany("Engineers")
                         .HasForeignKey("ManagerID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Manager");
@@ -261,19 +261,19 @@ namespace CarService.EF.Migrations
                     b.HasOne("CarService.Models.Entities.Car", "Car")
                         .WithMany("Transcations")
                         .HasForeignKey("CarID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("CarService.Models.Entities.Customer", "Customer")
                         .WithMany("Transactions")
                         .HasForeignKey("CustomerID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("CarService.Models.Entities.Manager", "Manager")
                         .WithMany("Transactions")
                         .HasForeignKey("ManagerID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Car");
@@ -286,21 +286,21 @@ namespace CarService.EF.Migrations
             modelBuilder.Entity("CarService.Models.Entities.TransactionLine", b =>
                 {
                     b.HasOne("CarService.Models.Entities.Engineer", "Engineer")
-                        .WithMany()
+                        .WithMany("TransactionLines")
                         .HasForeignKey("EngineerID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("CarService.Models.Entities.ServiceTask", "ServiceTask")
-                        .WithMany()
+                        .WithMany("TransactionLines")
                         .HasForeignKey("ServiceTaskID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("CarService.Models.Entities.Transaction", "Transaction")
                         .WithMany("TransactionLines")
                         .HasForeignKey("TransactionID")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Engineer");
@@ -320,11 +320,21 @@ namespace CarService.EF.Migrations
                     b.Navigation("Transactions");
                 });
 
+            modelBuilder.Entity("CarService.Models.Entities.Engineer", b =>
+                {
+                    b.Navigation("TransactionLines");
+                });
+
             modelBuilder.Entity("CarService.Models.Entities.Manager", b =>
                 {
                     b.Navigation("Engineers");
 
                     b.Navigation("Transactions");
+                });
+
+            modelBuilder.Entity("CarService.Models.Entities.ServiceTask", b =>
+                {
+                    b.Navigation("TransactionLines");
                 });
 
             modelBuilder.Entity("CarService.Models.Entities.Transaction", b =>

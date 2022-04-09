@@ -11,4 +11,7 @@ public class Engineer : Person
     public Guid ManagerID { get; set; }
     public decimal SalaryPerMonth { get; set; }
     public Manager Manager { get; set; }
+
+    //Relations
+    public List<TransactionLine> TransactionLines { get; set; }
 }

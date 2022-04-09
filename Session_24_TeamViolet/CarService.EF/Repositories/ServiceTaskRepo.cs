@@ -22,7 +22,7 @@ public class ServiceTaskRepo : IEntityRepo<ServiceTask>
         var foundServiceTask = await _context.ServiceTasks.SingleOrDefaultAsync(serviceTask => serviceTask.ID == id);
         if (foundServiceTask is null)
             throw new KeyNotFoundException($"Given id '{id}' was not found in database");
-        _context.ServiceTasks.Remove(foundServiceTask);
+        foundServiceTask.Status = false;
         await _context.SaveChangesAsync();
     }
 
@@ -33,15 +33,16 @@ public class ServiceTaskRepo : IEntityRepo<ServiceTask>
 
     public async Task<ServiceTask?> GetByIdAsync(Guid id)
     {
-        return await _context.ServiceTasks.Where(serviceTask => serviceTask.ID == id).SingleOrDefaultAsync();
+        return await _context.ServiceTasks.SingleOrDefaultAsync(x => x.ID == id);
     }
 
     public async Task UpdateAsync(Guid id, ServiceTask entity)
     {
-        var foundServiceTask = await _context.ServiceTasks.SingleOrDefaultAsync(serviceTask => serviceTask.ID == id);
+        var foundServiceTask = await _context.ServiceTasks.SingleOrDefaultAsync(serviceTask => serviceTask.ID == entity.ID);
         if (foundServiceTask is null)
             throw new KeyNotFoundException($"Given id '{id}' was not found in database");
         foundServiceTask.Code = entity.Code;
+        foundServiceTask.Description = entity.Description;
         foundServiceTask.Hours = entity.Hours;
         await _context.SaveChangesAsync();
     }

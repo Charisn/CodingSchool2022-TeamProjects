@@ -12,7 +12,5 @@ internal class ManagerConfiguration : IEntityTypeConfiguration<Manager>
         builder.Property(manager => manager.Name).HasMaxLength(50);
         builder.Property(manager => manager.Surname).HasMaxLength(50);
         builder.Property(manager => manager.SalaryPerMonth).HasColumnType("decimal(10,2)");
-
-        builder.HasMany(manager => manager.Engineers).WithOne().HasForeignKey(manager => manager.ID);
     }
 }

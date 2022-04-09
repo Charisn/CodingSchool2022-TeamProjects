@@ -1,0 +1,50 @@
+﻿@page "/newtask/{ID:guid?}"
+@inject HttpClient httpClient
+@inject NavigationManager navManager
+
+<h3>New Service Task</h3>
+
+<EditForm Model="@_serviceTask" OnValidSubmit="@ValidSubmit">
+    <table>
+        <tr>
+            <td><label for="Code">Code</label></td>
+            <td><input @bind=_serviceTask.Code name="Code" required /></td>
+        </tr>
+        <tr>
+            <td><label for="Description">Description</label></td>
+            <td><input @bind=_serviceTask.Description name="Description" required /></td>
+        </tr>
+        <tr>
+            <td><label for="Hours">Hours</label></td>
+            <td><input type="number" step=".1" min="0" @bind=_serviceTask.Hours name="Hours" required/></td>
+        </tr>
+    </table>
+    <button type="submit" class="btn btn-primary btn-lg" style="margin-top: 20px;">Save</button>
+</EditForm>
+
+@code {
+    private ServiceTaskViewModel _serviceTask { get; set; } = new();
+    [Parameter] public Guid? ID { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if(ID != null)
+        {
+            _serviceTask = await httpClient.GetFromJsonAsync<ServiceTaskViewModel>($"/servicetask/{ID}") ?? new();
+        }
+    }
+
+    private async Task ValidSubmit()
+    {
+        if(_serviceTask.ID != Guid.Empty)
+        {
+            await httpClient.PutAsJsonAsync<ServiceTaskViewModel>("/servicetask", _serviceTask);
+        }
+        else
+        {
+            await httpClient.PostAsJsonAsync<ServiceTaskViewModel>("/servicetask", _serviceTask);    
+        }
+
+        navManager.NavigateTo("/servicetasklist", false);
+    }
+}

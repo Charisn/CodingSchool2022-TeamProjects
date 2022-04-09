@@ -1,0 +1,261 @@
+﻿@page "/transaction/newtransaction/{Id:guid?}"
+@using Session_24_TeamViolet.Shared
+@using Microsoft.JSInterop
+@inject HttpClient httpClient
+@inject NavigationManager navManager
+@inject IJSRuntime jsRunTime
+
+
+
+<h3>New Transaction</h3>
+
+@if (isLoading)
+{
+    <div class="spinner-border" role="status"></div>
+}
+else
+{
+  <table>
+    <thead>
+        <tr>
+            <th>Customer</th>
+            <th>Car</th>
+            <th>Manager</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr>
+            <td>
+                <EditForm Model="@_transaction">
+                    <InputSelect class="form-select" @bind-Value="_transaction.CustomerID">
+                        @if(Customers is null || Customers.Count() == 0)
+                        {
+                            <option value="@Guid.Empty">There are no customers registered</option>
+                        }
+                        else
+                        {
+                            <option value="@Guid.Empty">Pick A Customer</option>
+                            @foreach(var customer in Customers)
+                            {
+                                <option value="@customer.ID">@customer.Name @customer.Surname</option>
+                            }    
+                        }        
+                    </InputSelect>
+                </EditForm></td>
+
+            <td>
+                <EditForm Model="@_transaction">
+                    <InputSelect class="form-select" @bind-Value="_transaction.CarID">
+                        @if(Cars is null || Cars.Count() == 0)
+                        {
+                            <option value="@Guid.Empty">There are no cars registered</option>
+                        }
+                        else
+                        {
+                            <option value="@Guid.Empty">Pick A Car</option>
+                            @foreach(var car in Cars)
+                            {
+                                <option value="@car.ID">@car.Brand - @car.Model</option>
+                            }   
+                        }        
+                    </InputSelect>
+                </EditForm>
+             </td>
+             <td>   
+                <EditForm Model="@_transaction">
+                    <InputSelect class="form-select" @bind-Value="_transaction.ManagerID">
+                            @if(Managers is null || Managers.Count() == 0)
+                            {
+                                <option value="@Guid.Empty">There are no managers registered</option>
+                            }
+                            else
+                            {
+                                <option value="@Guid.Empty">Pick A Manager</option>
+                                @foreach(var manager in Managers)
+                                {
+                                    <option value="@manager.ID">@manager.Name</option>
+                                }    
+                            }        
+                     </InputSelect>
+                </EditForm>
+             </td>    
+        </tr>      
+    </tbody>
+</table>
+
+
+<h3 class="mt-4">Transaction Lines  </h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Service Task</th>
+            <th>Engineer</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr>
+            <td>
+                <EditForm Model="@TransactionLineViewModel">
+                    <InputSelect class="form-select" @bind-Value="TransactionLineViewModel.ServiceTaskID">
+                        @if(ServiceTasks is null || ServiceTasks.Count() == 0)
+                        {
+                            <option value="@Guid.Empty">There are no tasks registered</option>
+                        }
+                        else
+                        {
+                            <option value="@Guid.Empty">Pick A Service Tag</option>
+                            @foreach(var serviceTask in ServiceTasks)
+                            {
+                                <option value="@serviceTask.ID">@serviceTask.Code @serviceTask.Description</option>
+                            }    
+                        }        
+                    </InputSelect>
+                </EditForm></td>
+
+            <td>
+                <EditForm Model="@TransactionLineViewModel">
+                    <InputSelect class="form-select" @bind-Value="TransactionLineViewModel.EngineerID">
+                        @if(Engineers is null || Engineers.Count() == 0)
+                        {
+                            <option value="@Guid.Empty">There are no engineers registered</option>
+                        }
+                        else
+                        {
+                            <option value="@Guid.Empty">Pick A Engineer</option>
+                            @foreach(var engineer in Engineers)
+                            {
+                                <option value="@engineer.ID">@engineer.Name</option>
+                            }   
+                        }        
+                    </InputSelect>
+                </EditForm>
+             </td>
+             <td><button class="btn btn-primary" @onclick="() => AddLine(TransactionLineViewModel)">Add Line</button></td>
+        </tr>      
+    </tbody>
+</table>
+
+
+<table class="table table-striped table-hover mt-2">
+    <thead>
+        <tr>
+            <th>Service Task</th>
+            <th>Engineer</th>
+            <th>Hours</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var line in TransactionLines)
+        {
+            <tr>
+                <td>@ServiceTasks.Find(x => line.ServiceTaskID == x.ID).Description</td>
+                <td>@Engineers.Find(x => line.EngineerID == x.ID).Surname</td>
+                <td>@line.Hours</td>
+                <td>@decimal.Round(line.Price, 2, MidpointRounding.AwayFromZero)</td>
+                <td>
+                    <button @onclick="() => DeleteTransactionLine(line)" class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<button @onclick="() => SaveTransaction(_transaction)" class="btn btn-success">Save</button>
+  
+}
+
+
+
+
+@code {
+    [Parameter]public Guid Id { get; set; }
+    private bool isLoading { get; set; } = true;
+
+    private TransactionCreateViewModel _transaction { get; set; } = new();
+    private List<CarViewModel>? Cars { get; set; }
+    private List<CustomerViewModel>? Customers { get; set; }
+    private List<ManagerViewModel>? Managers { get; set; }
+    private List<ServiceTaskViewModel>? ServiceTasks { get; set; }
+    private List<EngineerViewModel>? Engineers{ get; set; }
+
+    private List<TransactionLineViewModel> TransactionLines { get; set; } = new();
+    private TransactionLineViewModel TransactionLineViewModel { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Cars = await httpClient.GetFromJsonAsync<List<CarViewModel>>("cars");
+        Customers = await httpClient.GetFromJsonAsync<List<CustomerViewModel>>("customer");
+        Managers = await httpClient.GetFromJsonAsync<List<ManagerViewModel>>("managers");
+        ServiceTasks = await httpClient.GetFromJsonAsync<List<ServiceTaskViewModel>>("servicetask") ?? new();
+        Engineers = await httpClient.GetFromJsonAsync<List<EngineerViewModel>>("engineer");
+
+        _transaction = await httpClient.GetFromJsonAsync<TransactionCreateViewModel>($"transaction/create/{Id}") ?? new();     
+        isLoading = false;
+    }
+
+
+
+    async void AddLine(TransactionLineViewModel lineModel){
+        if (lineModel.EngineerID == Guid.Empty || lineModel.ServiceTaskID == Guid.Empty)
+        {
+            return;
+        }
+
+        lineModel.Hours = ServiceTasks.Find(x => lineModel.ServiceTaskID == x.ID).Hours;
+
+        if((Engineers ??= new()).Count() < TransactionLines.Count() + 1 || 
+            TransactionLines.Sum(x => x.Hours) + lineModel.Hours > Engineers.Count() * 8)
+            {
+            await jsRunTime.InvokeVoidAsync("noMoreTasks", null);
+            return;
+        }
+
+
+
+        TransactionLines.Add(new TransactionLineViewModel()
+            {
+                EngineerID = lineModel.EngineerID,
+                ServiceTaskID = lineModel.ServiceTaskID,
+                Hours = lineModel.Hours,
+                Price = lineModel.Hours * lineModel.PricePerHour
+             });
+        this.StateHasChanged();
+    }
+
+    async void DeleteTransactionLine(TransactionLineViewModel lineModel)
+    {
+        TransactionLines.Remove(lineModel);
+    }
+
+
+    async void SaveTransaction(TransactionCreateViewModel _transaction) {
+
+        HttpResponseMessage response;
+        //foreach (var line in TransactionLines)
+        //{
+        //    _transaction.TransactionLines.Add(line);
+        //}
+
+        //if (_transaction.CarID == Guid.Empty) { await jsRunTime.InvokeVoidAsync("noMoreTasks", null); }
+        //if (_transaction.CustomerID == Guid.Empty) { await jsRunTime.InvokeVoidAsync("noMoreTasks", null); }
+        //if (_transaction.ManagerID == Guid.Empty) { await jsRunTime.InvokeVoidAsync("noMoreTasks", null); }
+        //if (TransactionLines.Count() <= 0) { await jsRunTime.InvokeVoidAsync("noMoreTasks", null);  }
+        if(_transaction.CarID == Guid.Empty || _transaction.CustomerID == Guid.Empty ||
+            _transaction.ManagerID == Guid.Empty || TransactionLines.Count() <= 0) {
+            await jsRunTime.InvokeVoidAsync("transactionConfirmJS", null);
+            return;
+        }
+
+
+        _transaction.TransactionLines = TransactionLines;
+        _transaction.TotalPrice = TransactionLines.Sum(x => x.Price);
+        response = await httpClient.PostAsJsonAsync("transaction", _transaction);
+        response.EnsureSuccessStatusCode();
+        navManager.NavigateTo("/transactions");
+    }
+}

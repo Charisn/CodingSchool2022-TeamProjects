@@ -9,11 +9,12 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.3" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.JSInterop" Version="6.0.3" />
+    <PackageReference Include="Microsoft.Office.Interop.Excel" Version="15.0.4795.1000" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\CarService.EF\CarService.EF.csproj" />
-    <ProjectReference Include="..\..\CarService.Models\CarService.Models.csproj" />
+    <ProjectReference Include="..\..\Authentication.Lib\Authentication.Lib.csproj" />
     <ProjectReference Include="..\Shared\Session_24_TeamViolet.Shared.csproj" />
   </ItemGroup>
 

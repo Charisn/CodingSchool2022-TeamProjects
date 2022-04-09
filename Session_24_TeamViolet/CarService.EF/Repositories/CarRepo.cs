@@ -20,12 +20,13 @@ public class CarRepo : IEntityRepo<Car>
 
     public async Task DeleteAsync(Guid id)
     {
-        using var context = new CarServiceContext();
-        var foundCar = context.Cars.SingleOrDefault(car => car.ID == id);
+        //TODO:Delete this using ?
+       // using var context = new CarServiceContext();
+        var foundCar = _context.Cars.SingleOrDefault(car => car.ID == id);
         if (foundCar is null)
             throw new KeyNotFoundException($"Given id '{id}' was not found in database");
         _context.Cars.Remove(foundCar);
-        await context.SaveChangesAsync();
+        await _context.SaveChangesAsync();
     }
     public async Task<List<Car>> GetAllAsync()
     {

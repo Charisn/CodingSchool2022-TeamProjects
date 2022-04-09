@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace CarService.Models.Entities;
 [Serializable]
-public class Transaction : BaseEntity
-{
-    public DateTime Date { get; set; } = DateTime.Now;
+public class Transaction : BaseEntity {
+    public DateTime Date { get; set; }
     public Guid CarID { get; set; }
     public Guid ManagerID { get; set; }
     public Guid CustomerID { get; set; }

@@ -1,0 +1,118 @@
+﻿@page "/Customers/AddCustomer/{ID:guid?}"
+@using CarService.EF.Repositories
+@using Session_24_TeamViolet.Shared
+@inject NavigationManager navManager
+
+@inject HttpClient httpClient
+
+@inject IJSRuntime jsRuntime
+<EditForm Model="@customerview" OnValidSubmit="@Save">
+    <table>
+        <tr>
+            <th> <label>Name</label></th>
+            <input @bind=NewName pattern="[A-Za-z]{3,15}" title="It must be between 3 and 15 characters long. Only characters." />
+
+        </tr>
+        <tr>
+            <th> <label>SurName</label></th>
+            <input @bind=NewSurname pattern="[A-Za-z]{3,20}" title="It must be between 3 and 20 characters long. Only characters." />
+
+        </tr>
+        <tr>
+            <th> <label>TIN</label></th>
+            <input @bind=NewTIN pattern="[0-9]{9}" title="It must be 9 digits long. Only digits."/>
+
+        </tr>
+        <tr>
+            <th> <label>Phonenumber</label></th>
+            <input @bind=NewPhone pattern="[0-9]{10}" title="It must be 10 digits long. Only digits."/>
+
+        </tr>
+        <tr>
+            <th> <button type="submit" class="btn btn-primary " @*@onclick="Save"*@>Save</button></th>
+            <th><button class="btn btn-danger " @onclick=Goback>Cancel</button></th>
+        </tr>
+
+    </table>
+</EditForm>
+        
+         
+ 
+
+@code {
+
+    CustomerViewModel customerview = new CustomerViewModel();
+    private readonly IEntityRepo<Customer> _customerRepo;
+
+    [Parameter] public Guid? ID { get; set; }
+    private string NewName;
+    private string NewSurname;
+    private string NewTIN;
+    private string NewPhone;
+
+
+
+    protected override async Task OnInitializedAsync()
+
+    {
+        NewName = null;
+        NewSurname = null;
+        NewPhone = null;
+        NewTIN = null;
+        if (ID != null)
+        {
+            CustomerViewModel customer = new CustomerViewModel(); 
+            customer = await httpClient.GetFromJsonAsync<CustomerViewModel>($"Customer/GetOneCustomer{ID}");
+               
+            NewName = customer.Name;
+            NewSurname = customer.Surname;
+            NewPhone = customer.Phone;
+            NewTIN = customer.TIN;
+        }
+
+
+
+        //isLoading = true;
+        //await LoadCustomersFromServer();
+
+        //isLoading = false;
+    }
+
+    async Task  Save()
+    {
+        if (customerview == null)
+        {
+            customerview = new();
+        }
+        customerview.Name = NewName;
+        customerview.Surname = NewSurname;
+        customerview.Phone = NewPhone;
+        customerview.TIN = NewTIN;
+
+
+        NewName = string.Empty;
+        NewSurname=string.Empty;
+        NewPhone=string.Empty;
+        NewTIN=string.Empty;
+
+        if (ID == null)
+        {
+            await httpClient.PostAsJsonAsync("Customer", customerview);
+        }
+        else
+        {
+            customerview.ID = ID.Value;
+            await httpClient.PutAsJsonAsync("Customer", customerview);
+
+        }
+
+        navManager.NavigateTo($"/Customers");
+
+    }
+    async Task Goback()
+    {
+        navManager.NavigateTo($"/Customers");
+    }
+
+
+}

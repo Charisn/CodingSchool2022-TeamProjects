@@ -1,0 +1,187 @@
+﻿@page "/engineerList"
+@inject HttpClient httpClient
+@inject IJSRuntime jsRuntime
+
+<div style="text-align:center">
+    <h3>Available Engineers (@engineerList.Where((x=>x.Status == true)).Count())</h3>
+    <br>
+    <EditForm Model="@_engineerView">
+        <div class="form-group">
+            <div class="input-group" style="align-items:center">
+                <input class="form-control" @onkeyup=InputOnEnterClick @bind=_engineerView.Name placeholder="Name" />
+                <input class="form-control" @onkeyup=InputOnEnterClick @bind=_engineerView.Surname placeholder="Surname" />
+                <input class="form-control" pattern="[0-9]{9}" title="Salary can only must digits only." @onkeyup=InputOnEnterClick @bind=_engineerView.SalaryPerMonth placeholder="SalaryPerMonth" />
+            </div>
+        </div>
+        <br>
+        <InputSelect @bind-Value="_engineerView.ManagerID" class="btn btn-secondary dropdown-toggle">
+            <option value="00000000-0000-0000-0000-000000000000" color="white" [selected]>Select a Manager</option>
+            @foreach (var manager in _managerList)
+            {
+                <option data-toggle="@manager.Surname" data-placement="right" title="@manager.Surname" value="@manager.ID">@manager.Name</option>
+            }
+        </InputSelect>
+        <br>
+        <br>
+
+        <button class="btn btn-primary" @onclick="AddEngineer">Add Engineer</button>
+    </EditForm>
+
+</div>
+
+<br>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Salary Per Month</th>
+            <th>Manager Name</th>
+            <th>
+                @if (SetReadOnly)
+                {
+                    <button class="btn btn-warning" @onclick="() => SetReadOnly = false">Edit</button>
+                }
+                @if (!SetReadOnly)
+                {
+                    <button class="btn btn-warning" @onclick="() => SetReadOnly = true">Edit</button>
+                }
+                @if (deletedEngineers)
+                {
+                    <button class="btn btn-info" @onclick="() => ShowDeletedEngineers()">Deleted</button>
+                }
+                @if (!deletedEngineers)
+                {
+                    <button class="btn btn-info" @onclick="() => ShowDeletedEngineers()">Not Deleted</button>
+                }
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (isLoading)
+        {
+            <tr>
+                <td>
+                    <div class="spinner-border" role="status"></div>
+                </td>
+                <td>
+                    <div class="spinner-border" role="status"></div>
+                </td>
+                <td>
+                    <div class="spinner-border" role="status"></div>
+                </td>
+                <td>
+                    <div class="spinner-border" role="status"></div>
+                </td>
+                <td>
+                    <div class="spinner-border" role="status"></div>
+                </td>
+            </tr>
+        }
+        @if(deletedEngineers == false)
+        {
+        @foreach (var engineer in engineerList.Where(x => x.Status == true))
+        {
+            <tr>
+                @if (SetReadOnly == true)
+                {
+                    <td><input class="form-control" @bind=engineer.Name readonly /></td>
+                    <td><input class="form-control" @bind=engineer.Surname readonly /></td>
+                    <td><input class="form-control" @bind=engineer.SalaryPerMonth readonly /></td>
+                    <td>
+                        <EditForm Model="@engineer">
+                            <InputSelect @bind-Value="@engineer.ManagerID" class="form-control" readonly>
+                                @foreach (var manager in _managerList)
+                                {
+                            <option data-toggle="@manager.Surname" data-placement="right" title="@manager.Surname" value="@manager.ID" disabled>@manager.Name</option>
+                                }
+                    </InputSelect>
+                </EditForm>
+            </td>
+                    <td>
+                    <td><button class="btn btn-outline-success" @onclick="() => SaveEngineer(engineer)">Save</button></td>
+                    <td> <button class="btn btn-outline-danger" @onclick="()=> DeleteEngineer(engineer) ">Delete</button></td>
+                    </td">
+
+                }
+
+                @if (SetReadOnly is false)
+                {
+                    <td><input class="form-control" @bind=engineer.Name /></td>
+                    <td><input class="form-control" @bind=engineer.Surname /></td>
+                    <td><input class="form-control" @bind=engineer.SalaryPerMonth /></td>
+                    <td>
+                        <EditForm Model="@engineer">
+                            <InputSelect @bind-Value="@engineer.ManagerID" class="form-control">
+                                @foreach (var manager in _managerList)
+                                {
+                            <option data-toggle="@manager.Surname" data-placement="right" title="@manager.Surname" value="@manager.ID">@manager.Name</option>
+                                }
+                    </InputSelect>
+                </EditForm>
+                    </td>
+                    <td>
+                    <td><button class="btn btn-outline-success" @onclick="()=> SaveEngineer(engineer)">Save</button></td>
+                    <td> <button class="btn btn-outline-danger" @onclick="()=> DeleteEngineer(engineer)">Delete</button></td>
+                    </td>
+                     <td><button class="btn btn-warning" @onclick="()=> DeleteEngineer(engineer)">Undo</button></td>
+                }
+
+            </tr>
+        }             
+      }
+      @if(deletedEngineers == true)
+        {
+        @foreach (var engineer in engineerList.Where(x => x.Status == false))
+        {
+            <tr>
+                @if (SetReadOnly == true)
+                {
+                    <td><input class="form-control" @bind=engineer.Name readonly /></td>
+                    <td><input class="form-control" @bind=engineer.Surname readonly /></td>
+                    <td><input class="form-control" @bind=engineer.SalaryPerMonth readonly /></td>
+                    <td>
+                        <EditForm Model="@engineer">
+                            <InputSelect @bind-Value="@engineer.ManagerID" class="form-control" readonly>
+                                @foreach (var manager in _managerList)
+                                {
+                            <option data-toggle="@manager.Surname" data-placement="right" title="@manager.Surname" value="@manager.ID" disabled>@manager.Name</option>
+                                }
+                    </InputSelect>
+                </EditForm>
+            </td>
+                     <td style=" color: red; padding-top: 15px; "> <i> Deleted Engineer </i>
+                     <button class="btn btn-warning" @onclick="()=> DeleteEngineer(engineer)" >Undo</button></td>
+                }
+
+                @if (SetReadOnly is false)
+                {
+                    <td><input class="form-control" @bind=engineer.Name /></td>
+                    <td><input class="form-control" @bind=engineer.Surname /></td>
+                    <td><input class="form-control" @bind=engineer.SalaryPerMonth /></td>
+                    <td>
+                        <EditForm Model="@engineer">
+                            <InputSelect @bind-Value="@engineer.ManagerID" class="form-control">
+                                @foreach (var manager in _managerList)
+                                {
+                                     <option data-toggle="@manager.Surname" data-placement="right" title="@manager.Surname" value="@manager.ID">@manager.Name</option>
+                                }
+                    </InputSelect>
+                </EditForm>
+                    </td>
+                        <td style=" color: red; padding-top: 15px;" > <i> Deleted Engineer </i>
+                        <button class="btn btn-warning" @onclick="()=> DeleteEngineer(engineer)" >Undo</button></td>
+                }
+
+            </tr>
+            }
+        }
+    </tbody>
+</table>
+
+
+@code {
+
+
+}

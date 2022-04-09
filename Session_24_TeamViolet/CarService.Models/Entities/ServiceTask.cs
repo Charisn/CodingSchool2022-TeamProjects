@@ -13,4 +13,8 @@ public class ServiceTask : BaseEntity
     public string Description { get; set; }
 
     public decimal Hours { get; set; }
+
+
+    //Relations
+    public List<TransactionLine> TransactionLines { get; set; }
 }
